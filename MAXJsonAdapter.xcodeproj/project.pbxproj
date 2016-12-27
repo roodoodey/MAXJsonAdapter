@@ -10,6 +10,10 @@
 		88276A701E11F1F100D5000E /* MAXJsonAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = 88276A6F1E11F1F100D5000E /* MAXJsonAdapter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		88276A771E11F1F200D5000E /* MAXJsonAdapter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88276A6C1E11F1F100D5000E /* MAXJsonAdapter.framework */; };
 		88276A7C1E11F1F200D5000E /* MAXJsonAdapterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 88276A7B1E11F1F200D5000E /* MAXJsonAdapterTests.m */; };
+		88276A891E11F26900D5000E /* MAXJsonAdapterRuntimeUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 88276A871E11F26900D5000E /* MAXJsonAdapterRuntimeUtilities.h */; };
+		88276A8A1E11F26900D5000E /* MAXJsonAdapterRuntimeUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 88276A881E11F26900D5000E /* MAXJsonAdapterRuntimeUtilities.m */; };
+		88276A8B1E11F26900D5000E /* MAXJsonAdapterRuntimeUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 88276A881E11F26900D5000E /* MAXJsonAdapterRuntimeUtilities.m */; };
+		88276A8E1E11F84B00D5000E /* MAXJARuntimeUtilitiesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 88276A8D1E11F84B00D5000E /* MAXJARuntimeUtilitiesTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +33,9 @@
 		88276A761E11F1F200D5000E /* MAXJsonAdapterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MAXJsonAdapterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		88276A7B1E11F1F200D5000E /* MAXJsonAdapterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MAXJsonAdapterTests.m; sourceTree = "<group>"; };
 		88276A7D1E11F1F200D5000E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		88276A871E11F26900D5000E /* MAXJsonAdapterRuntimeUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAXJsonAdapterRuntimeUtilities.h; sourceTree = "<group>"; };
+		88276A881E11F26900D5000E /* MAXJsonAdapterRuntimeUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAXJsonAdapterRuntimeUtilities.m; sourceTree = "<group>"; };
+		88276A8D1E11F84B00D5000E /* MAXJARuntimeUtilitiesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAXJARuntimeUtilitiesTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +78,7 @@
 		88276A6E1E11F1F100D5000E /* MAXJsonAdapter */ = {
 			isa = PBXGroup;
 			children = (
+				88276A861E11F22500D5000E /* Runtime Utilities */,
 				88276A6F1E11F1F100D5000E /* MAXJsonAdapter.h */,
 				88276A711E11F1F100D5000E /* Info.plist */,
 			);
@@ -80,10 +88,28 @@
 		88276A7A1E11F1F200D5000E /* MAXJsonAdapterTests */ = {
 			isa = PBXGroup;
 			children = (
+				88276A8C1E11F81600D5000E /* Runtime Utilities */,
 				88276A7B1E11F1F200D5000E /* MAXJsonAdapterTests.m */,
 				88276A7D1E11F1F200D5000E /* Info.plist */,
 			);
 			path = MAXJsonAdapterTests;
+			sourceTree = "<group>";
+		};
+		88276A861E11F22500D5000E /* Runtime Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				88276A871E11F26900D5000E /* MAXJsonAdapterRuntimeUtilities.h */,
+				88276A881E11F26900D5000E /* MAXJsonAdapterRuntimeUtilities.m */,
+			);
+			name = "Runtime Utilities";
+			sourceTree = "<group>";
+		};
+		88276A8C1E11F81600D5000E /* Runtime Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				88276A8D1E11F84B00D5000E /* MAXJARuntimeUtilitiesTests.m */,
+			);
+			name = "Runtime Utilities";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -93,6 +119,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88276A891E11F26900D5000E /* MAXJsonAdapterRuntimeUtilities.h in Headers */,
 				88276A701E11F1F100D5000E /* MAXJsonAdapter.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -193,6 +220,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88276A8A1E11F26900D5000E /* MAXJsonAdapterRuntimeUtilities.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,7 +228,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88276A8B1E11F26900D5000E /* MAXJsonAdapterRuntimeUtilities.m in Sources */,
 				88276A7C1E11F1F200D5000E /* MAXJsonAdapterTests.m in Sources */,
+				88276A8E1E11F84B00D5000E /* MAXJARuntimeUtilitiesTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
