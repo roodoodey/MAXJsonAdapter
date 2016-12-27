@@ -86,7 +86,9 @@
     XCTAssertTrue( [self array: dict.allKeys containsKey: @"propertyName"] );
     XCTAssertTrue( [self array: dict.allKeys containsKey: @"anotherProperty"] );
     XCTAssertTrue( [self array: dict.allKeys containsKey: @"lastProperty"] );
+    XCTAssertTrue( dict.allKeys.count == 3 );
     XCTAssertFalse( [self array: dict.allKeys containsKey: @"nonexistentproperty"] );
+    XCTAssertFalse( [self array: dict.allKeys containsKey: @"description"] );
     
 }
 
