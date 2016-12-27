@@ -12,7 +12,31 @@
 
 +(NSDictionary <NSString *, NSString *> *)MAXJACreatePropertyNameDictionaryWithClass:(Class)aClass {
     
-    return nil;
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    
+    [MAXJsonAdapterRuntimeUtilities MAXJAEnumeratePropertiesWithClass: aClass iterationBlock:^(objc_property_t currentProperty, NSNumber *stopIteration) {
+        
+        NSString *propertyName = @(property_getName( currentProperty ));
+        [dict setObject: propertyName forKey: propertyName];
+        
+    }];
+    
+    return dict;
+}
+
++(NSDictionary <NSString *, NSString *> *)MAXJACreatePropertyNameDictionaryWithouthNSObjectPropertiesWithClass:(Class)aClass {
+    
+    NSMutableDictionary *dictForClass = [NSMutableDictionary dictionaryWithDictionary: [self MAXJACreatePropertyNameDictionaryWithClass: aClass] ];
+    
+    NSMutableDictionary *dictForNSObject = [NSMutableDictionary dictionaryWithDictionary: [self MAXJACreatePropertyNameDictionaryWithClass: [NSObject class] ] ];
+    
+    for (NSString *currentKey in dictForNSObject.allKeys) {
+        
+        [dictForClass removeObjectForKey: currentKey];
+        
+    }
+    
+    return dictForClass;
 }
 
 +(void)MAXJAEnumeratePropertiesWithClass:(Class)aClass iterationBlock:(void (^)(objc_property_t _Nonnull, NSNumber * _Nonnull))block {
