@@ -23,4 +23,6 @@
 
 +(NSDictionary *)MAXJARemoveIgnoredPropertyFromPropertyDictionary:(NSDictionary *)propertyDictionary ignoredProperties:(NSArray <NSString *> *)ignoredProperties;
 
++(NSDictionary *)MAXJAPropertiesToUseFromPropertyDictionary:(NSDictionary *)propertyDictionary propertiesToUse:(NSArray <NSString *> *)propertiesToUse;
+
 @end

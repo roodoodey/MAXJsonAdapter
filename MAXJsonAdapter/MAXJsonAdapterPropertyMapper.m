@@ -16,7 +16,15 @@
     
     NSDictionary *mappedPropertyDict = [NSDictionary dictionaryWithDictionary: propertyDictionary];
     
-    if ([delegate respondsToSelector: @selector(MAXJAPropertiesToIgnoreObjectCreation)] == YES) {
+    // if the properties to be used have been declared explicitly we use those over the properties to ignore
+    if ([delegate respondsToSelector: @selector(MAXJAPropertiesForObjectCreation)] == YES) {
+        
+        NSArray <NSString *> *propertiesForObject = [delegate MAXJAPropertiesForObjectCreation];
+        
+        mappedPropertyDict = [self MAXJAPropertiesToUseFromPropertyDictionary: mappedPropertyDict propertiesToUse: propertiesForObject];
+        
+    }
+    else if ([delegate respondsToSelector: @selector(MAXJAPropertiesToIgnoreObjectCreation)] == YES) {
         
         NSArray <NSString *> *ignoredProperties = [delegate MAXJAPropertiesToIgnoreObjectCreation];
         
@@ -33,7 +41,14 @@
     
     NSDictionary *mappedPropertyDict = [NSDictionary dictionaryWithDictionary: propertyDictionary];
     
-    if ([delegate respondsToSelector: @selector(MAXJAPropertiesToIgnoreDictionaryCreation)] == YES) {
+    if ([delegate respondsToSelector: @selector(MAXJAPropertiesForDictionaryCreation)] == YES) {
+        
+        NSArray <NSString *> *propertiesForDict = [delegate MAXJAPropertiesForDictionaryCreation];
+        
+        mappedPropertyDict = [self MAXJAPropertiesToUseFromPropertyDictionary: mappedPropertyDict propertiesToUse: propertiesForDict];
+        
+    }
+    else if ([delegate respondsToSelector: @selector(MAXJAPropertiesToIgnoreDictionaryCreation)] == YES) {
         
         NSArray <NSString *> *ignoredProperties = [delegate MAXJAPropertiesToIgnoreDictionaryCreation];
         
@@ -57,6 +72,27 @@
     }
     
     return mutableDict;
+}
+
++(NSDictionary *)MAXJAPropertiesToUseFromPropertyDictionary:(NSDictionary *)propertyDictionary propertiesToUse:(NSArray<NSString *> *)propertiesToUse {
+    
+    NSMutableDictionary *properties = [NSMutableDictionary dictionary];
+    
+    for (NSString *currentPropertyName in propertiesToUse) {
+        
+        for (NSString *currentPropertyNameOfObject in propertyDictionary.allKeys) {
+            
+            // if the properties which have been declared for use match those of the actualy object
+            // then add it to the dictionary to be returned.
+            if ([currentPropertyName isEqualToString: currentPropertyNameOfObject] == YES) {
+                [properties setObject: currentPropertyName forKey: currentPropertyName];
+            }
+            
+        }
+        
+    }
+    
+    return properties;
 }
 
 @end

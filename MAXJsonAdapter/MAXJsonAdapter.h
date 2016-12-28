@@ -14,14 +14,30 @@ NS_ASSUME_NONNULL_BEGIN
 
 @optional
 
+#pragma mark - Specified Properties
+
+/**
+ @description In some cases you want to specify which properties should be populated during creation, instead of listing which should be ignoed, you simply state those you would like populated. This is especially useful when you have a lot of properties which you want to ignore.
+ */
+-(NSArray <NSString *> *)MAXJAPropertiesForObjectCreation;
+
+/**
+ 
+ */
+-(NSArray <NSString *> *)MAXJAPropertiesForDictionaryCreation;
+
 #pragma mark - Ignoring Properties
 /**
  @description When populating a properties of an object you can specify which properties should be ignored for the initialization or update of the model object.
+ 
+ @warning If you define MAXJAPropertiesforObjectCreation this method will be ignored.
  */
 -(NSArray <NSString *> *)MAXJAPropertiesToIgnoreObjectCreation;
 
 /**
  @description When serializing a Json NSDictionary you can specify which properties to ignore for the dictionary creation.
+ 
+ @warning If you define MAXJAPropertiesForDictionaryCreation this method will be ignored.
  */
 -(NSArray <NSString *> *)MAXJAPropertiesToIgnoreDictionaryCreation;
 

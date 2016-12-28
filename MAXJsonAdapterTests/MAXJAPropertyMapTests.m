@@ -52,6 +52,28 @@
     [super tearDown];
 }
 
+#pragma mark - EXPLICITLY USED PROPERTIES
+
+#pragma mark - With delegate
+
+#pragma mark - Without delegate
+
+-(void)testExplicitSingleProperty {
+    
+    NSDictionary *propertyDict = [MAXJsonAdapterRuntimeUtilities MAXJACreatePropertyNameDictionaryWithouthNSObjectPropertiesWithClass: [MAXJAIgnoredPropertiesObject class] ];
+    
+    NSDictionary *propertyDictWithExplicitProperties = [MAXJsonAdapterPropertyMapper MAXJAPropertiesToUseFromPropertyDictionary: propertyDict propertiesToUse: @[@"title"]];
+    
+    XCTAssertNotNil( propertyDictWithExplicitProperties );
+    XCTAssertTrue( propertyDictWithExplicitProperties.count == 1 );
+    XCTAssertNotNil( [propertyDictWithExplicitProperties objectForKey: @"title"] );
+    XCTAssertNil( [propertyDictWithExplicitProperties objectForKey: @"age"] );
+    XCTAssertNil( [propertyDictWithExplicitProperties objectForKey: @"name"] );
+    
+}
+
+#pragma mark - IGNORED PROPERTIES
+
 #pragma mark - Remove Ignored Properties With Delegate
 
 -(void)testRemoveIgnoredPropertiesObjectCreation {
