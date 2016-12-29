@@ -95,4 +95,29 @@
     return properties;
 }
 
++(NSDictionary *)MAXJAMapPropertyDictionary:(NSDictionary *)propertyDictionary propertyMaps:(NSDictionary<NSString *,MAXJsonAdapterPropertyMapInfo *> *)propertyMaps {
+    
+    NSMutableDictionary *properties = [NSMutableDictionary dictionaryWithDictionary: propertyDictionary];
+    
+    for (NSString *currentMapKey in propertyMaps) {
+        
+        for (NSString *currentPropertyKey in propertyDictionary) {
+            if ([currentMapKey isEqualToString: currentPropertyKey] == YES) {
+                
+                id object = [propertyMaps objectForKey: currentMapKey];
+                if ([object isKindOfClass: [MAXJsonAdapterPropertyMapInfo class]] == YES) {
+                    NSLog(@"is adapter property map");
+                }
+                else if ([object isKindOfClass: [NSDictionary class] ] == YES) {
+                    NSLog(@"is dictionary not adapter property map");
+                }
+                
+            }
+        }
+        
+    }
+    
+    return properties;
+}
+
 @end

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MAXJsonAdapterPropertyMapInfo.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -40,6 +41,26 @@ NS_ASSUME_NONNULL_BEGIN
  @warning If you define MAXJAPropertiesForDictionaryCreation this method will be ignored.
  */
 -(NSArray <NSString *> *)MAXJAPropertiesToIgnoreDictionaryCreation;
+
+#pragma mark - Mapped Properties
+
+/**
+ @description This method is used to rename and map a property name to a different value in the hierarchy of the json. Here you decalre the name of the property you want to map/rename and create a MAXJsonPropertyMapInfo with the required information. This object can next other property map info objects so it can drill down the hierarchy of the json.
+ */
+-(NSDictionary <NSString *, MAXJsonAdapterPropertyMapInfo *> *)MAXJAPropertiesToMapObjectCreation;
+
+/**
+ @description This method is used to rename and map a property name to a different value in the hierarchy of the json. Here you decalre the name of the property you want to map/rename and create a MAXJsonPropertyMapInfo with the required information. This object can next other property map info objects so it can drill down the hierarchy of the json.
+ */
+-(NSDictionary <NSString *, MAXJsonAdapterPropertyMapInfo *> *)MAXJAPropertiesToMapDictionaryCreation;
+
+#pragma mark - Value Transformers
+
+
+
+#pragma mark - Subclasses
+
+
 
 @end
 

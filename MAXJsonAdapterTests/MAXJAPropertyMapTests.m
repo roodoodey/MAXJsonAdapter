@@ -9,6 +9,7 @@
 #import <XCTest/XCTest.h>
 #import "MAXJsonAdapterPropertyMapper.h"
 #import "MAXJsonAdapterRuntimeUtilities.h"
+#import "MAXJsonAdapterPropertyMapInfo.h"
 
 #pragma mark - Ignored Properties Object
 
@@ -34,7 +35,53 @@
 
 @end
 
+#pragma mark - Explicit Properties Object
 
+@interface MAXJAExplicitPropertiesObject : NSObject <MAXJsonAdapterDelegate>
+
+@property (nonatomic, strong) NSString *title;
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *timeStamp;
+@property (nonatomic, strong) NSString *birthYear;
+@property (nonatomic, strong) NSNumber *balance;
+
+@end
+
+@implementation MAXJAExplicitPropertiesObject
+
+-(NSArray <NSString *> *)MAXJAPropertiesForObjectCreation {
+    
+    return @[@"title", @"balance"];
+}
+
+-(NSArray <NSString *> *)MAXJAPropertiesForDictionaryCreation {
+    
+    return @[@"name", @"timeStamp"];
+}
+
+@end
+
+#pragma mark - Property Map Object
+
+@interface MAXJAPropertyMapObject : NSObject <MAXJsonAdapterDelegate>
+
+@property (nonatomic, strong) NSString *title;
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSNumber *age;
+
+@end
+
+@implementation MAXJAPropertyMapObject
+
+-(NSDictionary <NSString *, MAXJsonAdapterPropertyMapInfo *> *)MAXJAPropertiesToMapObjectCreation {
+    
+    return @{
+             @"title" : [MAXJsonAdapterPropertyMapInfo MAXJACreateMapWithNewKey: @"updatedTitle" nextPropertyMap:nil]
+             };
+    
+}
+
+@end
 
 @interface MAXJAPropertyMapTests : XCTestCase
 
@@ -52,9 +99,56 @@
     [super tearDown];
 }
 
+#pragma mark - PROPERTY MAP
+
+#pragma mark - Without delegate
+
+-(void)testSinglePropertyMapWithoutNesting {
+    
+    NSDictionary *propertyDict = [MAXJsonAdapterRuntimeUtilities MAXJACreatePropertyNameDictionaryWithouthNSObjectPropertiesWithClass: [MAXJAPropertyMapObject class] ];
+    
+    NSDictionary *map = @{
+      @"title" : [MAXJsonAdapterPropertyMapInfo MAXJACreateMapWithNewKey: @"updatedTitle" nextPropertyMap:nil]
+      };
+    
+    NSDictionary *mappedPropertyDictionary = [MAXJsonAdapterPropertyMapper MAXJAMapPropertyDictionary: propertyDict propertyMaps: map];
+    
+    XCTAssertTrue( mappedPropertyDictionary.count == 3 );
+}
+
 #pragma mark - EXPLICITLY USED PROPERTIES
 
 #pragma mark - With delegate
+
+-(void)testExplicitPropertiesObjectCreation {
+    
+    NSDictionary *propertyDict = [MAXJsonAdapterRuntimeUtilities MAXJACreatePropertyNameDictionaryWithouthNSObjectPropertiesWithClass: [MAXJAExplicitPropertiesObject class] ];
+    
+    NSDictionary *propertyDictWithExplicitProperties = [MAXJsonAdapterPropertyMapper MAXJAMapPropertyDictionaryForObjectCreation: propertyDict delegate: [[MAXJAExplicitPropertiesObject alloc] init] ];
+    
+    XCTAssertTrue( propertyDictWithExplicitProperties.count == 2 );
+    XCTAssertNotNil( [propertyDictWithExplicitProperties objectForKey: @"title"] );
+    XCTAssertNotNil( [propertyDictWithExplicitProperties objectForKey: @"balance"] );
+    XCTAssertNil( [propertyDictWithExplicitProperties objectForKey: @"name"] );
+    XCTAssertNil( [propertyDictWithExplicitProperties objectForKey: @"timeStamp"] );
+    XCTAssertNil( [propertyDictWithExplicitProperties objectForKey: @"birthYear"] );
+    
+}
+
+-(void)testExplicitPropertiesDictionaryCreation {
+    
+    NSDictionary *propertyDict = [MAXJsonAdapterRuntimeUtilities MAXJACreatePropertyNameDictionaryWithouthNSObjectPropertiesWithClass: [MAXJAExplicitPropertiesObject class] ];
+    
+    NSDictionary *propertyDictWithExplicitProperties = [MAXJsonAdapterPropertyMapper MAXJAMapPropertyDictionaryForDictionaryCreation: propertyDict delegate: [[MAXJAExplicitPropertiesObject alloc] init] ];
+    
+    XCTAssertTrue( propertyDictWithExplicitProperties.count == 2 );
+    XCTAssertNotNil( [propertyDictWithExplicitProperties objectForKey: @"name"] );
+    XCTAssertNotNil( [propertyDictWithExplicitProperties objectForKey: @"timeStamp"] );
+    XCTAssertNil( [propertyDictWithExplicitProperties objectForKey: @"title"] );
+    XCTAssertNil( [propertyDictWithExplicitProperties objectForKey: @"balance"] );
+    XCTAssertNil( [propertyDictWithExplicitProperties objectForKey: @"birthYear"] );
+    
+}
 
 #pragma mark - Without delegate
 
