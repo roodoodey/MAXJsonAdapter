@@ -10,33 +10,43 @@
 
 @implementation MAXJsonAdapterRuntimeUtilities
 
-+(NSDictionary <NSString *, NSString *> *)MAXJACreatePropertyNameDictionaryWithClass:(Class)aClass {
++(NSArray <NSString *> *)MAXJACreatePropertyNameListWithClass:(Class)aClass {
     
-    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    NSMutableArray <NSString *> *propertyList = [NSMutableArray array];
     
     [MAXJsonAdapterRuntimeUtilities MAXJAEnumeratePropertiesWithClass: aClass iterationBlock:^(objc_property_t currentProperty, NSNumber *stopIteration) {
         
         NSString *propertyName = @(property_getName( currentProperty ));
-        [dict setObject: propertyName forKey: propertyName];
+        
+        [propertyList addObject: propertyName];
         
     }];
     
-    return dict;
+    return propertyList;
 }
 
-+(NSDictionary <NSString *, NSString *> *)MAXJACreatePropertyNameDictionaryWithouthNSObjectPropertiesWithClass:(Class)aClass {
++(NSArray <NSString *> *)MAXJACreatePropertyNameListWithouthNSObjectPropertiesWithClass:(Class)aClass {
     
-    NSMutableDictionary *dictForClass = [NSMutableDictionary dictionaryWithDictionary: [self MAXJACreatePropertyNameDictionaryWithClass: aClass] ];
+    NSMutableArray *propertyListForClass = [[self MAXJACreatePropertyNameListWithClass: aClass] mutableCopy];
     
-    NSMutableDictionary *dictForNSObject = [NSMutableDictionary dictionaryWithDictionary: [self MAXJACreatePropertyNameDictionaryWithClass: [NSObject class] ] ];
+    NSArray *propertyListForNSObject = [self MAXJACreatePropertyNameListWithClass: [NSObject class] ];
     
-    for (NSString *currentKey in dictForNSObject.allKeys) {
+    for (NSString *currentNSObjectPropertyName in propertyListForNSObject) {
         
-        [dictForClass removeObjectForKey: currentKey];
+        for (int index = 0; index < propertyListForClass.count; index += 1) {
+            
+            NSString *currentClassPropertyName = [propertyListForClass objectAtIndex: index];
+            
+            if ([currentClassPropertyName isEqualToString: currentNSObjectPropertyName] == YES) {
+                [propertyListForClass removeObjectAtIndex: index];
+                index -= 1;
+            }
+            
+        }
         
     }
     
-    return dictForClass;
+    return propertyListForClass;
 }
 
 +(void)MAXJAEnumeratePropertiesWithClass:(Class)aClass iterationBlock:(void (^)(objc_property_t _Nonnull, NSNumber * _Nonnull))block {

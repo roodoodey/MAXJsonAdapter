@@ -18,14 +18,14 @@ NS_ASSUME_NONNULL_BEGIN
  
  @param aClass The class used to get the property list from.
  */
-+(NSDictionary <NSString *, NSString *> *)MAXJACreatePropertyNameDictionaryWithClass:(Class)aClass;
++(NSArray <NSString *> *)MAXJACreatePropertyNameListWithClass:(Class)aClass;
 
 /**
  @abstract Creates an NSDictionary with the property names for the tiven class as the key and value and all of its subclasses property names except for NSObject which has a lot of restricted properties.
  
  @param aClass The class used to get the property list from and ignoring the NSObject subclass.
  */
-+(NSDictionary <NSString *, NSString *> *)MAXJACreatePropertyNameDictionaryWithouthNSObjectPropertiesWithClass:(Class)aClass;
++(NSArray <NSString *> *)MAXJACreatePropertyNameListWithouthNSObjectPropertiesWithClass:(Class)aClass;
 
 /**
  @abstract Enumerates through all of the properties for the given class. By changing the value of the stop iteration variable the enumeration for the class will be stopped.
