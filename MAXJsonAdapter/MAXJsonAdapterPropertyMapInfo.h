@@ -35,6 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, nullable, strong) MAXJsonAdapterPropertyMap *nextPropertyMap;
 
+
 +(instancetype)MAXJACreateMapWithNewKey:(NSString *)key nextPropertyMap:(nullable MAXJsonAdapterPropertyMap *)propertyMap;
 
 +(instancetype)MAXJACreateMapWithIndex:(int)index nextPropertyMap:(nullable MAXJsonAdapterPropertyMap *)propertyMap;

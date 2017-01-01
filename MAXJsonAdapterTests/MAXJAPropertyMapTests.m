@@ -110,6 +110,37 @@
     
 }
 
+
+#pragma mark - PROPERTY CREATION
+
+-(void)testSinglePropertyCreation {
+    
+    NSString *singleProperty = @"singleProperty";
+    
+    NSArray <MAXJsonAdapterProperty *> *properties = [MAXJsonAdapterPropertyMapper MAXJACreatePropertyForPropertyList: @[singleProperty] ];
+    
+    XCTAssertNotNil(properties);
+    XCTAssertEqualObjects(@(properties.count), @1);
+    XCTAssertEqualObjects(properties.firstObject.propertyKey, @"singleProperty");
+    XCTAssertFalse( [self properties: properties containKey: @"doubleProperty"] );
+}
+
+-(void)testMultiplePropertyCreation {
+    
+    NSArray <NSString *> *multipleProperties = [MAXJsonAdapterRuntimeUtilities MAXJACreatePropertyNameListWithouthNSObjectPropertiesWithClass: [MAXJAIgnoredPropertiesObject class] ];
+    
+    NSArray <MAXJsonAdapterProperty *> *properties = [MAXJsonAdapterPropertyMapper MAXJACreatePropertyForPropertyList: multipleProperties];
+    
+    XCTAssertTrue(multipleProperties != nil);
+    XCTAssertEqualObjects(@(multipleProperties.count) , @3);
+    XCTAssertTrue( [self properties: properties containKey: @"title"] );
+    XCTAssertTrue( [self properties: properties containKey: @"name"] );
+    XCTAssertTrue( [self properties: properties containKey: @"age"] );
+    XCTAssertFalse( [self properties: properties containKey: @"doubleProperty"] );
+
+    
+}
+
 #pragma mark - EXPLICITLY USED PROPERTIES
 
 #pragma mark - With delegate

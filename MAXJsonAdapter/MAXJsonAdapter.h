@@ -47,12 +47,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  @description This method is used to rename and map a property name to a different value in the hierarchy of the json. Here you decalre the name of the property you want to map/rename and create a MAXJsonPropertyMapInfo with the required information. This object can next other property map info objects so it can drill down the hierarchy of the json.
  */
--(NSDictionary <NSString *, MAXJsonAdapterPropertyMap *> *)MAXJAPropertiesToMapObjectCreation;
+-(NSArray <MAXJsonAdapterPropertyMap *> *)MAXJAPropertiesToMapObjectCreation;
 
 /**
  @description This method is used to rename and map a property name to a different value in the hierarchy of the json. Here you decalre the name of the property you want to map/rename and create a MAXJsonPropertyMapInfo with the required information. This object can next other property map info objects so it can drill down the hierarchy of the json.
  */
--(NSDictionary <NSString *, MAXJsonAdapterPropertyMap *> *)MAXJAPropertiesToMapDictionaryCreation;
+-(NSArray <MAXJsonAdapterPropertyMap *> *)MAXJAPropertiesToMapDictionaryCreation;
 
 #pragma mark - Value Transformers
 
