@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MAXJsonAdapterPropertyMapInfo : NSObject
+@interface MAXJsonAdapterPropertyMap : NSObject
 
 /**
  @description When mapping through the json we need a key or position within the array. We get the value of the key or position, as appropriate, and if there is no next property we use that value to populate the property. If there is a another property map we keepd drilling down the hierarchy of the dictionary / json.
@@ -33,11 +33,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  @description If you want to further drill down the json you simply create a new property map. When being processed it will go through the hierarchy until no next property exists.
  */
-@property (nonatomic, nullable, strong) MAXJsonAdapterPropertyMapInfo *nextPropertyMap;
+@property (nonatomic, nullable, strong) MAXJsonAdapterPropertyMap *nextPropertyMap;
 
-+(instancetype)MAXJACreateMapWithNewKey:(NSString *)key nextPropertyMap:(nullable MAXJsonAdapterPropertyMapInfo *)propertyMap;
++(instancetype)MAXJACreateMapWithNewKey:(NSString *)key nextPropertyMap:(nullable MAXJsonAdapterPropertyMap *)propertyMap;
 
-+(instancetype)MAXJACreateMapWithIndex:(int)index nextPropertyMap:(nullable MAXJsonAdapterPropertyMapInfo *)propertyMap;
++(instancetype)MAXJACreateMapWithIndex:(int)index nextPropertyMap:(nullable MAXJsonAdapterPropertyMap *)propertyMap;
 
 @end
 

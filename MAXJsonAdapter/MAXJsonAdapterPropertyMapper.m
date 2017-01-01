@@ -7,87 +7,83 @@
 //
 
 #import "MAXJsonAdapterPropertyMapper.h"
+#import "MAXJsonAdapterNSArraryUtilities.h"
 
 @implementation MAXJsonAdapterPropertyMapper
 
 #pragma mark - Property Name Map For Object Creation
 
-+(NSDictionary *)MAXJAMapPropertyDictionaryForObjectCreation:(NSDictionary *)propertyDictionary delegate:(id<MAXJsonAdapterDelegate>)delegate {
++(NSArray <MAXJsonAdapterProperty *> *)MAXJAMapPropertyListForObjectCreation:(NSArray <NSString *> *)propertyList delegate:(id<MAXJsonAdapterDelegate>)delegate {
     
-    NSDictionary *mappedPropertyDict = [NSDictionary dictionaryWithDictionary: propertyDictionary];
+    NSArray <NSString *> *propertyListWithoutIgnoredProperties = [NSArray arrayWithArray: propertyList];
     
     // if the properties to be used have been declared explicitly we use those over the properties to ignore
     if ([delegate respondsToSelector: @selector(MAXJAPropertiesForObjectCreation)] == YES) {
         
         NSArray <NSString *> *propertiesForObject = [delegate MAXJAPropertiesForObjectCreation];
         
-        mappedPropertyDict = [self MAXJAPropertiesToUseFromPropertyDictionary: mappedPropertyDict propertiesToUse: propertiesForObject];
+        propertyListWithoutIgnoredProperties = [self MAXJAPropertiesToUseFromPropertyList: propertyList propertiesToUse: propertiesForObject];
         
     }
     else if ([delegate respondsToSelector: @selector(MAXJAPropertiesToIgnoreObjectCreation)] == YES) {
         
         NSArray <NSString *> *ignoredProperties = [delegate MAXJAPropertiesToIgnoreObjectCreation];
         
-        mappedPropertyDict = [self MAXJARemoveIgnoredPropertyFromPropertyDictionary: mappedPropertyDict ignoredProperties: ignoredProperties];
+        propertyListWithoutIgnoredProperties = [self MAXJARemoveIgnoredPropertiesFromPropertyList: propertyList ignoredProperties: ignoredProperties];
         
     }
     
-    return mappedPropertyDict;
+    // after having removed all the properties which are supposed to be removed create the Adapter PropertyObject which contains all the infor for serialization.
+    NSArray <MAXJsonAdapterProperty *> *adapterProperties = [self MAXJACreatePropertyForPropertyList: propertyListWithoutIgnoredProperties];
+    
+    return adapterProperties;
 }
 
 #pragma mark - Property Name Map For Dictionary Creation
 
-+(NSDictionary *)MAXJAMapPropertyDictionaryForDictionaryCreation:(NSDictionary *)propertyDictionary delegate:(id<MAXJsonAdapterDelegate>)delegate {
++(NSArray <MAXJsonAdapterProperty *> *)MAXJAMapPropertyListForDictionaryCreation:(NSArray <NSString *> *)propertyList delegate:(id<MAXJsonAdapterDelegate>)delegate {
     
-    NSDictionary *mappedPropertyDict = [NSDictionary dictionaryWithDictionary: propertyDictionary];
+    NSArray <NSString *> *propertyListWithoutIgnoredProperties = [NSArray arrayWithArray: propertyList];
     
     if ([delegate respondsToSelector: @selector(MAXJAPropertiesForDictionaryCreation)] == YES) {
         
         NSArray <NSString *> *propertiesForDict = [delegate MAXJAPropertiesForDictionaryCreation];
         
-        mappedPropertyDict = [self MAXJAPropertiesToUseFromPropertyDictionary: mappedPropertyDict propertiesToUse: propertiesForDict];
+        propertyListWithoutIgnoredProperties = [self MAXJAPropertiesToUseFromPropertyList:  propertyList propertiesToUse: propertiesForDict];
         
     }
     else if ([delegate respondsToSelector: @selector(MAXJAPropertiesToIgnoreDictionaryCreation)] == YES) {
         
         NSArray <NSString *> *ignoredProperties = [delegate MAXJAPropertiesToIgnoreDictionaryCreation];
         
-        mappedPropertyDict = [self MAXJARemoveIgnoredPropertyFromPropertyDictionary: mappedPropertyDict ignoredProperties: ignoredProperties];
+        propertyListWithoutIgnoredProperties = [self MAXJARemoveIgnoredPropertiesFromPropertyList: propertyList ignoredProperties: ignoredProperties];
         
     }
     
-    return mappedPropertyDict;
+    // after having removed all the properties which are supposed to be removed create the Adapter PropertyObject which contains all the infor for serialization.
+    NSArray <MAXJsonAdapterProperty *> *adapterProperties = [self MAXJACreatePropertyForPropertyList: propertyListWithoutIgnoredProperties];
+    
+    return adapterProperties;
 }
 
 #pragma mark - Helper Methods
 
-+(NSDictionary *)MAXJARemoveIgnoredPropertyFromPropertyDictionary:(NSDictionary *)propertyDictionary ignoredProperties:(NSArray<NSString *> *)ignoredProperties {
++(NSArray <NSString *> *)MAXJARemoveIgnoredPropertiesFromPropertyList:(NSArray <NSString *> *)propertyList ignoredProperties:(NSArray <NSString *> *)ignoredProperties {
     
-    NSMutableDictionary *mutableDict = [NSMutableDictionary dictionaryWithDictionary: propertyDictionary];
+     NSArray *newPropertyList = [MAXJsonAdapterNSArraryUtilities removeStrings: ignoredProperties fromArray: propertyList];
     
-    for (NSString *currentPropertyName in ignoredProperties) {
-        
-        [mutableDict removeObjectForKey: currentPropertyName];
-        
-    }
-    
-    return mutableDict;
+    return newPropertyList;
 }
 
-+(NSDictionary *)MAXJAPropertiesToUseFromPropertyDictionary:(NSDictionary *)propertyDictionary propertiesToUse:(NSArray<NSString *> *)propertiesToUse {
++(NSArray <NSString *> *)MAXJAPropertiesToUseFromPropertyList:(NSArray <NSString *> *)propertyList propertiesToUse:(NSArray <NSString *> *)propertiesToUse {
     
-    NSMutableDictionary *properties = [NSMutableDictionary dictionary];
+    NSMutableArray *properties = [NSMutableArray array];
     
     for (NSString *currentPropertyName in propertiesToUse) {
         
-        for (NSString *currentPropertyNameOfObject in propertyDictionary.allKeys) {
+        if ([MAXJsonAdapterNSArraryUtilities array: propertyList containsString: currentPropertyName] == YES) {
             
-            // if the properties which have been declared for use match those of the actualy object
-            // then add it to the dictionary to be returned.
-            if ([currentPropertyName isEqualToString: currentPropertyNameOfObject] == YES) {
-                [properties setObject: currentPropertyName forKey: currentPropertyName];
-            }
-            
+            [properties addObject: currentPropertyName];
         }
         
     }
@@ -95,26 +91,30 @@
     return properties;
 }
 
-+(NSDictionary *)MAXJAMapPropertyDictionary:(NSDictionary *)propertyDictionary propertyMaps:(NSDictionary<NSString *,MAXJsonAdapterPropertyMapInfo *> *)propertyMaps {
++(NSArray <MAXJsonAdapterProperty *> *)MAXJAMapPropertyList:(NSArray <MAXJsonAdapterProperty *> *)propertyList propertyMaps:(NSArray <MAXJsonAdapterPropertyMap *> *)propertyMaps {
     
-    NSMutableDictionary *properties = [NSMutableDictionary dictionaryWithDictionary: propertyDictionary];
+    NSMutableArray *mappedPropertyList = [NSMutableArray array];
     
-    for (NSString *currentMapKey in propertyMaps) {
+    for (MAXJsonAdapterPropertyMap *currentMap in propertyMaps) {
         
-        for (NSString *currentPropertyKey in propertyDictionary) {
-            if ([currentMapKey isEqualToString: currentPropertyKey] == YES) {
-                
-                id object = [propertyMaps objectForKey: currentMapKey];
-                if ([object isKindOfClass: [MAXJsonAdapterPropertyMapInfo class]] == YES) {
-                    NSLog(@"is adapter property map");
-                }
-                else if ([object isKindOfClass: [NSDictionary class] ] == YES) {
-                    NSLog(@"is dictionary not adapter property map");
-                }
-                
-            }
-        }
         
+        
+        
+    }
+    
+    return mappedPropertyList;
+}
+
++(NSArray <MAXJsonAdapterProperty *> *)MAXJACreatePropertyForPropertyList:(NSArray<NSString *> *)propertyList {
+    
+    NSMutableArray <MAXJsonAdapterProperty *> *properties = [NSMutableArray array];
+    
+    for (NSString *currentPropertyKey in propertyList) {
+        
+        MAXJsonAdapterProperty *currentProperty = [[MAXJsonAdapterProperty alloc] init];
+        currentProperty.propertyKey = currentPropertyKey;
+        
+        [properties addObject: currentProperty];
     }
     
     return properties;

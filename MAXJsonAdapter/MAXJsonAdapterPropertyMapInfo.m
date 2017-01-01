@@ -10,23 +10,23 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@implementation MAXJsonAdapterPropertyMapInfo
+@implementation MAXJsonAdapterPropertyMap
 
-+(instancetype)MAXJACreateMapWithNewKey:(NSString *)key nextPropertyMap:(nullable MAXJsonAdapterPropertyMapInfo *)propertyMap {
++(instancetype)MAXJACreateMapWithNewKey:(NSString *)key nextPropertyMap:(nullable MAXJsonAdapterPropertyMap *)propertyMap {
     
-    MAXJsonAdapterPropertyMapInfo *map = [[MAXJsonAdapterPropertyMapInfo alloc] initWithKey: key index: nil nextProperty: propertyMap];
+    MAXJsonAdapterPropertyMap *map = [[MAXJsonAdapterPropertyMap alloc] initWithKey: key index: nil nextProperty: propertyMap];
     
     return map;
 }
 
-+(instancetype)MAXJACreateMapWithIndex:(int)index nextPropertyMap:(nullable MAXJsonAdapterPropertyMapInfo *)propertyMap {
++(instancetype)MAXJACreateMapWithIndex:(int)index nextPropertyMap:(nullable MAXJsonAdapterPropertyMap *)propertyMap {
  
-    MAXJsonAdapterPropertyMapInfo *map = [[MAXJsonAdapterPropertyMapInfo alloc] initWithKey: nil index: [NSNumber numberWithInt: index] nextProperty: propertyMap];
+    MAXJsonAdapterPropertyMap *map = [[MAXJsonAdapterPropertyMap alloc] initWithKey: nil index: [NSNumber numberWithInt: index] nextProperty: propertyMap];
     
     return map;
 }
 
--(id)initWithKey:(nullable NSString *)key index:(nullable NSNumber *)index nextProperty:(nullable MAXJsonAdapterPropertyMapInfo *)nextProperty {
+-(id)initWithKey:(nullable NSString *)key index:(nullable NSNumber *)index nextProperty:(nullable MAXJsonAdapterPropertyMap *)nextProperty {
     
     if (self = [super init]) {
         _key = key;

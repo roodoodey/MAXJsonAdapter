@@ -10,6 +10,7 @@
 #import "MAXJsonAdapterPropertyMapper.h"
 #import "MAXJsonAdapterRuntimeUtilities.h"
 #import "MAXJsonAdapterPropertyMapInfo.h"
+#import "MAXJsonAdapterNSArraryUtilities.h"
 
 #pragma mark - Ignored Properties Object
 
@@ -73,10 +74,10 @@
 
 @implementation MAXJAPropertyMapObject
 
--(NSDictionary <NSString *, MAXJsonAdapterPropertyMapInfo *> *)MAXJAPropertiesToMapObjectCreation {
+-(NSDictionary <NSString *, MAXJsonAdapterPropertyMap *> *)MAXJAPropertiesToMapObjectCreation {
     
     return @{
-             @"title" : [MAXJsonAdapterPropertyMapInfo MAXJACreateMapWithNewKey: @"updatedTitle" nextPropertyMap:nil]
+             @"title" : [MAXJsonAdapterPropertyMap MAXJACreateMapWithNewKey: @"updatedTitle" nextPropertyMap:nil]
              };
     
 }
@@ -105,15 +106,8 @@
 
 -(void)testSinglePropertyMapWithoutNesting {
     
-    NSDictionary *propertyDict = [MAXJsonAdapterRuntimeUtilities MAXJACreatePropertyNameDictionaryWithouthNSObjectPropertiesWithClass: [MAXJAPropertyMapObject class] ];
+    NSArray <NSString *> *propertyList = [MAXJsonAdapterRuntimeUtilities MAXJACreatePropertyNameListWithouthNSObjectPropertiesWithClass: [MAXJAPropertyMapObject class] ];
     
-    NSDictionary *map = @{
-      @"title" : [MAXJsonAdapterPropertyMapInfo MAXJACreateMapWithNewKey: @"updatedTitle" nextPropertyMap:nil]
-      };
-    
-    NSDictionary *mappedPropertyDictionary = [MAXJsonAdapterPropertyMapper MAXJAMapPropertyDictionary: propertyDict propertyMaps: map];
-    
-    XCTAssertTrue( mappedPropertyDictionary.count == 3 );
 }
 
 #pragma mark - EXPLICITLY USED PROPERTIES
@@ -122,31 +116,32 @@
 
 -(void)testExplicitPropertiesObjectCreation {
     
-    NSDictionary *propertyDict = [MAXJsonAdapterRuntimeUtilities MAXJACreatePropertyNameDictionaryWithouthNSObjectPropertiesWithClass: [MAXJAExplicitPropertiesObject class] ];
+    NSArray <NSString *> *propertyList = [MAXJsonAdapterRuntimeUtilities MAXJACreatePropertyNameListWithouthNSObjectPropertiesWithClass: [MAXJAExplicitPropertiesObject class] ];
     
-    NSDictionary *propertyDictWithExplicitProperties = [MAXJsonAdapterPropertyMapper MAXJAMapPropertyDictionaryForObjectCreation: propertyDict delegate: [[MAXJAExplicitPropertiesObject alloc] init] ];
+    NSArray <MAXJsonAdapterProperty *> *properties = [MAXJsonAdapterPropertyMapper MAXJAMapPropertyListForObjectCreation: propertyList delegate: [[MAXJAExplicitPropertiesObject alloc] init] ];
     
-    XCTAssertTrue( propertyDictWithExplicitProperties.count == 2 );
-    XCTAssertNotNil( [propertyDictWithExplicitProperties objectForKey: @"title"] );
-    XCTAssertNotNil( [propertyDictWithExplicitProperties objectForKey: @"balance"] );
-    XCTAssertNil( [propertyDictWithExplicitProperties objectForKey: @"name"] );
-    XCTAssertNil( [propertyDictWithExplicitProperties objectForKey: @"timeStamp"] );
-    XCTAssertNil( [propertyDictWithExplicitProperties objectForKey: @"birthYear"] );
+    XCTAssertTrue( properties.count == 2 );
+    XCTAssertTrue( [self properties: properties containKey: @"title"] );
+    XCTAssertTrue( [self properties: properties containKey: @"balance"] );
+    XCTAssertFalse( [self properties: properties containKey: @"name"] );
+    XCTAssertFalse( [self properties: properties containKey: @"timeStamp"] );
+    XCTAssertFalse( [self properties: properties containKey: @"birthYear"] );
     
 }
 
 -(void)testExplicitPropertiesDictionaryCreation {
     
-    NSDictionary *propertyDict = [MAXJsonAdapterRuntimeUtilities MAXJACreatePropertyNameDictionaryWithouthNSObjectPropertiesWithClass: [MAXJAExplicitPropertiesObject class] ];
+    NSArray <NSString *> *propertyList = [MAXJsonAdapterRuntimeUtilities MAXJACreatePropertyNameListWithouthNSObjectPropertiesWithClass: [MAXJAExplicitPropertiesObject class] ];
     
-    NSDictionary *propertyDictWithExplicitProperties = [MAXJsonAdapterPropertyMapper MAXJAMapPropertyDictionaryForDictionaryCreation: propertyDict delegate: [[MAXJAExplicitPropertiesObject alloc] init] ];
+    NSArray <MAXJsonAdapterProperty *> *properties = [MAXJsonAdapterPropertyMapper MAXJAMapPropertyListForDictionaryCreation: propertyList delegate: [[MAXJAExplicitPropertiesObject alloc] init] ];
     
-    XCTAssertTrue( propertyDictWithExplicitProperties.count == 2 );
-    XCTAssertNotNil( [propertyDictWithExplicitProperties objectForKey: @"name"] );
-    XCTAssertNotNil( [propertyDictWithExplicitProperties objectForKey: @"timeStamp"] );
-    XCTAssertNil( [propertyDictWithExplicitProperties objectForKey: @"title"] );
-    XCTAssertNil( [propertyDictWithExplicitProperties objectForKey: @"balance"] );
-    XCTAssertNil( [propertyDictWithExplicitProperties objectForKey: @"birthYear"] );
+    XCTAssertTrue( properties.count == 2 );
+    XCTAssertTrue( [self properties: properties containKey: @"name"] );
+    XCTAssertTrue( [self properties: properties containKey: @"timeStamp"] );
+    XCTAssertFalse( [self properties: properties containKey: @"title"] );
+    XCTAssertFalse( [self properties: properties containKey: @"balance"] );
+    XCTAssertFalse( [self properties: properties containKey: @"birthYear"] );
+
     
 }
 
@@ -154,15 +149,16 @@
 
 -(void)testExplicitSingleProperty {
     
-    NSDictionary *propertyDict = [MAXJsonAdapterRuntimeUtilities MAXJACreatePropertyNameDictionaryWithouthNSObjectPropertiesWithClass: [MAXJAIgnoredPropertiesObject class] ];
+    NSArray <NSString *> *propertyList = [MAXJsonAdapterRuntimeUtilities MAXJACreatePropertyNameListWithouthNSObjectPropertiesWithClass: [MAXJAIgnoredPropertiesObject class] ];
     
-    NSDictionary *propertyDictWithExplicitProperties = [MAXJsonAdapterPropertyMapper MAXJAPropertiesToUseFromPropertyDictionary: propertyDict propertiesToUse: @[@"title"]];
+    NSArray <NSString *> *propertyListWithExplicitProperties = [MAXJsonAdapterPropertyMapper MAXJAPropertiesToUseFromPropertyList: propertyList propertiesToUse: @[@"title"]];
     
-    XCTAssertNotNil( propertyDictWithExplicitProperties );
-    XCTAssertTrue( propertyDictWithExplicitProperties.count == 1 );
-    XCTAssertNotNil( [propertyDictWithExplicitProperties objectForKey: @"title"] );
-    XCTAssertNil( [propertyDictWithExplicitProperties objectForKey: @"age"] );
-    XCTAssertNil( [propertyDictWithExplicitProperties objectForKey: @"name"] );
+    XCTAssertNotNil( propertyListWithExplicitProperties );
+    XCTAssertTrue( propertyListWithExplicitProperties.count == 1 );
+    XCTAssertTrue( [MAXJsonAdapterNSArraryUtilities array: propertyListWithExplicitProperties containsString: @"title"] );
+    XCTAssertFalse( [MAXJsonAdapterNSArraryUtilities array: propertyListWithExplicitProperties containsString: @"age"] );
+    XCTAssertFalse( [MAXJsonAdapterNSArraryUtilities array: propertyListWithExplicitProperties containsString: @"name"] );
+
     
 }
 
@@ -172,27 +168,27 @@
 
 -(void)testRemoveIgnoredPropertiesObjectCreation {
     
-    NSDictionary *propertyDict = [MAXJsonAdapterRuntimeUtilities MAXJACreatePropertyNameDictionaryWithouthNSObjectPropertiesWithClass: [MAXJAIgnoredPropertiesObject class] ];
+    NSArray <NSString *> *propertyList = [MAXJsonAdapterRuntimeUtilities MAXJACreatePropertyNameListWithouthNSObjectPropertiesWithClass: [MAXJAIgnoredPropertiesObject class] ];
     
-    NSDictionary *propertyDictWithRemovedProperties = [MAXJsonAdapterPropertyMapper MAXJAMapPropertyDictionaryForObjectCreation: propertyDict delegate: [[MAXJAIgnoredPropertiesObject alloc] init] ];
+    NSArray <MAXJsonAdapterProperty *> *properties = [MAXJsonAdapterPropertyMapper MAXJAMapPropertyListForObjectCreation: propertyList delegate: [[MAXJAIgnoredPropertiesObject alloc] init] ];
     
-    XCTAssertTrue( propertyDictWithRemovedProperties.count == 2 );
-    XCTAssertNotNil( [propertyDictWithRemovedProperties objectForKey: @"title"] );
-    XCTAssertNotNil( [propertyDictWithRemovedProperties objectForKey: @"age"] );
-    XCTAssertNil( [propertyDictWithRemovedProperties objectForKey: @"name"] );
+    XCTAssertTrue( properties.count == 2 );
+    XCTAssertTrue( [self properties: properties containKey: @"title"] );
+    XCTAssertTrue( [self properties: properties containKey: @"age"] );
+    XCTAssertFalse( [self properties: properties containKey: @"name"] );
     
 }
 
 -(void)testRemoveIgnoredPropertiesDictionaryCreation {
     
-    NSDictionary *propertyDict = [MAXJsonAdapterRuntimeUtilities MAXJACreatePropertyNameDictionaryWithouthNSObjectPropertiesWithClass: [MAXJAIgnoredPropertiesObject class] ];
+    NSArray <NSString *> *propertyList = [MAXJsonAdapterRuntimeUtilities MAXJACreatePropertyNameListWithouthNSObjectPropertiesWithClass: [MAXJAIgnoredPropertiesObject class] ];
     
-    NSDictionary *propertyDictWithRemovedProperties = [MAXJsonAdapterPropertyMapper MAXJAMapPropertyDictionaryForDictionaryCreation: propertyDict delegate: [[MAXJAIgnoredPropertiesObject alloc] init] ];
+    NSArray <MAXJsonAdapterProperty *> *properties = [MAXJsonAdapterPropertyMapper MAXJAMapPropertyListForDictionaryCreation: propertyList delegate: [[MAXJAIgnoredPropertiesObject alloc] init] ];
     
-    XCTAssertTrue( propertyDictWithRemovedProperties.count == 2 );
-    XCTAssertNotNil( [propertyDictWithRemovedProperties objectForKey: @"name"] );
-    XCTAssertNotNil( [propertyDictWithRemovedProperties objectForKey: @"age"] );
-    XCTAssertNil( [propertyDictWithRemovedProperties objectForKey: @"title"] );
+    XCTAssertTrue( properties.count == 2 );
+    XCTAssertTrue( [self properties: properties containKey: @"name"] );
+    XCTAssertTrue( [self properties: properties containKey: @"age"] );
+    XCTAssertFalse( [self properties: properties containKey: @"title"] );
     
     
 }
@@ -203,14 +199,14 @@
     
     NSArray <NSString *> *ignoredProperties = @[@"title"];
     
-    NSDictionary *propertyDict = [MAXJsonAdapterRuntimeUtilities MAXJACreatePropertyNameDictionaryWithouthNSObjectPropertiesWithClass: [MAXJAIgnoredPropertiesObject class] ];
+    NSArray <NSString *> *propertyList = [MAXJsonAdapterRuntimeUtilities MAXJACreatePropertyNameListWithouthNSObjectPropertiesWithClass: [MAXJAIgnoredPropertiesObject class] ];
     
-    NSDictionary *propertyDictWithRemovedProperties = [MAXJsonAdapterPropertyMapper MAXJARemoveIgnoredPropertyFromPropertyDictionary: propertyDict ignoredProperties: ignoredProperties];
+    NSArray <NSString *> *propertyListWithRemovedProperties = [MAXJsonAdapterPropertyMapper MAXJARemoveIgnoredPropertiesFromPropertyList: propertyList ignoredProperties: ignoredProperties];
     
-    XCTAssertTrue( propertyDictWithRemovedProperties.count == 2 );
-    XCTAssertNotNil( [propertyDictWithRemovedProperties objectForKey: @"name"] );
-    XCTAssertNotNil( [propertyDictWithRemovedProperties objectForKey: @"age"] );
-    XCTAssertNil( [propertyDictWithRemovedProperties objectForKey: @"title"] );
+    XCTAssertTrue( propertyListWithRemovedProperties.count == 2 );
+    XCTAssertTrue( [MAXJsonAdapterNSArraryUtilities array: propertyListWithRemovedProperties containsString: @"name"] );
+    XCTAssertTrue( [MAXJsonAdapterNSArraryUtilities array: propertyListWithRemovedProperties containsString: @"age"] );
+    XCTAssertFalse( [MAXJsonAdapterNSArraryUtilities array: propertyListWithRemovedProperties containsString: @"title"] );
     
 }
 
@@ -218,15 +214,31 @@
     
     NSArray <NSString *> *ignoredProperties = @[@"title", @"age"];
     
-    NSDictionary *propertyDict = [MAXJsonAdapterRuntimeUtilities MAXJACreatePropertyNameDictionaryWithouthNSObjectPropertiesWithClass: [MAXJAIgnoredPropertiesObject class] ];
+    NSArray <NSString *> *propertyList = [MAXJsonAdapterRuntimeUtilities MAXJACreatePropertyNameListWithouthNSObjectPropertiesWithClass: [MAXJAIgnoredPropertiesObject class] ];
     
-    NSDictionary *propertyDictWithRemovedProperties = [MAXJsonAdapterPropertyMapper MAXJARemoveIgnoredPropertyFromPropertyDictionary: propertyDict ignoredProperties: ignoredProperties];
+    NSArray <NSString *> *propertyListWithRemovedProperties = [MAXJsonAdapterPropertyMapper MAXJARemoveIgnoredPropertiesFromPropertyList: propertyList ignoredProperties: ignoredProperties];
     
-    XCTAssertTrue( propertyDictWithRemovedProperties.count == 1 );
-    XCTAssertNotNil( [propertyDictWithRemovedProperties objectForKey: @"name"] );
-    XCTAssertNil( [propertyDictWithRemovedProperties objectForKey: @"title"] );
-    XCTAssertNil( [propertyDictWithRemovedProperties objectForKey: @"age"] );
+    XCTAssertTrue( propertyListWithRemovedProperties.count == 1 );
+    XCTAssertTrue( [MAXJsonAdapterNSArraryUtilities array: propertyListWithRemovedProperties containsString: @"name"] );
+    XCTAssertFalse( [MAXJsonAdapterNSArraryUtilities array: propertyListWithRemovedProperties containsString: @"title"] );
+    XCTAssertFalse( [MAXJsonAdapterNSArraryUtilities array: propertyListWithRemovedProperties containsString: @"age"] );
     
+}
+
+#pragma mark - Helpers
+
+-(BOOL)properties:(NSArray <MAXJsonAdapterProperty *> *)properties containKey:(NSString *)key {
+    
+    for (MAXJsonAdapterProperty *currentProperty in properties) {
+        
+        if ([currentProperty.propertyKey isEqualToString: key] == YES) {
+            
+            return YES;
+        }
+        
+    }
+    
+    return NO;
 }
 
 @end

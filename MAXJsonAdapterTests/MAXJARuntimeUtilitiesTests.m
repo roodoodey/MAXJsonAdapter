@@ -45,50 +45,50 @@
 
 - (void)testCreatePropertyDictForNSObject {
     
-    NSDictionary *dict = [MAXJsonAdapterRuntimeUtilities MAXJACreatePropertyNameDictionaryWithClass: [NSObject class]];
+    NSArray <NSString *> *propertyList = [MAXJsonAdapterRuntimeUtilities MAXJACreatePropertyNameListWithClass: [NSObject class]];
     
-    XCTAssertNotNil( dict );
-    [self assertAllKeysAreNSObjectPropertyNames: dict];
+    XCTAssertNotNil( propertyList );
+    [self assertAllKeysAreNSObjectPropertyNames: propertyList file: @__FILE__ line: __LINE__];
     
 }
 
 - (void)testCreatePropertyDictForMAXJARuntimeUtilTestClass {
     
-    NSDictionary *dict = [MAXJsonAdapterRuntimeUtilities MAXJACreatePropertyNameDictionaryWithClass: [MAXJARuntimeUtilitiesTestClass class] ];
+    NSArray <NSString *> *propertyList = [MAXJsonAdapterRuntimeUtilities MAXJACreatePropertyNameListWithClass: [MAXJARuntimeUtilitiesTestClass class] ];
     
-    XCTAssertNotNil( dict );
+    XCTAssertNotNil( propertyList );
     
     for (NSString *NSObjectKey in [self NSObjectPropertyNames]) {
         
-        XCTAssertTrue( [self array: dict.allKeys containsKey: NSObjectKey] );
+        XCTAssertTrue( [self array: propertyList containsKey: NSObjectKey] );
         
     }
     
-    XCTAssertTrue( [self array: dict.allKeys containsKey: @"propertyName"] );
-    XCTAssertTrue( [self array: dict.allKeys containsKey: @"anotherProperty"] );
-    XCTAssertTrue( [self array: dict.allKeys containsKey: @"lastProperty"] );
-    XCTAssertFalse( [self array: dict.allKeys containsKey: @"nonexistentproperty"] );
+    XCTAssertTrue( [self array: propertyList containsKey: @"propertyName"] );
+    XCTAssertTrue( [self array: propertyList containsKey: @"anotherProperty"] );
+    XCTAssertTrue( [self array: propertyList containsKey: @"lastProperty"] );
+    XCTAssertFalse( [self array: propertyList containsKey: @"nonexistentproperty"] );
     
 }
 
 - (void)testCreatePropertyDictForMAXJARuntimeUtilTestClassWithoutNSObjectProperties {
     
-    NSDictionary *dict = [MAXJsonAdapterRuntimeUtilities MAXJACreatePropertyNameDictionaryWithouthNSObjectPropertiesWithClass: [MAXJARuntimeUtilitiesTestClass class] ];
+    NSArray <NSString *> *propertyList = [MAXJsonAdapterRuntimeUtilities MAXJACreatePropertyNameListWithouthNSObjectPropertiesWithClass: [MAXJARuntimeUtilitiesTestClass class] ];
     
-    XCTAssertNotNil( dict );
+    XCTAssertNotNil( propertyList );
     
     for (NSString *NSObjectKey in [self NSObjectPropertyNames]) {
         
-        XCTAssertFalse( [self array: dict.allKeys containsKey: NSObjectKey] );
+        XCTAssertFalse( [self array: propertyList containsKey: NSObjectKey] );
         
     }
     
-    XCTAssertTrue( [self array: dict.allKeys containsKey: @"propertyName"] );
-    XCTAssertTrue( [self array: dict.allKeys containsKey: @"anotherProperty"] );
-    XCTAssertTrue( [self array: dict.allKeys containsKey: @"lastProperty"] );
-    XCTAssertTrue( dict.allKeys.count == 3 );
-    XCTAssertFalse( [self array: dict.allKeys containsKey: @"nonexistentproperty"] );
-    XCTAssertFalse( [self array: dict.allKeys containsKey: @"description"] );
+    XCTAssertTrue( [self array: propertyList containsKey: @"propertyName"] );
+    XCTAssertTrue( [self array: propertyList containsKey: @"anotherProperty"] );
+    XCTAssertTrue( [self array: propertyList containsKey: @"lastProperty"] );
+    XCTAssertTrue( propertyList.count == 3 );
+    XCTAssertFalse( [self array: propertyList containsKey: @"nonexistentproperty"] );
+    XCTAssertFalse( [self array: propertyList containsKey: @"description"] );
     
 }
 
@@ -110,7 +110,7 @@
 #pragma mark - Helpers
 
 -(NSArray <NSString *> *)NSObjectPropertyNames {
-    return @[@"accessibilityActivationPoint", @"accessibilityCustomActions", @"accessibilityElements", @"accessibilityElementsHidden", @"accessibilityFrame", @"accessibilityHeaderElements", @"accessibilityHint", @"accessibilityIdentifier", @"accessibilityLabel", @"accessibilityLanguage", @"accessibilityNavigationStyle", @"accessibilityPath", @"accessibilityTraits", @"accessibilityValue", @"accessibilityViewIsModal", @"autoContentAccessingProxy", @"classForKeyedArchiver", @"debugDescription", @"description", @"hash", @"isAccessibilityElement", @"observationInfo", @"shouldGroupAccessibilityChildren", @"superclass", @"traitStorageList"];
+    return @[@"accessibilityActivationPoint", @"accessibilityCustomActions", @"accessibilityCustomRotors", @"accessibilityElements", @"accessibilityElementsHidden", @"accessibilityFrame", @"accessibilityHeaderElements", @"accessibilityHint", @"accessibilityIdentifier", @"accessibilityLabel", @"accessibilityLanguage", @"accessibilityNavigationStyle", @"accessibilityPath", @"accessibilityTraits", @"accessibilityValue", @"accessibilityViewIsModal", @"autoContentAccessingProxy", @"classForKeyedArchiver", @"debugDescription", @"description", @"hash", @"isAccessibilityElement", @"observationInfo", @"shouldGroupAccessibilityChildren", @"superclass", @"traitStorageList"];
 }
 
 -(BOOL)NSObjectContaintsPropertyName:(NSString *)propertyName {
@@ -127,9 +127,13 @@
     return NO;
 }
 
--(void)assertAllKeysAreNSObjectPropertyNames:(NSDictionary <NSString *, NSString *> *)propertyNamesDict {
+-(void)assertAllKeysAreNSObjectPropertyNames:(NSArray <NSString *> *)propertyList file:(NSString *)file line:(int)line {
     
-    for (NSString *currentKey in propertyNamesDict.allKeys) {
+    for (NSString *currentKey in propertyList) {
+        
+        if ([self NSObjectContaintsPropertyName: currentKey] == false) {
+            NSLog(@"false property Key is: %@", currentKey);
+        }
         
         XCTAssertTrue( [self NSObjectContaintsPropertyName: currentKey] );
         
