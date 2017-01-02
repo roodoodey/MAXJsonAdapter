@@ -74,12 +74,21 @@
 
 @implementation MAXJAPropertyMapObject
 
--(NSDictionary <NSString *, MAXJsonAdapterPropertyMap *> *)MAXJAPropertiesToMapObjectCreation {
+-(NSArray <MAXJsonAdapterPropertyMap *> *)MAXJAPropertiesToMapObjectCreation {
     
-    return @{
-             @"title" : [MAXJsonAdapterPropertyMap MAXJACreateMapWithNewKey: @"updatedTitle" nextPropertyMap:nil]
-             };
+    MAXJsonAdapterPropertyMap *firstMap = [MAXJsonAdapterPropertyMap MAXJACreateMapWithNewKey: @"age" nextPropertyMap: [MAXJsonAdapterPropertyMap MAXJACreateMapWithNewKey: @"fullAge" nextPropertyMap: nil] ];
     
+    MAXJsonAdapterPropertyMap *secondMap = [MAXJsonAdapterPropertyMap MAXJACreateMapWithNewKey: @"title" nextPropertyMap: nil];
+    
+    
+    return @[firstMap, secondMap];
+}
+
+-(NSArray <MAXJsonAdapterPropertyMap *> *)MAXJAPropertiesToMapDictionaryCreation {
+    
+    MAXJsonAdapterPropertyMap *firstMap = [MAXJsonAdapterPropertyMap MAXJACreateMapWithNewKey: @"name" nextPropertyMap: [MAXJsonAdapterPropertyMap MAXJACreateMapWithIndex: 2 nextPropertyMap: nil]];
+    
+    return @[firstMap];
 }
 
 @end
@@ -102,11 +111,55 @@
 
 #pragma mark - PROPERTY MAP
 
-#pragma mark - Without delegate
-
--(void)testSinglePropertyMapWithoutNesting {
+-(void)testPropertyMapSingleLevelObjectCreation {
     
     NSArray <NSString *> *propertyList = [MAXJsonAdapterRuntimeUtilities MAXJACreatePropertyNameListWithouthNSObjectPropertiesWithClass: [MAXJAPropertyMapObject class] ];
+    
+    NSArray <MAXJsonAdapterProperty *> *properties = [MAXJsonAdapterPropertyMapper MAXJAMapPropertyListForObjectCreation: propertyList delegate: [[MAXJAPropertyMapObject alloc] init] ];
+    
+    XCTAssertNotNil( properties );
+    XCTAssertEqualObjects( @(properties.count), @3);
+    XCTAssertNil( [self findPropertyWithKey: @"title" inProperties: properties].propertyMap );
+    XCTAssertNil( [self findPropertyWithKey: @"name" inProperties: properties].propertyMap );
+    XCTAssertEqualObjects( [self findPropertyWithKey: @"age" inProperties: properties].propertyMap.key , @"fullAge");
+    
+}
+
+-(void)testPropertyMapSingleLEvelDictionaryCreation {
+    
+    NSArray <NSString *> *propertyList = [MAXJsonAdapterRuntimeUtilities MAXJACreatePropertyNameListWithouthNSObjectPropertiesWithClass: [MAXJAPropertyMapObject class] ];
+    
+    NSArray <MAXJsonAdapterProperty *> *properties = [MAXJsonAdapterPropertyMapper MAXJAMapPropertyListForDictionaryCreation: propertyList delegate: [[MAXJAPropertyMapObject alloc] init] ];
+    
+    XCTAssertNotNil( properties );
+    XCTAssertEqualObjects( @(properties.count), @3);
+    XCTAssertEqualObjects( [self findPropertyWithKey: @"name" inProperties: properties].propertyMap.index, @2);
+    
+}
+
+#pragma mark - Without delegate
+
+-(void)testPropertyMapWithoutDelegate {
+    
+    MAXJsonAdapterProperty *propertyOne = [[MAXJsonAdapterProperty alloc] init];
+    propertyOne.propertyKey = @"age";
+    
+    MAXJsonAdapterProperty *propertyTwo = [[MAXJsonAdapterProperty alloc] init];
+    propertyTwo.propertyKey = @"title";
+    
+    NSArray <MAXJsonAdapterProperty *> *properties = @[propertyOne, propertyTwo];
+    
+    MAXJsonAdapterPropertyMap *mapOne = [MAXJsonAdapterPropertyMap MAXJACreateMapWithNewKey: @"age" nextPropertyMap: nil];
+    MAXJsonAdapterPropertyMap *mapTwo = [MAXJsonAdapterPropertyMap MAXJACreateMapWithNewKey: @"title" nextPropertyMap: [MAXJsonAdapterPropertyMap MAXJACreateMapWithNewKey: @"fullName" nextPropertyMap: nil] ];
+    
+    NSArray <MAXJsonAdapterPropertyMap *> *propertyMaps = @[mapOne, mapTwo];
+    
+    NSArray <MAXJsonAdapterProperty *> *mappedProperties = [MAXJsonAdapterPropertyMapper MAXJAMapPropertyList: properties propertyMaps: propertyMaps];
+    
+    XCTAssertNotNil( mappedProperties );
+    XCTAssertEqualObjects( @(mappedProperties.count), @2);
+    XCTAssertNil( [self findPropertyWithKey: @"age" inProperties: mappedProperties].propertyMap );
+    XCTAssertEqualObjects( [self findPropertyWithKey: @"title" inProperties: mappedProperties].propertyMap.key, @"fullName");
     
 }
 
@@ -270,6 +323,20 @@
     }
     
     return NO;
+}
+
+-(nullable MAXJsonAdapterProperty *)findPropertyWithKey:(NSString *)key inProperties:(NSArray <MAXJsonAdapterProperty *> *)properties {
+    
+    for (MAXJsonAdapterProperty *currentProperty in properties) {
+        
+        if ([currentProperty.propertyKey isEqualToString: key] == YES) {
+            
+            return currentProperty;
+        }
+        
+    }
+    
+    return nil;
 }
 
 @end
