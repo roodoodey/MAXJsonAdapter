@@ -125,7 +125,7 @@
     
 }
 
--(void)testPropertyMapSingleLEvelDictionaryCreation {
+-(void)testPropertyMapSingleLevelDictionaryCreation {
     
     NSArray <NSString *> *propertyList = [MAXJsonAdapterRuntimeUtilities MAXJACreatePropertyNameListWithouthNSObjectPropertiesWithClass: [MAXJAPropertyMapObject class] ];
     

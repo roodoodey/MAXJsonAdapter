@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MAXJsonAdapterPropertyMapInfo.h"
+
+@class MAXJsonAdapterPropertyMap;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -23,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(NSArray <NSString *> *)MAXJAPropertiesForObjectCreation;
 
 /**
- 
+ @description
  */
 -(NSArray <NSString *> *)MAXJAPropertiesForDictionaryCreation;
 
@@ -54,6 +55,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 -(NSArray <MAXJsonAdapterPropertyMap *> *)MAXJAPropertiesToMapDictionaryCreation;
 
+
+
 #pragma mark - Value Transformers
 
 
@@ -72,11 +75,14 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  @description Create on object of type Class from an NSDictionary by mapping and matching property names of the model and the values in NSDictionary. By default, if no delegate method is implemented, the property names of the model and those in the dictionary would need to match, case-sensitive. The delegate allows you to map values of a specific property to a new name, or to the same name nested within the json. For more information on different ways you can modify parameters, name, their values and their mappings visit the MAXJsonAdapterDelegate declaration.
  */
-+(id)MAXJACreateObjectOfClass:(Class)aClass delegate:(id <MAXJsonAdapterDelegate>)delegate fromDictionary:(NSDictionary *)dictionary;
++(id)MAXJACreateObjectOfClass:(Class)aClass delegate:(nullable id <MAXJsonAdapterDelegate>)delegate fromDictionary:(NSDictionary *)dictionary;
 
 #pragma mark - Methods For Dictionary Creation From Model Objects
 
-+(NSDictionary <NSString *, NSObject *> *)MAXJADictFromObject:(id)object delegate:(id <MAXJsonAdapterDelegate>)delegate;
+/**
+ @description Creates an NSDictionary from an object by mapping property names to a dictionary.
+ */
++(NSDictionary <NSString *, NSObject *> *)MAXJADictFromObject:(id)object delegate:(nullable id <MAXJsonAdapterDelegate>)delegate;
 
 
 @end

@@ -15,9 +15,13 @@
 
 #pragma mark - Property Name Map For Object Creation
 
++(NSArray <MAXJsonAdapterProperty *> *)MAXJACreateMappedPropertyListForObjectCreation:(Class)aClass delegate:(id <MAXJsonAdapterDelegate>)delegate;
+
 +(NSArray <MAXJsonAdapterProperty *> *)MAXJAMapPropertyListForObjectCreation:(NSArray <NSString *> *)propertyList delegate:(id <MAXJsonAdapterDelegate>)delegate;
 
 #pragma mark - Property Name Map For Dictionary Creation
+
++(NSArray <MAXJsonAdapterProperty *> *)MAXJACreateMappedPropertyListForDictionaryCreation:(Class)aClass delegate:(id <MAXJsonAdapterDelegate>)delegate;
 
 +(NSArray <MAXJsonAdapterProperty *> *)MAXJAMapPropertyListForDictionaryCreation:(NSArray <NSString *> *)propertyList delegate:(id <MAXJsonAdapterDelegate>)delegate;
 
@@ -42,5 +46,6 @@
  @description This method creates a MAXJsonAdapterProperty from a property list of strings.
  */
 +(NSArray <MAXJsonAdapterProperty *> *)MAXJACreatePropertyForPropertyList:(NSArray <NSString *> *)propertyList;
+
 
 @end
