@@ -12,6 +12,7 @@
 #import "MAXJsonAdapterPropertyMapper.h"
 #import "MAXJsonAdapterObjectCreator.h"
 #import "MAXJsonAdapterDictionaryCreator.h"
+#import "MAXJsonAdapterPropertySearcher.h"
 
 
 @implementation MAXJsonAdapter
@@ -48,7 +49,16 @@
             
             id value = [dictionary objectForKey: currentProperty.propertyKey];
             
-            if (value != [NSNull null]) {
+            if (value != [NSNull null] || value != nil) {
+                currentProperty.value = value;
+            }
+            
+        }
+        else {
+            
+            id value = [MAXJsonAdapterPropertySearcher MAXJASearchForProperty: currentProperty.propertyMap inDictionary: dictionary];
+            
+            if (value != [NSNull null] || value != nil) {
                 currentProperty.value = value;
             }
             
@@ -78,13 +88,10 @@
     
     for (MAXJsonAdapterProperty *currentProperty in properties) {
         
-        if (currentProperty.propertyMap == nil) {
-            
-            id value = [object valueForKey: currentProperty.propertyKey];
-            if (value != nil) {
-                currentProperty.value = value;
-            }
-            
+        id value = [object valueForKey: currentProperty.propertyKey];
+        
+        if (value != nil || value != [NSNull null]) {
+            currentProperty.value = value;
         }
         
     }

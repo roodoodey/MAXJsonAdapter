@@ -70,6 +70,51 @@
     return @[@"firstName"];
 }
 
+@end
+
+@interface MAXJAObjectPropertyMap : NSObject <MAXJsonAdapterDelegate>
+
+@property (nonatomic, strong) NSString *firstName;
+@property (nonatomic, strong) NSString *lastName;
+@property (nonatomic, strong) NSNumber *age;
+
+@end
+
+@implementation MAXJAObjectPropertyMap
+
+-(NSArray <MAXJsonAdapterPropertyMap *> *)MAXJAPropertiesToMapObjectCreation {
+    
+    return @[
+             [MAXJsonAdapterPropertyMap MAXJACreateMapWithNewKey: @"firstName" nextPropertyMap: [MAXJsonAdapterPropertyMap MAXJACreateMapWithNewKey: @"person" nextPropertyMap: [MAXJsonAdapterPropertyMap MAXJACreateMapWithNewKey: @"firstName" nextPropertyMap: nil]]],
+              [MAXJsonAdapterPropertyMap MAXJACreateMapWithNewKey: @"lastName" nextPropertyMap: [MAXJsonAdapterPropertyMap MAXJACreateMapWithNewKey: @"person" nextPropertyMap: [MAXJsonAdapterPropertyMap MAXJACreateMapWithNewKey: @"familyName" nextPropertyMap: nil]]],
+             [MAXJsonAdapterPropertyMap MAXJACreateMapWithNewKey: @"age" nextPropertyMap: [MAXJsonAdapterPropertyMap MAXJACreateMapWithNewKey: @"person" nextPropertyMap: [MAXJsonAdapterPropertyMap MAXJACreateMapWithNewKey: @"age" nextPropertyMap: nil]]]
+              ];
+    
+}
+
+@end
+
+@interface MAXJAObjectPropertyIndexMap : NSObject <MAXJsonAdapterDelegate>
+
+@property (nonatomic, strong) NSString *firstName;
+@property (nonatomic, strong) NSString *middleName;
+@property (nonatomic, strong) NSString *lastName;
+@property (nonatomic, strong) NSNumber *age;
+
+@end
+
+@implementation MAXJAObjectPropertyIndexMap
+
+-(NSArray <MAXJsonAdapterPropertyMap *> *)MAXJAPropertiesToMapObjectCreation {
+    
+    return @[
+             [MAXJsonAdapterPropertyMap MAXJACreateMapWithNewKey: @"firstName" nextPropertyMap: [MAXJsonAdapterPropertyMap MAXJACreateMapWithNewKey: @"person" nextPropertyMap: [MAXJsonAdapterPropertyMap MAXJACreateMapWithNewKey:@"name" nextPropertyMap:[MAXJsonAdapterPropertyMap MAXJACreateMapWithIndex: 0 nextPropertyMap: nil]]]],
+              [MAXJsonAdapterPropertyMap MAXJACreateMapWithNewKey: @"middleName" nextPropertyMap: [MAXJsonAdapterPropertyMap MAXJACreateMapWithNewKey: @"person" nextPropertyMap: [MAXJsonAdapterPropertyMap MAXJACreateMapWithNewKey: @"name" nextPropertyMap: [MAXJsonAdapterPropertyMap MAXJACreateMapWithIndex: 1 nextPropertyMap: nil]]]],
+              [MAXJsonAdapterPropertyMap MAXJACreateMapWithNewKey: @"lastName" nextPropertyMap: [MAXJsonAdapterPropertyMap MAXJACreateMapWithNewKey: @"person" nextPropertyMap: [MAXJsonAdapterPropertyMap MAXJACreateMapWithNewKey: @"name" nextPropertyMap: [MAXJsonAdapterPropertyMap MAXJACreateMapWithIndex: 2 nextPropertyMap: nil]]]],
+             [MAXJsonAdapterPropertyMap MAXJACreateMapWithNewKey: @"age" nextPropertyMap: [MAXJsonAdapterPropertyMap MAXJACreateMapWithNewKey: @"person" nextPropertyMap: [MAXJsonAdapterPropertyMap MAXJACreateMapWithNewKey: @"age" nextPropertyMap: nil]]]
+              ];
+    
+}
 
 @end
 
@@ -131,8 +176,38 @@
     XCTAssertEqualObjects(object.lastName, nil);
     XCTAssertEqualObjects(object.age, nil);
     
+}
+
+#pragma mark - Object Creation Map
+
+-(void)testObjectPropertyKeyMaps {
+    
+    NSDictionary *dictionary = @{ @"person" : @{ @"firstName" : @"Bruce", @"familyName" : @"Wayne", @"age" : @34 }
+                                  };
+    
+    MAXJAObjectPropertyMap *propertyMapObject = [MAXJsonAdapter MAXJACreateObjectOfClass: [MAXJAObjectPropertyMap class] delegate: [[MAXJAObjectPropertyMap alloc] init]  fromDictionary: dictionary];
+    
+    XCTAssertNotNil( propertyMapObject );
+    XCTAssertEqualObjects( propertyMapObject.firstName, @"Bruce");
+    XCTAssertEqualObjects( propertyMapObject.lastName, @"Wayne");
+    XCTAssertEqualObjects( propertyMapObject.age, @34);
     
 }
 
+-(void)testObjectPropertyKeyIndexMaps {
+    
+    NSDictionary *dictionary = @{ @"person" :
+                                      @{ @"name" : @[@"Bruce", @"Batman", @"Wayne" ],
+                                         @"age" : @34 }
+                                  };
+    MAXJAObjectPropertyIndexMap *indexMap = [MAXJsonAdapter MAXJACreateObjectOfClass: [MAXJAObjectPropertyIndexMap class] delegate: [MAXJAObjectPropertyIndexMap new] fromDictionary: dictionary];
+    
+    XCTAssertNotNil( indexMap );
+    XCTAssertEqualObjects( indexMap.firstName, @"Bruce");
+    XCTAssertEqualObjects( indexMap.middleName, @"Batman");
+    XCTAssertEqualObjects( indexMap.lastName, @"Wayne");
+    XCTAssertEqualObjects( indexMap.age, @34);
+    
+}
 
 @end
