@@ -90,6 +90,10 @@
 
 @end
 
+@interface MAXJADictionaryPropertyKeyThenArray : NSObject <MAXJsonAdapterDelegate>
+
+@end
+
 @interface MAXJADictionaryPropertyArrayMapObject : NSObject <MAXJsonAdapterDelegate>
 
 @property (nonatomic, strong) NSString *firstName;

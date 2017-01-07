@@ -82,7 +82,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  @description Creates an NSDictionary from an object by mapping property names to a dictionary.
  */
-+(NSDictionary <NSString *, NSObject *> *)MAXJADictFromObject:(id)object delegate:(nullable id <MAXJsonAdapterDelegate>)delegate;
++(NSDictionary <NSString *, NSObject *> *)MAXJADictFromObject:(id)object delegate:(nullable id <MAXJsonAdapterDelegate> )delegate;
+
++(NSArray <NSObject *> *)MAXJAArrayFromObject:(id)object delegate:(nullable id <MAXJsonAdapterDelegate> )delegate;
 
 
 @end

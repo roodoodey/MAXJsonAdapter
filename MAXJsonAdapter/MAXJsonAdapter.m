@@ -84,6 +84,19 @@
     return dictionary;
 }
 
++(NSArray <NSObject *> *)MAXJAArrayFromObject:(id)object delegate:(id<MAXJsonAdapterDelegate>)delegate {
+    
+    MAXJsonAdapter *adapter = [[MAXJsonAdapter alloc] init];
+    
+    NSArray <MAXJsonAdapterProperty *> *properties = [MAXJsonAdapterPropertyMapper MAXJACreateMappedPropertyListForDictionaryCreation: [object class] delegate: delegate];
+    
+    properties = [adapter p_populateProperties: properties withObject: object];
+    
+    NSArray *array = [MAXJsonAdapterDictionaryCreator MAXJACreateArrayOfDictionariesForProperties: properties];
+    
+    return array;
+}
+
 -(NSArray <MAXJsonAdapterProperty *> *)p_populateProperties:(NSArray <MAXJsonAdapterProperty *> *)properties withObject:(id)object {
     
     for (MAXJsonAdapterProperty *currentProperty in properties) {

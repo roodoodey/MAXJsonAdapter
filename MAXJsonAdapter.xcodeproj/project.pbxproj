@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E0882201E2017030031A78A /* MAXJAArrayDictionaryCreationMapTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E08821F1E2017030031A78A /* MAXJAArrayDictionaryCreationMapTests.m */; };
 		4E4D450A1E1DCE640038D323 /* MAXJsonAdapterPropertySearcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E4D45081E1DCE640038D323 /* MAXJsonAdapterPropertySearcher.h */; };
 		4E4D450B1E1DCE640038D323 /* MAXJsonAdapterPropertySearcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4D45091E1DCE640038D323 /* MAXJsonAdapterPropertySearcher.m */; };
 		4E4D450E1E1DD76F0038D323 /* MAXJAPropertySearcherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4D450D1E1DD76F0038D323 /* MAXJAPropertySearcherTests.m */; };
@@ -49,6 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4E08821F1E2017030031A78A /* MAXJAArrayDictionaryCreationMapTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAXJAArrayDictionaryCreationMapTests.m; sourceTree = "<group>"; };
 		4E4D45081E1DCE640038D323 /* MAXJsonAdapterPropertySearcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAXJsonAdapterPropertySearcher.h; sourceTree = "<group>"; };
 		4E4D45091E1DCE640038D323 /* MAXJsonAdapterPropertySearcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAXJsonAdapterPropertySearcher.m; sourceTree = "<group>"; };
 		4E4D450D1E1DD76F0038D323 /* MAXJAPropertySearcherTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAXJAPropertySearcherTests.m; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				4EFBEDD81E1C663D0070BA2A /* MAXJADictionaryCreationMapTests.m */,
+				4E08821F1E2017030031A78A /* MAXJAArrayDictionaryCreationMapTests.m */,
 			);
 			name = "Dictionary Adapter Map Tests";
 			sourceTree = "<group>";
@@ -433,6 +436,7 @@
 				4E4D450E1E1DD76F0038D323 /* MAXJAPropertySearcherTests.m in Sources */,
 				88276A8B1E11F26900D5000E /* MAXJsonAdapterRuntimeUtilities.m in Sources */,
 				4EFBEDCF1E1C14670070BA2A /* MAXJAObjectCreationMapTests.m in Sources */,
+				4E0882201E2017030031A78A /* MAXJAArrayDictionaryCreationMapTests.m in Sources */,
 				88276A7C1E11F1F200D5000E /* MAXJsonAdapterTests.m in Sources */,
 				88276A8E1E11F84B00D5000E /* MAXJARuntimeUtilitiesTests.m in Sources */,
 			);
