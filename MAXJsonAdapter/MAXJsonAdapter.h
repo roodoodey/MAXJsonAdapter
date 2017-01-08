@@ -84,6 +84,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 +(NSDictionary <NSString *, NSObject *> *)MAXJADictFromObject:(id)object delegate:(nullable id <MAXJsonAdapterDelegate> )delegate;
 
+/**
+ @description In some cases you want to have a list of objects from a single object which is handle by the map delegate. In those cases you have to use this method over the dictionary alternative of the method.
+ */
 +(NSArray <NSObject *> *)MAXJAArrayFromObject:(id)object delegate:(nullable id <MAXJsonAdapterDelegate> )delegate;
 
 
