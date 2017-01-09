@@ -38,6 +38,23 @@
 }
 
 
+#pragma mark - List of objects creations for array
+
++(NSArray *)MAXJACreateObjectsOfClass:(Class)aClass delegate:(id<MAXJsonAdapterDelegate>)delegate fromArray:(NSArray<NSDictionary *> *)array {
+    
+    NSMutableArray *arrayToReturn = [NSMutableArray array];
+    
+    for (NSDictionary *currentDictionary in array) {
+        
+        id object =[MAXJsonAdapter MAXJACreateObjectOfClass: aClass delegate: delegate fromDictionary: currentDictionary];
+        
+        [arrayToReturn addObject: object];
+        
+    }
+    
+    return arrayToReturn;
+}
+
 #pragma mark - Object Creation Populating Property Values
 
 -(NSArray <MAXJsonAdapterProperty *> *)p_populateProperties:(NSArray <MAXJsonAdapterProperty *> *)properties withDictionary:(NSDictionary *)dictionary {

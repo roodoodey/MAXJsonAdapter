@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @class MAXJsonAdapterPropertyMap;
+@class MAXJsonAdapterValueTransformer;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -59,7 +60,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - Value Transformers
 
-
+-(NSArray <MAXJsonAdapterValueTransformer *> *)MAXJAPropertyValueTransformers;
 
 #pragma mark - Subclasses
 
@@ -76,6 +77,8 @@ NS_ASSUME_NONNULL_BEGIN
  @description Create on object of type Class from an NSDictionary by mapping and matching property names of the model and the values in NSDictionary. By default, if no delegate method is implemented, the property names of the model and those in the dictionary would need to match, case-sensitive. The delegate allows you to map values of a specific property to a new name, or to the same name nested within the json. For more information on different ways you can modify parameters, name, their values and their mappings visit the MAXJsonAdapterDelegate declaration.
  */
 +(id)MAXJACreateObjectOfClass:(Class)aClass delegate:(nullable id <MAXJsonAdapterDelegate>)delegate fromDictionary:(NSDictionary *)dictionary;
+
++(NSArray *)MAXJACreateObjectsOfClass:(Class)aClass delegate:(nullable id <MAXJsonAdapterDelegate>)delegate fromArray:(NSArray <NSDictionary *> *)array;
 
 #pragma mark - Methods For Dictionary Creation From Model Objects
 

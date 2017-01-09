@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4E0882201E2017030031A78A /* MAXJAArrayDictionaryCreationMapTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E08821F1E2017030031A78A /* MAXJAArrayDictionaryCreationMapTests.m */; };
+		4E0882271E23E07B0031A78A /* MAXJsonAdapterValueTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E0882251E23E07B0031A78A /* MAXJsonAdapterValueTransformer.h */; };
+		4E0882281E23E07B0031A78A /* MAXJsonAdapterValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0882261E23E07B0031A78A /* MAXJsonAdapterValueTransformer.m */; };
 		4E4D450A1E1DCE640038D323 /* MAXJsonAdapterPropertySearcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E4D45081E1DCE640038D323 /* MAXJsonAdapterPropertySearcher.h */; };
 		4E4D450B1E1DCE640038D323 /* MAXJsonAdapterPropertySearcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4D45091E1DCE640038D323 /* MAXJsonAdapterPropertySearcher.m */; };
 		4E4D450E1E1DD76F0038D323 /* MAXJAPropertySearcherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4D450D1E1DD76F0038D323 /* MAXJAPropertySearcherTests.m */; };
@@ -51,6 +53,8 @@
 
 /* Begin PBXFileReference section */
 		4E08821F1E2017030031A78A /* MAXJAArrayDictionaryCreationMapTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAXJAArrayDictionaryCreationMapTests.m; sourceTree = "<group>"; };
+		4E0882251E23E07B0031A78A /* MAXJsonAdapterValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAXJsonAdapterValueTransformer.h; sourceTree = "<group>"; };
+		4E0882261E23E07B0031A78A /* MAXJsonAdapterValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAXJsonAdapterValueTransformer.m; sourceTree = "<group>"; };
 		4E4D45081E1DCE640038D323 /* MAXJsonAdapterPropertySearcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAXJsonAdapterPropertySearcher.h; sourceTree = "<group>"; };
 		4E4D45091E1DCE640038D323 /* MAXJsonAdapterPropertySearcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAXJsonAdapterPropertySearcher.m; sourceTree = "<group>"; };
 		4E4D450D1E1DD76F0038D323 /* MAXJAPropertySearcherTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAXJAPropertySearcherTests.m; sourceTree = "<group>"; };
@@ -101,6 +105,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4E0882241E23E04B0031A78A /* Value Transformer */ = {
+			isa = PBXGroup;
+			children = (
+				4E0882251E23E07B0031A78A /* MAXJsonAdapterValueTransformer.h */,
+				4E0882261E23E07B0031A78A /* MAXJsonAdapterValueTransformer.m */,
+			);
+			name = "Value Transformer";
+			sourceTree = "<group>";
+		};
+		4E0882291E23E42B0031A78A /* Subclass */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Subclass;
+			sourceTree = "<group>";
+		};
 		4E4D450C1E1DD71C0038D323 /* Property Searcher Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -228,6 +248,8 @@
 		88276A6E1E11F1F100D5000E /* MAXJsonAdapter */ = {
 			isa = PBXGroup;
 			children = (
+				4E0882291E23E42B0031A78A /* Subclass */,
+				4E0882241E23E04B0031A78A /* Value Transformer */,
 				4EFBEDD61E1C62EB0070BA2A /* Creators */,
 				4EFBEDC51E1C0BD90070BA2A /* Property Container */,
 				88276A951E13276400D5000E /* Property Mapper */,
@@ -307,6 +329,7 @@
 				4E540BEE1E153D57006B8FF4 /* MAXJsonAdapterProperty.h in Headers */,
 				4E540BEA1E1528A0006B8FF4 /* MAXJsonAdapterNSArraryUtilities.h in Headers */,
 				88276A891E11F26900D5000E /* MAXJsonAdapterRuntimeUtilities.h in Headers */,
+				4E0882271E23E07B0031A78A /* MAXJsonAdapterValueTransformer.h in Headers */,
 				4EFBEDCA1E1C0F670070BA2A /* MAXJsonAdapterObjectCreator.h in Headers */,
 				4E540BE31E141704006B8FF4 /* MAXJsonAdapterPropertyMapInfo.h in Headers */,
 				88276A701E11F1F100D5000E /* MAXJsonAdapterHeaders.h in Headers */,
@@ -417,6 +440,7 @@
 				4EFBEDD51E1C5D500070BA2A /* MAXJsonAdapterDictionaryCreator.m in Sources */,
 				88276A8A1E11F26900D5000E /* MAXJsonAdapterRuntimeUtilities.m in Sources */,
 				4E540BEB1E1528A0006B8FF4 /* MAXJsonAdapterNSArraryUtilities.m in Sources */,
+				4E0882281E23E07B0031A78A /* MAXJsonAdapterValueTransformer.m in Sources */,
 				4E540BE41E141704006B8FF4 /* MAXJsonAdapterPropertyMapInfo.m in Sources */,
 				88276A991E13278600D5000E /* MAXJsonAdapterPropertyMapper.m in Sources */,
 				4EFBEDCB1E1C0F670070BA2A /* MAXJsonAdapterObjectCreator.m in Sources */,
