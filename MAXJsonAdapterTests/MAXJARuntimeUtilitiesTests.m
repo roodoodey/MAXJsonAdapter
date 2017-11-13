@@ -43,15 +43,6 @@
 
 #pragma mark - Property Dict Creation From Class
 
-- (void)testCreatePropertyDictForNSObject {
-    
-    NSArray <NSString *> *propertyList = [MAXJsonAdapterRuntimeUtilities MAXJACreatePropertyNameListWithClass: [NSObject class]];
-    
-    XCTAssertNotNil( propertyList );
-    [self assertAllKeysAreNSObjectPropertyNames: propertyList file: @__FILE__ line: __LINE__];
-    
-}
-
 - (void)testCreatePropertyDictForMAXJARuntimeUtilTestClass {
     
     NSArray <NSString *> *propertyList = [MAXJsonAdapterRuntimeUtilities MAXJACreatePropertyNameListWithClass: [MAXJARuntimeUtilitiesTestClass class] ];
@@ -130,7 +121,7 @@
 -(void)assertAllKeysAreNSObjectPropertyNames:(NSArray <NSString *> *)propertyList file:(NSString *)file line:(int)line {
     
     for (NSString *currentKey in propertyList) {
-        
+
         if ([self NSObjectContaintsPropertyName: currentKey] == false) {
             NSLog(@"false property Key is: %@", currentKey);
         }
