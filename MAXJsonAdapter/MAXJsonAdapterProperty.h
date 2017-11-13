@@ -8,11 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import "MAXJsonAdapterPropertyMapInfo.h"
+#import "MAXJsonAdapterValueTransformer.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MAXJsonAdapterProperty : NSObject
 
+/**
+ @description The name of the property key.
+ */
 @property (nonatomic, strong) NSString *propertyKey;
 
 /**
@@ -21,12 +25,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong, nullable) id value;
 
 /**
- 
+ @description The property map object which contains the property mapping based on a property key or index in a list.
  */
 @property (nonatomic, strong, nullable) MAXJsonAdapterPropertyMap *propertyMap;
 
 /**
- 
+ @description The value transformer for the property
  */
 @property (nonatomic, strong, nullable) MAXJsonAdapterValueTransformer *valueTransformer;
 
