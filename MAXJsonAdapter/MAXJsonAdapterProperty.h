@@ -25,6 +25,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, strong, nullable) MAXJsonAdapterPropertyMap *propertyMap;
 
+/**
+ 
+ */
+@property (nonatomic, strong, nullable) MAXJsonAdapterValueTransformer *valueTransformer;
+
 
 @end
 

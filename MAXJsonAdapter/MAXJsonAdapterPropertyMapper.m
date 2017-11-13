@@ -9,6 +9,7 @@
 #import "MAXJsonAdapterPropertyMapper.h"
 #import "MAXJsonAdapterNSArraryUtilities.h"
 #import "MAXJsonAdapterRuntimeUtilities.h"
+#import "MAXJsonAdapterValueTransformer.h"
 
 @implementation MAXJsonAdapterPropertyMapper
 
@@ -53,6 +54,14 @@
         
     }
     
+    if ([delegate respondsToSelector: @selector(MAXJAPropertyValueTransformers)] == YES) {
+        
+        NSArray <MAXJsonAdapterValueTransformer *> *valueTransformers = [delegate MAXJAPropertyValueTransformers];
+        
+        [self p_assignValueTransformers: valueTransformers toProperties: adapterProperties];
+        
+    }
+    
     return adapterProperties;
 }
 
@@ -93,6 +102,14 @@
         NSArray <MAXJsonAdapterPropertyMap *> *propertyMaps = [delegate MAXJAPropertiesToMapDictionaryCreation];
         
         adapterProperties = [self MAXJAMapPropertyList: adapterProperties propertyMaps: propertyMaps];
+        
+    }
+    
+    if ([delegate respondsToSelector: @selector(MAXJAPropertyValueTransformers)] == YES) {
+        
+        NSArray <MAXJsonAdapterValueTransformer *> *valueTransformers = [delegate MAXJAPropertyValueTransformers];
+        
+        [self p_assignValueTransformers: valueTransformers toProperties: adapterProperties];
         
     }
     
@@ -161,6 +178,27 @@
     }
     
     return properties;
+}
+
+
+#pragma mark - Private Helpers
+
++(void)p_assignValueTransformers:(NSArray <MAXJsonAdapterValueTransformer *> *)valueTransformers toProperties:(NSArray <MAXJsonAdapterProperty *> *)properties {
+    
+    for (MAXJsonAdapterValueTransformer *currentValueTransformer in valueTransformers) {
+        
+        for (MAXJsonAdapterProperty *currentProperty in properties) {
+            
+            if ([currentValueTransformer.propertyKey isEqualToString: currentProperty.propertyKey] == YES) {
+                
+                currentProperty.valueTransformer = currentValueTransformer;
+                
+            }
+            
+        }
+        
+    }
+    
 }
 
 @end
