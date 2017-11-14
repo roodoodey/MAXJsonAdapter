@@ -32,9 +32,11 @@
     
     for (MAXJsonAdapterProperty *currentProperty in properties) {
     
+        // if the property has a mapper we need to map it appropriately.
         if (currentProperty.propertyMap != nil && currentProperty.value != nil) {
             [self p_updateDictionary: dictionary withValue: currentProperty.value propertyMap: currentProperty.propertyMap];
         }
+        // if the property has no property map and has a value we should add it to the dictionary.
         else if(currentProperty.value != nil) {
             [dictionary setObject: currentProperty.value forKey: currentProperty.propertyKey];
         }
@@ -123,12 +125,16 @@
 
 +(id)p_mapValue:(id)value propertyMap:(MAXJsonAdapterPropertyMap *)propertyMap object:(id)object {
     
+    // if the property map has another mapper we have to handle it
     if (propertyMap.nextPropertyMap != nil) {
         
+        // if the property map has a key we know its a dictionary
         if (propertyMap.key != nil) {
             
+            // check if we have created the hierarchy for the dictionary map.
             id valueForProperty = [(NSDictionary *)object objectForKey: propertyMap.key];
             
+            // if we have not created the hierarcy we need to create a dictionary or array based on the type of property we are working with.
             if (valueForProperty == nil) {
                 
                 if (propertyMap.nextPropertyMap.key != nil) {
@@ -149,10 +155,10 @@
                 
             }
             else {
-                
+                //
                 if ([object isKindOfClass: [NSMutableArray class] ] == YES) {
                     
-                    // should this happen?
+                    // when you drill through an array we have to check the index.
                     [self p_mapValue: value propertyMap: propertyMap.nextPropertyMap object: object];
                     
                 }
@@ -166,6 +172,7 @@
             
             
         }
+        // if the property map does not have a key it is an array based property which needs to be handled correctly
         else if(propertyMap.index != nil) {
             
             NSAssert([object isKindOfClass: [NSMutableArray class] ] == NO, @"this should never happen and is an implementation error from the coder, throw an error here in the future.");
@@ -190,7 +197,7 @@
         
     }
     else {
-        
+        // if has no property mapper  we need to handle it.
         if (propertyMap.key != nil) {
             
             id valueForProperty = [object objectForKey: propertyMap.key];
@@ -204,6 +211,7 @@
                 
                 NSAssert( [valueForProperty isKindOfClass: [NSDictionary class] ] == NO, @"A property that should be made an array contains a dictionary, there is a problem in the mapping or value transforming of objects.");
                 
+                // if we find an array it means this property is supposed to behave like an array.
                 if ( [valueForProperty isKindOfClass: [NSMutableArray class] ] == YES ) {
                     
                     [(NSMutableArray *)valueForProperty addObject: value];
@@ -211,12 +219,14 @@
                 }
                 else {
                     
+                    // if the object is not an array, and not an NSDictionary, we know we are dealing with a foundation object which is being added to the same key so we treat it as a list. Question becomes if this is expected behavior or not.
+                    
                     NSMutableArray *array = [NSMutableArray array];
                     
                     [array addObject: valueForProperty];
                     [array addObject: value];
                     
-                    
+                    // switches out the property with a new one for the key.
                     [(NSMutableDictionary *)object setObject: array forKey: propertyMap.key];
                 }
                 
@@ -225,7 +235,7 @@
             
             return object;
         }
-        
+        // if it is an index based property we know it is an array so we have to add it to the array.
         else if(propertyMap.index != nil) {
             
             [(NSMutableArray *)object addObject: value];

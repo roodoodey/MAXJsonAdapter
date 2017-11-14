@@ -61,7 +61,7 @@
     
     for (MAXJsonAdapterProperty *currentProperty in properties) {
         
-        // if we have no property mapping on the property we simply fetch the value of the keu
+        // if we have no property mapping on the property we simply fetch the value of the key
         if (currentProperty.propertyMap == nil) {
             
             id value = [dictionary objectForKey: currentProperty.propertyKey];
@@ -73,6 +73,7 @@
         }
         else {
             
+            // if we have a property map we want to find its value.
             id value = [MAXJsonAdapterPropertySearcher MAXJASearchForProperty: currentProperty.propertyMap inDictionary: dictionary];
             
             if (value != [NSNull null] || value != nil) {
@@ -107,8 +108,11 @@
     
     NSArray <MAXJsonAdapterProperty *> *properties = [MAXJsonAdapterPropertyMapper MAXJACreateMappedPropertyListForDictionaryCreation: [object class] delegate: delegate];
     
+    // Populates the value of property from the objects property keys which will be used later
+    // to populate the mapped or non mapped property.
     properties = [adapter p_populateProperties: properties withObject: object];
     
+    // creates objects and adds them to an array
     NSArray *array = [MAXJsonAdapterDictionaryCreator MAXJACreateArrayOfDictionariesForProperties: properties];
     
     return array;

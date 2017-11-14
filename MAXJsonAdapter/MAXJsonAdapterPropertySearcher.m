@@ -21,10 +21,11 @@
     
     id value = [self p_valueForProperty: propertyMap inCollection: collection];
     
-    
+    // if we have a mapping of the property we need to keep drilling and searching for the value
     if (propertyMap.nextPropertyMap != nil) {
         
         if (value == nil) {
+            
             // Should not occur unless the implementee has caused an error. Should probably throw an error here.
             
             return nil;
@@ -48,9 +49,17 @@
     }
     else if(propertyMap.index != nil && [collection isKindOfClass: [NSArray class] ] == YES) {
         
-        id value = [(NSArray *)collection objectAtIndex: propertyMap.index.unsignedIntegerValue];
+        NSArray *arrayCollection = (NSArray *)collection;
+        NSInteger index = propertyMap.index.integerValue;
+        if (index >= 0 && index < arrayCollection.count) {
+            
+            id value = [(NSArray *)collection objectAtIndex: index];
+            
+            return value;
+        }
         
-        return value;
+        // trying to search for a property out of bounds of the array.
+        return nil;
     }
     
     // should never occur

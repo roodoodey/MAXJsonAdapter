@@ -78,6 +78,9 @@
     
     NSArray <NSString *> *propertyListWithoutIgnoredProperties = [NSArray arrayWithArray: propertyList];
     
+    // We start by checking if the object specificies which properties it wants to use to
+    // create the dictionary. If it does not implement that delegate method we check hether
+    // it implements a delegate property to know which properties to ignore.
     if ([delegate respondsToSelector: @selector(MAXJAPropertiesForDictionaryCreation)] == YES) {
         
         NSArray <NSString *> *propertiesForDict = [delegate MAXJAPropertiesForDictionaryCreation];
@@ -105,6 +108,7 @@
         
     }
     
+    // checks if there are value transformers added to specific properties.
     if ([delegate respondsToSelector: @selector(MAXJAPropertyValueTransformers)] == YES) {
         
         NSArray <MAXJsonAdapterValueTransformer *> *valueTransformers = [delegate MAXJAPropertyValueTransformers];

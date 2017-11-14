@@ -140,6 +140,7 @@
     XCTAssertEqualObjects([dictionary objectForKey: @"firstName"], object.firstName);
     XCTAssertEqualObjects([dictionary objectForKey: @"lastName"], object.lastName);
     XCTAssertEqualObjects([dictionary objectForKey: @"age"], object.age);
+    
 }
 
 
