@@ -26,17 +26,15 @@
 
 +(instancetype)MAXJACreateValueTransformerWithProperyKey:(NSString *)propertyKey {
     
-    MAXJsonAdapterValueTransformer *valueTransformer = [[MAXJsonAdapterValueTransformer alloc] MAXJACreateValueTransformerWithPropertyKey: propertyKey];
-    
-    return valueTransformer;
+    return [[[self class] alloc] initValueTransformerWithPropertyKey: propertyKey];
 }
 
--(instancetype)MAXJACreateValueTransformerWithPropertyKey:(NSString *)propertyKey {
+-(instancetype)initValueTransformerWithPropertyKey:(NSString *)propertyKey {
+    if (self = [super init]) {
+        _propertyKey = propertyKey;
+    }
     
-    MAXJsonAdapterValueTransformer *valueTransformer = [[MAXJsonAdapterValueTransformer alloc] init];
-    valueTransformer.propertyKey = propertyKey;
-    
-    return valueTransformer;
+    return self;
 }
 
 @end

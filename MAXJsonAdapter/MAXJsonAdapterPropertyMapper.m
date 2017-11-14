@@ -17,6 +17,7 @@
 
 +(NSArray <MAXJsonAdapterProperty *> *)MAXJACreateMappedPropertyListForObjectCreation:(Class)aClass delegate:(id <MAXJsonAdapterDelegate>)delegate {
     
+    // gets all of the names of the properties
     NSArray <NSString *> *propertyList = [MAXJsonAdapterRuntimeUtilities MAXJACreatePropertyNameListWithouthNSObjectPropertiesWithClass: aClass];
     
     return [self MAXJAMapPropertyListForObjectCreation: propertyList delegate: delegate];
@@ -42,7 +43,7 @@
         
     }
     
-    // after having removed all the properties which are supposed to be removed create the Adapter PropertyObject which contains all the information for serialization.
+    // after having removed all the properties which are supposed to be removed create the Adapter Property Object which contains all the information for serialization.
     NSArray <MAXJsonAdapterProperty *> *adapterProperties = [self MAXJACreatePropertyForPropertyList: propertyListWithoutIgnoredProperties];
     
     // next we need to add the map for properties
@@ -50,6 +51,7 @@
         
         NSArray <MAXJsonAdapterPropertyMap *> *propertyMaps = [delegate MAXJAPropertiesToMapObjectCreation];
         
+        // adds all of the property mappers to the object properties.
         adapterProperties = [self MAXJAMapPropertyList: adapterProperties propertyMaps: propertyMaps];
         
     }

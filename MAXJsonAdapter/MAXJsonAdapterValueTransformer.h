@@ -36,7 +36,7 @@ NS_ASSUME_NONNULL_BEGIN
  @warning The property key for the value transformer is not a mapped property name instead its the original name of the property which will be later on mapped with the value transformer attached to it and then applied when the dictionary or object is being created.
  
  */
--(instancetype)MAXJACreateValueTransformerWithPropertyKey:(NSString *)propertyKey;
+-(instancetype)initValueTransformerWithPropertyKey:(NSString *)propertyKey;
 
 @end
 
