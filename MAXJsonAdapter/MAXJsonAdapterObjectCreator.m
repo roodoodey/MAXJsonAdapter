@@ -16,6 +16,7 @@
     
     for (MAXJsonAdapterProperty *currentProperty in properties) {
         
+        
         [object setValue: currentProperty.value forKey: currentProperty.propertyKey];
         
     }

@@ -12,14 +12,14 @@
 
 #pragma mark - Private Initializers
 
--(id)MAXJAJsonFormat:(id)object {
+-(id)MAXJAJsonFormat:(id)value {
     
-    return nil;
+    return value;
 }
 
--(id)MAXJAObjectCreationFormat:(id)object {
+-(id)MAXJAObjectCreationFormat:(id)value {
     
-    return nil;
+    return value;
 }
 
 #pragma mark - Initialization

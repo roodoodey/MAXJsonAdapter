@@ -14,15 +14,27 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) NSString *propertyKey;
 
--(nullable id)MAXJAObjectCreationFormat:(id)object;
+/**
+ @description The transformation of the value of a given property from json format to object format.
+ */
+-(nullable id)MAXJAObjectCreationFormat:(id)value;
 
--(nullable id)MAXJAJsonFormat:(id)object;
+/**
+ @description The transformation of the value of a given property from object format to json format.
+ */
+-(nullable id)MAXJAJsonFormat:(id)value;
 
 /**
  */
 +(instancetype)MAXJACreateValueTransformerWithProperyKey:(NSString *)propertyKey;
 
 /**
+ @description Instantiates a value transformer with the given property key name. If the property key name does not match any property in the object or dictionary, depending on the way you are serializing, it will be ignored.
+ 
+ @param propertyKey This is property key you want to transform the value of before it is serialized to json format or deserialized from json to an objective c object.
+ 
+ @warning The property key for the value transformer is not a mapped property name instead its the original name of the property which will be later on mapped with the value transformer attached to it and then applied when the dictionary or object is being created.
+ 
  */
 -(instancetype)MAXJACreateValueTransformerWithPropertyKey:(NSString *)propertyKey;
 
