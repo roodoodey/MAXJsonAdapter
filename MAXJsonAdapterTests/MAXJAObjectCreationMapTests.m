@@ -8,6 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import "MAXJsonAdapterPropertyMapper.h"
+#import "MAXNumberToStringTransformer.h"
 
 @interface MAXJAObjectCreationMapTests : XCTestCase
 
@@ -35,6 +36,7 @@
 @property (nonatomic, strong) NSString *firstName;
 @property (nonatomic, strong) NSString *lastName;
 @property (nonatomic, strong) NSNumber *age;
+@property (nonatomic, strong) NSString *stringAge;
 
 @end
 
@@ -43,6 +45,11 @@
 -(NSArray <NSString *> *)MAXJAPropertiesToIgnoreObjectCreation {
     
     return @[@"firstName"];
+}
+
+-(NSArray <MAXJsonAdapterValueTransformer *> *)MAXJAPropertyValueTransformers {
+    
+    return @[[MAXNumberToStringTransformer MAXJACreateValueTransformerWithProperyKey: @"stringAge"]];
 }
 
 @end
@@ -175,7 +182,7 @@
 
 -(void)testObjectCreationWithIgnoredProperty {
     
-    NSDictionary *dict = @{ @"firstName" : @"Bruce", @"lastName" : @"Wayne", @"age" : @34 };
+    NSDictionary *dict = @{ @"firstName" : @"Bruce", @"lastName" : @"Wayne", @"age" : @34, @"stringAge" : @52 };
     
     MAXJAObjectIgnoredProprties *object = [MAXJsonAdapter MAXJACreateObjectOfClass: [MAXJAObjectIgnoredProprties class] delegate: [[MAXJAObjectIgnoredProprties alloc] init] fromDictionary: dict];
     
@@ -183,6 +190,7 @@
     XCTAssertEqualObjects(object.firstName, nil);
     XCTAssertEqualObjects(object.lastName, @"Wayne");
     XCTAssertEqualObjects(object.age, @34);
+    XCTAssertEqualObjects(object.stringAge, @"52");
     
 }
 
@@ -225,7 +233,7 @@
     
 }
 
--(void)testArrayObjectCreationWithSpecifiedPRoperties {
+-(void)testArrayObjectCreationWithSpecifiedProperties {
     
     NSDictionary *dictOne = @{ @"firstName" : @"Bruce", @"lastName" : @"Wayne", @"age" : @34 };
 
