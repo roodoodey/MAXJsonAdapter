@@ -31,14 +31,21 @@
     NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
     
     for (MAXJsonAdapterProperty *currentProperty in properties) {
+        
+        id value = currentProperty.value;
+        
+        // if we have a value transformer we want to transformer the value to json format.
+        if (currentProperty.valueTransformer != nil) {
+            value = [currentProperty.valueTransformer MAXJAJsonFormat: value];
+        }
     
         // if the property has a mapper we need to map it appropriately.
-        if (currentProperty.propertyMap != nil && currentProperty.value != nil) {
-            [self p_updateDictionary: dictionary withValue: currentProperty.value propertyMap: currentProperty.propertyMap];
+        if (currentProperty.propertyMap != nil && value != nil) {
+            [self p_updateDictionary: dictionary withValue: value propertyMap: currentProperty.propertyMap];
         }
         // if the property has no property map and has a value we should add it to the dictionary.
-        else if(currentProperty.value != nil) {
-            [dictionary setObject: currentProperty.value forKey: currentProperty.propertyKey];
+        else if(value != nil) {
+            [dictionary setObject: value forKey: currentProperty.propertyKey];
         }
     }
     
@@ -53,8 +60,14 @@
     
     for (MAXJsonAdapterProperty *currentProperty in properties) {
         
-        if (currentProperty.propertyMap != nil && currentProperty.value != nil) {
-            [self p_mapValue: currentProperty.value propertyMap: currentProperty.propertyMap object: array];
+        id value = currentProperty.value;
+        if (currentProperty.valueTransformer != nil) {
+            value = [currentProperty.valueTransformer MAXJAJsonFormat: value];
+        }
+        
+        // we are creating an array of values from a single object so we know we will need to map the values in order to get an array from an object.
+        if (currentProperty.propertyMap != nil && value != nil) {
+            [self p_mapValue: value propertyMap: currentProperty.propertyMap object: array];
         }
         
     }

@@ -16,8 +16,15 @@
     
     for (MAXJsonAdapterProperty *currentProperty in properties) {
         
-        
-        [object setValue: currentProperty.value forKey: currentProperty.propertyKey];
+        if (currentProperty.valueTransformer != nil && currentProperty.value != nil) {
+            id value = [currentProperty.valueTransformer MAXJAObjectCreationFormat: currentProperty.value];
+            if (value != nil) {
+                [object setValue: value forKey: currentProperty.propertyKey];
+            }
+        }
+        else if(currentProperty.value != nil) {
+            [object setValue: currentProperty.value forKey: currentProperty.propertyKey];
+        }
         
     }
     
