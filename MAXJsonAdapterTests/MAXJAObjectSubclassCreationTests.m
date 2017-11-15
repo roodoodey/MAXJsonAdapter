@@ -181,6 +181,31 @@
 
 @end
 
+@interface MAXKeyMappedArrayRootObjectWithDelegate : NSObject <MAXJsonAdapterDelegate>
+
+@property (nonatomic, strong) NSString *mappedName;
+
+@property (nonatomic, strong) NSArray <MAXSingleContainedObject *> *containedObjects;
+
+@end
+
+@implementation MAXKeyMappedArrayRootObjectWithDelegate
+
+-(NSArray <MAXJsonAdapterPropertyMap *> *)MAXJAPropertiesToMapObjectCreation {
+    
+    return @[
+             [MAXJsonAdapterPropertyMap MAXJACreateMapWithNewKey: @"containedObjects" nextPropertyMap: [MAXJsonAdapterPropertyMap MAXJACreateMapWithNewKey: @"transactions" nextPropertyMap: nil]],
+             [MAXJsonAdapterPropertyMap MAXJACreateMapWithNewKey: @"mappedName" nextPropertyMap: [MAXJsonAdapterPropertyMap MAXJACreateMapWithNewKey: @"name" nextPropertyMap: nil]]
+             ];
+}
+
+-(NSArray <MAXJASubclassedProperty *> *)MAXJASubclassedProperties {
+    
+    return @[[MAXJASubclassedProperty MAXJAPropertyKey: @"containedObjects" class: [MAXSingleContainedObject class] delegate: [MAXSingleContainedObject new]]];
+}
+
+@end
+
 @interface MAXJAObjectSubclassCreationTests : XCTestCase
 
 @end
@@ -295,6 +320,20 @@
     XCTAssertEqualObjects( rootObj.mappedName, @"Marius");
     XCTAssertEqualObjects( rootObj.containedObject.merchantName, @"Hagkaup");
     XCTAssertEqualObjects( rootObj.containedObject.amount, @3000);
+    
+}
+
+-(void)testNormalArrayContainedObjectWithKeyMappingSubclassWithDelegate {
+    
+    NSDictionary *dict =  @{ @"name": @"Marius", @"transactions" : @[ @{ @"merchant" : @"Hagkaup", @"transactionAmount" : @3000 }, @{ @"merchant" : @"Nói Síríus", @"transactionAmount" : @5000 } ] };
+    
+    MAXKeyMappedArrayRootObjectWithDelegate *rootObj = [MAXJsonAdapter MAXJACreateObjectOfClass: [MAXKeyMappedArrayRootObjectWithDelegate class] delegate: [MAXKeyMappedArrayRootObjectWithDelegate new] fromDictionary: dict];
+    
+    XCTAssertEqualObjects( rootObj.mappedName, @"Marius");
+    XCTAssertEqualObjects( rootObj.containedObjects[0].merchantName, @"Hagkaup");
+    XCTAssertEqualObjects( rootObj.containedObjects[0].amount, @3000);
+    XCTAssertEqualObjects( rootObj.containedObjects[1].merchantName, @"Nói Síríus");
+    XCTAssertEqualObjects( rootObj.containedObjects[1].amount, @5000);
     
 }
 
