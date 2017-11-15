@@ -20,6 +20,9 @@
 		4E540BEE1E153D57006B8FF4 /* MAXJsonAdapterProperty.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E540BEC1E153D57006B8FF4 /* MAXJsonAdapterProperty.h */; };
 		4E540BEF1E153D57006B8FF4 /* MAXJsonAdapterProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E540BED1E153D57006B8FF4 /* MAXJsonAdapterProperty.m */; };
 		4ED507C71FBA8D9900AACCCD /* MAXNumberToStringTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED507C61FBA8D9900AACCCD /* MAXNumberToStringTransformer.m */; };
+		4ED507CE1FBB9B9100AACCCD /* MAXJASubclassedProperty.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ED507CC1FBB9B9100AACCCD /* MAXJASubclassedProperty.h */; };
+		4ED507CF1FBB9B9100AACCCD /* MAXJASubclassedProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED507CD1FBB9B9100AACCCD /* MAXJASubclassedProperty.m */; };
+		4ED507D61FBBD22700AACCCD /* MAXJAObjectSubclassCreationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED507D51FBBD22700AACCCD /* MAXJAObjectSubclassCreationTests.m */; };
 		4EFBEDCA1E1C0F670070BA2A /* MAXJsonAdapterObjectCreator.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EFBEDC81E1C0F670070BA2A /* MAXJsonAdapterObjectCreator.h */; };
 		4EFBEDCB1E1C0F670070BA2A /* MAXJsonAdapterObjectCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EFBEDC91E1C0F670070BA2A /* MAXJsonAdapterObjectCreator.m */; };
 		4EFBEDCF1E1C14670070BA2A /* MAXJAObjectCreationMapTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EFBEDCE1E1C14670070BA2A /* MAXJAObjectCreationMapTests.m */; };
@@ -67,6 +70,9 @@
 		4E540BED1E153D57006B8FF4 /* MAXJsonAdapterProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAXJsonAdapterProperty.m; sourceTree = "<group>"; };
 		4ED507C51FBA8D9900AACCCD /* MAXNumberToStringTransformer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MAXNumberToStringTransformer.h; sourceTree = "<group>"; };
 		4ED507C61FBA8D9900AACCCD /* MAXNumberToStringTransformer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MAXNumberToStringTransformer.m; sourceTree = "<group>"; };
+		4ED507CC1FBB9B9100AACCCD /* MAXJASubclassedProperty.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MAXJASubclassedProperty.h; sourceTree = "<group>"; };
+		4ED507CD1FBB9B9100AACCCD /* MAXJASubclassedProperty.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MAXJASubclassedProperty.m; sourceTree = "<group>"; };
+		4ED507D51FBBD22700AACCCD /* MAXJAObjectSubclassCreationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MAXJAObjectSubclassCreationTests.m; sourceTree = "<group>"; };
 		4EFBEDC81E1C0F670070BA2A /* MAXJsonAdapterObjectCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAXJsonAdapterObjectCreator.h; sourceTree = "<group>"; };
 		4EFBEDC91E1C0F670070BA2A /* MAXJsonAdapterObjectCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAXJsonAdapterObjectCreator.m; sourceTree = "<group>"; };
 		4EFBEDCE1E1C14670070BA2A /* MAXJAObjectCreationMapTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAXJAObjectCreationMapTests.m; sourceTree = "<group>"; };
@@ -120,6 +126,8 @@
 		4E0882291E23E42B0031A78A /* Subclass */ = {
 			isa = PBXGroup;
 			children = (
+				4ED507CC1FBB9B9100AACCCD /* MAXJASubclassedProperty.h */,
+				4ED507CD1FBB9B9100AACCCD /* MAXJASubclassedProperty.m */,
 			);
 			name = Subclass;
 			sourceTree = "<group>";
@@ -159,13 +167,47 @@
 			name = "Value Transformers";
 			sourceTree = "<group>";
 		};
-		4EFBEDC51E1C0BD90070BA2A /* Property Container */ = {
+		4ED507D11FBBD02400AACCCD /* Subclassed Property Tests */ = {
+			isa = PBXGroup;
+			children = (
+				4ED507D41FBBD20B00AACCCD /* Json Creation */,
+				4ED507D31FBBD14F00AACCCD /* Object Creation */,
+			);
+			name = "Subclassed Property Tests";
+			sourceTree = "<group>";
+		};
+		4ED507D21FBBD12D00AACCCD /* Map & Value Transformer Tests */ = {
+			isa = PBXGroup;
+			children = (
+				4ED507C41FBA8D6700AACCCD /* Value Transformers */,
+				4EFBEDD71E1C66230070BA2A /* Dictionary Adapter Map Tests */,
+				4EFBEDD01E1C14710070BA2A /* Object Adapter Map Tests */,
+			);
+			name = "Map & Value Transformer Tests";
+			sourceTree = "<group>";
+		};
+		4ED507D31FBBD14F00AACCCD /* Object Creation */ = {
+			isa = PBXGroup;
+			children = (
+				4ED507D51FBBD22700AACCCD /* MAXJAObjectSubclassCreationTests.m */,
+			);
+			name = "Object Creation";
+			sourceTree = "<group>";
+		};
+		4ED507D41FBBD20B00AACCCD /* Json Creation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Json Creation";
+			sourceTree = "<group>";
+		};
+		4EFBEDC51E1C0BD90070BA2A /* Property */ = {
 			isa = PBXGroup;
 			children = (
 				4E540BEC1E153D57006B8FF4 /* MAXJsonAdapterProperty.h */,
 				4E540BED1E153D57006B8FF4 /* MAXJsonAdapterProperty.m */,
 			);
-			name = "Property Container";
+			name = Property;
 			sourceTree = "<group>";
 		};
 		4EFBEDC61E1C0C220070BA2A /* Property Searcher */ = {
@@ -198,9 +240,8 @@
 		4EFBEDCD1E1C14090070BA2A /* Adapter Tests */ = {
 			isa = PBXGroup;
 			children = (
-				4ED507C41FBA8D6700AACCCD /* Value Transformers */,
-				4EFBEDD71E1C66230070BA2A /* Dictionary Adapter Map Tests */,
-				4EFBEDD01E1C14710070BA2A /* Object Adapter Map Tests */,
+				4ED507D21FBBD12D00AACCCD /* Map & Value Transformer Tests */,
+				4ED507D11FBBD02400AACCCD /* Subclassed Property Tests */,
 			);
 			name = "Adapter Tests";
 			sourceTree = "<group>";
@@ -264,7 +305,7 @@
 				4E0882291E23E42B0031A78A /* Subclass */,
 				4E0882241E23E04B0031A78A /* Value Transformer */,
 				4EFBEDD61E1C62EB0070BA2A /* Creators */,
-				4EFBEDC51E1C0BD90070BA2A /* Property Container */,
+				4EFBEDC51E1C0BD90070BA2A /* Property */,
 				88276A951E13276400D5000E /* Property Mapper */,
 				4EFBEDC61E1C0C220070BA2A /* Property Searcher */,
 				88276A8F1E131CD400D5000E /* Json Adapter */,
@@ -341,6 +382,7 @@
 			files = (
 				4E540BEE1E153D57006B8FF4 /* MAXJsonAdapterProperty.h in Headers */,
 				4E540BEA1E1528A0006B8FF4 /* MAXJsonAdapterNSArraryUtilities.h in Headers */,
+				4ED507CE1FBB9B9100AACCCD /* MAXJASubclassedProperty.h in Headers */,
 				88276A891E11F26900D5000E /* MAXJsonAdapterRuntimeUtilities.h in Headers */,
 				4E0882271E23E07B0031A78A /* MAXJsonAdapterValueTransformer.h in Headers */,
 				4EFBEDCA1E1C0F670070BA2A /* MAXJsonAdapterObjectCreator.h in Headers */,
@@ -456,6 +498,7 @@
 				4E0882281E23E07B0031A78A /* MAXJsonAdapterValueTransformer.m in Sources */,
 				4E540BE41E141704006B8FF4 /* MAXJsonAdapterPropertyMapInfo.m in Sources */,
 				88276A991E13278600D5000E /* MAXJsonAdapterPropertyMapper.m in Sources */,
+				4ED507CF1FBB9B9100AACCCD /* MAXJASubclassedProperty.m in Sources */,
 				4EFBEDCB1E1C0F670070BA2A /* MAXJsonAdapterObjectCreator.m in Sources */,
 				4E4D450B1E1DCE640038D323 /* MAXJsonAdapterPropertySearcher.m in Sources */,
 				4E540BEF1E153D57006B8FF4 /* MAXJsonAdapterProperty.m in Sources */,
@@ -471,6 +514,7 @@
 				88276A9A1E13278600D5000E /* MAXJsonAdapterPropertyMapper.m in Sources */,
 				4EFBEDD91E1C663D0070BA2A /* MAXJADictionaryCreationMapTests.m in Sources */,
 				4E4D450E1E1DD76F0038D323 /* MAXJAPropertySearcherTests.m in Sources */,
+				4ED507D61FBBD22700AACCCD /* MAXJAObjectSubclassCreationTests.m in Sources */,
 				4ED507C71FBA8D9900AACCCD /* MAXNumberToStringTransformer.m in Sources */,
 				88276A8B1E11F26900D5000E /* MAXJsonAdapterRuntimeUtilities.m in Sources */,
 				4EFBEDCF1E1C14670070BA2A /* MAXJAObjectCreationMapTests.m in Sources */,

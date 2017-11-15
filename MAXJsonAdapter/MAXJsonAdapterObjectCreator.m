@@ -7,6 +7,7 @@
 //
 
 #import "MAXJsonAdapterObjectCreator.h"
+#import "MAXJsonAdapterProperty.h"
 
 @implementation MAXJsonAdapterObjectCreator
 
@@ -16,14 +17,18 @@
     
     for (MAXJsonAdapterProperty *currentProperty in properties) {
         
-        if (currentProperty.valueTransformer != nil && currentProperty.value != nil) {
-            id value = [currentProperty.valueTransformer MAXJAObjectCreationFormat: currentProperty.value];
-            if (value != nil) {
-                [object setValue: value forKey: currentProperty.propertyKey];
-            }
+        id value = currentProperty.value;
+        
+        if (currentProperty.valueTransformer != nil && value != nil) {
+         value = [currentProperty.valueTransformer MAXJAObjectCreationFormat: currentProperty.value];
         }
-        else if(currentProperty.value != nil) {
-            [object setValue: currentProperty.value forKey: currentProperty.propertyKey];
+        
+        if (currentProperty.subclassedProperty != nil && value != nil) {
+            value = [currentProperty.subclassedProperty objectFromValue: value];
+        }
+       
+        if (value != nil) {
+            [object setValue: value forKey: currentProperty.propertyKey];
         }
         
     }

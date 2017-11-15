@@ -10,6 +10,7 @@
 
 @class MAXJsonAdapterPropertyMap;
 @class MAXJsonAdapterValueTransformer;
+@class MAXJASubclassedProperty;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -60,11 +61,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - Value Transformers
 
+/**
+ @description This method returns value transformers for the properties you want to transform the values of during serialization or deserialization. In order to create your value transformer you have to subclass MAXJsonAdapterValueTransformer with the corresponding transform method. Best is to have both of the transform methods implemented so it can be used for both serializationa and deserialization of JSON.
+ */
 -(NSArray <MAXJsonAdapterValueTransformer *> *)MAXJAPropertyValueTransformers;
 
 #pragma mark - Subclasses
 
-
+/**
+ @description
+ */
+-(NSArray <MAXJASubclassedProperty *> *)MAXJASubclassedProperties;
 
 @end
 
@@ -78,6 +85,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 +(id)MAXJACreateObjectOfClass:(Class)aClass delegate:(nullable id <MAXJsonAdapterDelegate>)delegate fromDictionary:(NSDictionary *)dictionary;
 
+/**
+ @description Creates a list of objects based on a class and a delegate to create the objects, map values, ignore values amongst other things.
+ */
 +(NSArray *)MAXJACreateObjectsOfClass:(Class)aClass delegate:(nullable id <MAXJsonAdapterDelegate>)delegate fromArray:(NSArray <NSDictionary *> *)array;
 
 #pragma mark - Methods For Dictionary Creation From Model Objects
@@ -91,6 +101,12 @@ NS_ASSUME_NONNULL_BEGIN
  @description In some cases you want to have a list of objects from a single object which is handle by the map delegate. In those cases you have to use this method over the dictionary alternative of the method.
  */
 +(NSArray <NSObject *> *)MAXJAArrayFromObject:(id)object delegate:(nullable id <MAXJsonAdapterDelegate> )delegate;
+
+/**
+ @description Creates a list of dictionaries from a list of objects.
+ */
++(NSArray <NSObject *> *)MAXJAArrayFromArray:(NSArray <NSObject *> *)objects delegate:(nullable id <MAXJsonAdapterDelegate>)delegate;
+
 
 
 @end

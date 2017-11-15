@@ -64,6 +64,14 @@
         
     }
     
+    if ([delegate respondsToSelector: @selector(MAXJASubclassedProperties)] == YES) {
+        
+        NSArray <MAXJASubclassedProperty *> *subclassedProperties = [delegate MAXJASubclassedProperties];
+        
+        [self p_assignSubclassProperties: subclassedProperties toProperties: adapterProperties];
+        
+    }
+    
     return adapterProperties;
 }
 
@@ -116,6 +124,15 @@
         NSArray <MAXJsonAdapterValueTransformer *> *valueTransformers = [delegate MAXJAPropertyValueTransformers];
         
         [self p_assignValueTransformers: valueTransformers toProperties: adapterProperties];
+        
+    }
+    
+    // check if we have any properties that are subclassed
+    if ([delegate respondsToSelector: @selector(MAXJASubclassedProperties)] == YES) {
+        
+        NSArray <MAXJASubclassedProperty *> *subclassedProperties = [delegate MAXJASubclassedProperties];
+        
+        [self p_assignSubclassProperties: subclassedProperties toProperties: adapterProperties];
         
     }
     
@@ -189,6 +206,25 @@
 
 #pragma mark - Private Helpers
 
++(void)p_assignSubclassProperties:(NSArray <MAXJASubclassedProperty *> *)subclassedProperties toProperties:(NSArray <MAXJsonAdapterProperty *> *)properties {
+    
+    for (MAXJASubclassedProperty *currentSubclass in subclassedProperties) {
+        
+        for (MAXJsonAdapterProperty *currentProperty in properties) {
+            
+            if ([currentSubclass.propertyKey isEqualToString: currentProperty.propertyKey]) {
+                currentProperty.subclassedProperty = currentSubclass;
+            }
+            
+        }
+        
+    }
+    
+}
+
+/**
+ @description Assigns value transformers to properties if the property names match themselves.
+ */
 +(void)p_assignValueTransformers:(NSArray <MAXJsonAdapterValueTransformer *> *)valueTransformers toProperties:(NSArray <MAXJsonAdapterProperty *> *)properties {
     
     for (MAXJsonAdapterValueTransformer *currentValueTransformer in valueTransformers) {

@@ -7,6 +7,7 @@
 //
 
 #import "MAXJsonAdapterDictionaryCreator.h"
+#import "MAXJsonAdapterProperty.h"
 
 @implementation MAXJsonAdapterDictionaryCreator
 
@@ -38,6 +39,11 @@
         if (currentProperty.valueTransformer != nil) {
             value = [currentProperty.valueTransformer MAXJAJsonFormat: value];
         }
+        
+        // if we have a subclassed property we want to serialize it.
+        if (currentProperty.subclassedProperty != nil) {
+            value = [currentProperty.subclassedProperty JSONObjectFromValue: value];
+        }
     
         // if the property has a mapper we need to map it appropriately.
         if (currentProperty.propertyMap != nil && value != nil) {
@@ -63,6 +69,10 @@
         id value = currentProperty.value;
         if (currentProperty.valueTransformer != nil) {
             value = [currentProperty.valueTransformer MAXJAJsonFormat: value];
+        }
+        
+        if (currentProperty.subclassedProperty != nil) {
+            value = [currentProperty.subclassedProperty JSONObjectFromValue: value];
         }
         
         // we are creating an array of values from a single object so we know we will need to map the values in order to get an array from an object.

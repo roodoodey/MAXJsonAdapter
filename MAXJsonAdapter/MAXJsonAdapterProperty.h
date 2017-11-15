@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "MAXJsonAdapterPropertyMapInfo.h"
 #import "MAXJsonAdapterValueTransformer.h"
+#import "MAXJASubclassedProperty.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -34,6 +35,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, strong, nullable) MAXJsonAdapterValueTransformer *valueTransformer;
 
+/**
+ @description The subclassed proeprty convert object
+ */
+@property (nonatomic, strong, nullable) MAXJASubclassedProperty *subclassedProperty;
 
 @end
 

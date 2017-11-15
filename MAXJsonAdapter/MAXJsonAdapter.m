@@ -118,6 +118,18 @@
     return array;
 }
 
++(NSArray <NSObject *> *)MAXJAArrayFromArray:(NSArray<NSObject *> *)objects delegate:(id<MAXJsonAdapterDelegate>)delegate {
+        
+    NSMutableArray *array = [NSMutableArray array];
+    
+    for (NSObject *currentObject in objects) {
+        NSDictionary *dict = [MAXJsonAdapter MAXJADictFromObject: currentObject delegate: delegate];
+        [array addObject: dict];
+    }
+    
+    return array;
+}
+
 -(NSArray <MAXJsonAdapterProperty *> *)p_populateProperties:(NSArray <MAXJsonAdapterProperty *> *)properties withObject:(id)object {
     
     for (MAXJsonAdapterProperty *currentProperty in properties) {

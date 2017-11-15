@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "MAXJsonAdapterProperty.h"
+@class MAXJsonAdapterProperty;
 
 @interface MAXJsonAdapterDictionaryCreator : NSObject
 
