@@ -24,6 +24,7 @@
 		4ED507CF1FBB9B9100AACCCD /* MAXJASubclassedProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED507CD1FBB9B9100AACCCD /* MAXJASubclassedProperty.m */; };
 		4ED507D61FBBD22700AACCCD /* MAXJAObjectSubclassCreationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED507D51FBBD22700AACCCD /* MAXJAObjectSubclassCreationTests.m */; };
 		4ED507DA1FBD082500AACCCD /* MAXJAObjectNestedSubclassCreationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED507D91FBD082500AACCCD /* MAXJAObjectNestedSubclassCreationTests.m */; };
+		4ED507DE1FBD1EB000AACCCD /* MAXJADictionarySubclassCreationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED507DD1FBD1EB000AACCCD /* MAXJADictionarySubclassCreationTests.m */; };
 		4EFBEDCA1E1C0F670070BA2A /* MAXJsonAdapterObjectCreator.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EFBEDC81E1C0F670070BA2A /* MAXJsonAdapterObjectCreator.h */; };
 		4EFBEDCB1E1C0F670070BA2A /* MAXJsonAdapterObjectCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EFBEDC91E1C0F670070BA2A /* MAXJsonAdapterObjectCreator.m */; };
 		4EFBEDCF1E1C14670070BA2A /* MAXJAObjectCreationMapTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EFBEDCE1E1C14670070BA2A /* MAXJAObjectCreationMapTests.m */; };
@@ -75,6 +76,7 @@
 		4ED507CD1FBB9B9100AACCCD /* MAXJASubclassedProperty.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MAXJASubclassedProperty.m; sourceTree = "<group>"; };
 		4ED507D51FBBD22700AACCCD /* MAXJAObjectSubclassCreationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MAXJAObjectSubclassCreationTests.m; sourceTree = "<group>"; };
 		4ED507D91FBD082500AACCCD /* MAXJAObjectNestedSubclassCreationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MAXJAObjectNestedSubclassCreationTests.m; sourceTree = "<group>"; };
+		4ED507DD1FBD1EB000AACCCD /* MAXJADictionarySubclassCreationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MAXJADictionarySubclassCreationTests.m; sourceTree = "<group>"; };
 		4EFBEDC81E1C0F670070BA2A /* MAXJsonAdapterObjectCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAXJsonAdapterObjectCreator.h; sourceTree = "<group>"; };
 		4EFBEDC91E1C0F670070BA2A /* MAXJsonAdapterObjectCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAXJsonAdapterObjectCreator.m; sourceTree = "<group>"; };
 		4EFBEDCE1E1C14670070BA2A /* MAXJAObjectCreationMapTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAXJAObjectCreationMapTests.m; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 		4ED507D41FBBD20B00AACCCD /* Json Creation */ = {
 			isa = PBXGroup;
 			children = (
+				4ED507DD1FBD1EB000AACCCD /* MAXJADictionarySubclassCreationTests.m */,
 			);
 			name = "Json Creation";
 			sourceTree = "<group>";
@@ -522,6 +525,7 @@
 				4ED507C71FBA8D9900AACCCD /* MAXNumberToStringTransformer.m in Sources */,
 				88276A8B1E11F26900D5000E /* MAXJsonAdapterRuntimeUtilities.m in Sources */,
 				4EFBEDCF1E1C14670070BA2A /* MAXJAObjectCreationMapTests.m in Sources */,
+				4ED507DE1FBD1EB000AACCCD /* MAXJADictionarySubclassCreationTests.m in Sources */,
 				4E0882201E2017030031A78A /* MAXJAArrayDictionaryCreationMapTests.m in Sources */,
 				88276A7C1E11F1F200D5000E /* MAXJsonAdapterTests.m in Sources */,
 				88276A8E1E11F84B00D5000E /* MAXJARuntimeUtilitiesTests.m in Sources */,
