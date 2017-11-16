@@ -58,6 +58,42 @@
 
 @end
 
+@interface MAXMapPersonNameDelegate : NSObject <MAXJsonAdapterDelegate>
+
+@end
+
+@implementation MAXMapPersonNameDelegate
+
+-(NSArray <MAXJASubclassedProperty *> *)MAXJASubclassedProperties {
+    
+    return @[[MAXJASubclassedProperty MAXJAPropertyKey: @"person" class: [MAXJASingleContainedObject class] delegate: nil]];
+}
+
+-(NSArray <MAXJsonAdapterPropertyMap *> *)MAXJAPropertiesToMapDictionaryCreation {
+    
+    return @[[MAXJsonAdapterPropertyMap MAXJACreateMapWithNewKey: @"person" nextPropertyMap: [MAXJsonAdapterPropertyMap MAXJACreateMapWithNewKey: @"personData" nextPropertyMap: nil]]];
+}
+
+@end
+
+@interface MAXMapArrayPersonNameDelegate : NSObject <MAXJsonAdapterDelegate>
+
+@end
+
+@implementation MAXMapArrayPersonNameDelegate
+
+-(NSArray <MAXJASubclassedProperty *> *)MAXJASubclassedProperties {
+    
+    return @[[MAXJASubclassedProperty MAXJAPropertyKey: @"persons" class: [MAXJASingleContainedObject class] delegate: nil]];
+}
+
+-(NSArray <MAXJsonAdapterPropertyMap *> *)MAXJAPropertiesToMapDictionaryCreation {
+    
+    return @[[MAXJsonAdapterPropertyMap MAXJACreateMapWithNewKey: @"persons" nextPropertyMap: [MAXJsonAdapterPropertyMap MAXJACreateMapWithNewKey: @"personsData" nextPropertyMap: nil]]];
+}
+
+@end
+
 @interface MAXJADictionarySubclassCreationTests : XCTestCase
 
 @end
@@ -95,6 +131,27 @@
     
 }
 
+-(void)testDictFromOneLEvelNestedObjectWithTopLevelMapping {
+    
+    MAXPersonObject *person = [[MAXPersonObject alloc] init];
+    person.personIdentifier = @"123";
+    
+    MAXJASingleContainedObject *containedObj = [[MAXJASingleContainedObject alloc] init];
+    containedObj.firstName = @"Julian";
+    containedObj.lastName = @"Delphiki";
+    containedObj.age = @23;
+    
+    person.person = containedObj;
+    
+    NSDictionary *dict = [MAXJsonAdapter MAXJADictFromObject: person delegate: [MAXMapPersonNameDelegate new]];
+    
+    XCTAssertEqualObjects([dict objectForKey: @"personIdentifier"], @"123");
+    XCTAssertEqualObjects([[dict objectForKey: @"personData"] objectForKey: @"firstName"], @"Julian");
+    XCTAssertEqualObjects([[dict objectForKey: @"personData"] objectForKey: @"lastName"], @"Delphiki");
+    XCTAssertEqualObjects([[dict objectForKey: @"personData"] objectForKey: @"age"], @23);
+    
+}
+
 -(void)testArrayFromOneLevelNestedObject {
     
     MAXArrayPersonObject *person = [[MAXArrayPersonObject alloc] init];
@@ -122,6 +179,39 @@
     XCTAssertEqualObjects([firstObj objectForKey:@"age"], @34);
     
     NSDictionary *secondObj = [[dict objectForKey:@"persons"] objectAtIndex: 1];
+    XCTAssertEqualObjects([secondObj objectForKey:@"firstName"], @"Valentine");
+    XCTAssertEqualObjects([secondObj objectForKey:@"lastName"], @"Wiggin");
+    XCTAssertEqualObjects([secondObj objectForKey:@"age"], @24);
+    
+}
+
+-(void)testArrayFromOneLevelNestedObjectWithTopLevelMapping {
+    
+    MAXArrayPersonObject *person = [[MAXArrayPersonObject alloc] init];
+    person.personIdentifier = @"123456";
+    
+    MAXJASingleContainedObject *containedObjOne = [[MAXJASingleContainedObject alloc] init];
+    containedObjOne.firstName = @"Ender";
+    containedObjOne.lastName = @"Wiggin";
+    containedObjOne.age = @34;
+    
+    MAXJASingleContainedObject *containedObjTwo = [[MAXJASingleContainedObject alloc] init];
+    containedObjTwo.firstName = @"Valentine";
+    containedObjTwo.lastName = @"Wiggin";
+    containedObjTwo.age = @24;
+    
+    person.persons = @[containedObjOne, containedObjTwo];
+    
+    NSDictionary *dict = [MAXJsonAdapter MAXJADictFromObject: person delegate: [MAXMapArrayPersonNameDelegate new]];
+    
+    XCTAssertEqualObjects([dict objectForKey:@"personIdentifier"], @"123456");
+    
+    NSDictionary *firstObj = [[dict objectForKey:@"personsData"] objectAtIndex: 0];
+    XCTAssertEqualObjects([firstObj objectForKey:@"firstName"], @"Ender");
+    XCTAssertEqualObjects([firstObj objectForKey:@"lastName"], @"Wiggin");
+    XCTAssertEqualObjects([firstObj objectForKey:@"age"], @34);
+    
+    NSDictionary *secondObj = [[dict objectForKey:@"personsData"] objectAtIndex: 1];
     XCTAssertEqualObjects([secondObj objectForKey:@"firstName"], @"Valentine");
     XCTAssertEqualObjects([secondObj objectForKey:@"lastName"], @"Wiggin");
     XCTAssertEqualObjects([secondObj objectForKey:@"age"], @24);
