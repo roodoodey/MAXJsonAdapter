@@ -12,7 +12,7 @@
 #import "MAXJASubclassedProperty.h"
 #import "MAXJsonAdapterPropertyMapInfo.h"
 
-@interface MAXJASingleContainedObject : NSObject
+@interface MAXJASingleContainedObject : NSObject <MAXJsonAdapterDelegate>
 
 @property (nonatomic, strong) NSString *firstName;
 @property (nonatomic, strong) NSString *lastName;
@@ -21,6 +21,15 @@
 @end
 
 @implementation MAXJASingleContainedObject
+
+-(NSArray <MAXJsonAdapterPropertyMap *> *)MAXJAPropertiesToMapDictionaryCreation {
+    
+    return @[
+             [MAXJsonAdapterPropertyMap MAXJACreateMapWithNewKey: @"age" nextPropertyMap: [MAXJsonAdapterPropertyMap MAXJACreateMapWithNewKey: @"ageNumber" nextPropertyMap: nil]],
+             [MAXJsonAdapterPropertyMap MAXJACreateMapWithNewKey: @"firstName" nextPropertyMap: [MAXJsonAdapterPropertyMap MAXJACreateMapWithNewKey: @"name" nextPropertyMap: nil]]
+             ];
+}
+
 
 @end
 
@@ -41,6 +50,23 @@
 
 @end
 
+@interface MAXPersonObjectWithMapping : NSObject <MAXJsonAdapterDelegate>
+
+@property (nonatomic, strong) NSString *personIdentifier;
+
+@property (nonatomic, strong) MAXJASingleContainedObject *person;
+
+@end
+
+@implementation MAXPersonObjectWithMapping
+
+-(NSArray <MAXJASubclassedProperty *> *)MAXJASubclassedProperties {
+    
+    return @[[MAXJASubclassedProperty MAXJAPropertyKey: @"person" class: [MAXJASingleContainedObject class] delegate: [MAXJASingleContainedObject new]]];
+}
+
+@end
+
 @interface MAXArrayPersonObject : NSObject <MAXJsonAdapterDelegate>
 
 @property (nonatomic, strong) NSString *personIdentifier;
@@ -54,6 +80,23 @@
 -(NSArray <MAXJASubclassedProperty *> *)MAXJASubclassedProperties {
     
     return @[[MAXJASubclassedProperty MAXJAPropertyKey: @"persons" class: [MAXJASingleContainedObject class] delegate: nil]];
+}
+
+@end
+
+@interface MAXArrayPersonObjectWithMapping : NSObject <MAXJsonAdapterDelegate>
+
+@property (nonatomic, strong) NSString *personIdentifier;
+
+@property (nonatomic, strong) NSArray <MAXJASingleContainedObject *> *persons;
+
+@end
+
+@implementation MAXArrayPersonObjectWithMapping
+
+-(NSArray <MAXJASubclassedProperty *> *)MAXJASubclassedProperties {
+    
+    return @[[MAXJASubclassedProperty MAXJAPropertyKey: @"persons" class: [MAXJASingleContainedObject class] delegate: [MAXJASingleContainedObject new]]];
 }
 
 @end
@@ -152,6 +195,27 @@
     
 }
 
+-(void)testDictFromOneLevelNestedObjectWithSecondLevelMapping {
+    
+    MAXPersonObjectWithMapping *person = [[MAXPersonObjectWithMapping alloc] init];
+    person.personIdentifier = @"123";
+    
+    MAXJASingleContainedObject *containedObj = [[MAXJASingleContainedObject alloc] init];
+    containedObj.firstName = @"Julian";
+    containedObj.lastName = @"Delphiki";
+    containedObj.age = @23;
+    
+    person.person = containedObj;
+    
+    NSDictionary *dict = [MAXJsonAdapter MAXJADictFromObject: person delegate: [MAXPersonObjectWithMapping new]];
+    
+    XCTAssertEqualObjects([dict objectForKey: @"personIdentifier"], @"123");
+    XCTAssertEqualObjects([[dict objectForKey: @"person"] objectForKey: @"name"], @"Julian");
+    XCTAssertEqualObjects([[dict objectForKey: @"person"] objectForKey: @"lastName"], @"Delphiki");
+    XCTAssertEqualObjects([[dict objectForKey: @"person"] objectForKey: @"ageNumber"], @23);
+    
+}
+
 -(void)testArrayFromOneLevelNestedObject {
     
     MAXArrayPersonObject *person = [[MAXArrayPersonObject alloc] init];
@@ -215,6 +279,39 @@
     XCTAssertEqualObjects([secondObj objectForKey:@"firstName"], @"Valentine");
     XCTAssertEqualObjects([secondObj objectForKey:@"lastName"], @"Wiggin");
     XCTAssertEqualObjects([secondObj objectForKey:@"age"], @24);
+    
+}
+
+-(void)testArrayFromOneLevelNestedObjectWithSecondLevelMapping {
+    
+    MAXArrayPersonObjectWithMapping *person = [[MAXArrayPersonObjectWithMapping alloc] init];
+    person.personIdentifier = @"123456";
+    
+    MAXJASingleContainedObject *containedObjOne = [[MAXJASingleContainedObject alloc] init];
+    containedObjOne.firstName = @"Ender";
+    containedObjOne.lastName = @"Wiggin";
+    containedObjOne.age = @34;
+    
+    MAXJASingleContainedObject *containedObjTwo = [[MAXJASingleContainedObject alloc] init];
+    containedObjTwo.firstName = @"Valentine";
+    containedObjTwo.lastName = @"Wiggin";
+    containedObjTwo.age = @24;
+    
+    person.persons = @[containedObjOne, containedObjTwo];
+    
+    NSDictionary *dict = [MAXJsonAdapter MAXJADictFromObject: person delegate: [MAXArrayPersonObjectWithMapping new]];
+    
+    XCTAssertEqualObjects([dict objectForKey:@"personIdentifier"], @"123456");
+    
+    NSDictionary *firstObj = [[dict objectForKey:@"persons"] objectAtIndex: 0];
+    XCTAssertEqualObjects([firstObj objectForKey:@"name"], @"Ender");
+    XCTAssertEqualObjects([firstObj objectForKey:@"lastName"], @"Wiggin");
+    XCTAssertEqualObjects([firstObj objectForKey:@"ageNumber"], @34);
+    
+    NSDictionary *secondObj = [[dict objectForKey:@"persons"] objectAtIndex: 1];
+    XCTAssertEqualObjects([secondObj objectForKey:@"name"], @"Valentine");
+    XCTAssertEqualObjects([secondObj objectForKey:@"lastName"], @"Wiggin");
+    XCTAssertEqualObjects([secondObj objectForKey:@"ageNumber"], @24);
     
 }
 
