@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "MAXJAPropertyMap.h"
-#import "MAXJsonAdapterValueTransformer.h"
+#import "MAXJAValueTransformer.h"
 #import "MAXJASubclassedProperty.h"
 
 NS_ASSUME_NONNULL_BEGIN

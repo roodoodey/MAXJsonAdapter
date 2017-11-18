@@ -6,7 +6,7 @@
 //  Copyright © 2017 Konta ehf. All rights reserved.
 //
 
-#import "MAXJsonAdapterValueTransformer.h"
+#import "MAXJAValueTransformer.h"
 
 @implementation MAXJAValueTransformer
 
