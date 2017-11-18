@@ -12,6 +12,7 @@
 		4E1A01E41FBFDD5500626F2D /* MAXJAObjectNestedSubclassCreationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E1A01E31FBFDD5500626F2D /* MAXJAObjectNestedSubclassCreationTests.m */; };
 		4E1A01E71FBFDE2500626F2D /* MAXNumberToStringTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E1A01E51FBFDE2500626F2D /* MAXNumberToStringTransformer.m */; };
 		4E1A01E91FBFDE3200626F2D /* MAXJADictionaryCreationMapTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E1A01E81FBFDE3200626F2D /* MAXJADictionaryCreationMapTests.m */; };
+		4E1A01EB1FBFDF9000626F2D /* MAXJAArrayDictionaryCreationMapTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E1A01EA1FBFDF9000626F2D /* MAXJAArrayDictionaryCreationMapTests.m */; };
 		4EEA8C5E1FBFD3B0006673F0 /* MAXJARuntimeUtilitiesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEA8C5C1FBFD3B0006673F0 /* MAXJARuntimeUtilitiesTests.m */; };
 		4EEA8C621FBFD4FC006673F0 /* MAXJAPropertyMapTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEA8C611FBFD4FC006673F0 /* MAXJAPropertyMapTests.m */; };
 		4EEA8C641FBFD860006673F0 /* MAXJAPropertySearcherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEA8C631FBFD860006673F0 /* MAXJAPropertySearcherTests.m */; };
@@ -52,6 +53,7 @@
 		4E1A01E51FBFDE2500626F2D /* MAXNumberToStringTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAXNumberToStringTransformer.m; sourceTree = "<group>"; };
 		4E1A01E61FBFDE2500626F2D /* MAXNumberToStringTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAXNumberToStringTransformer.h; sourceTree = "<group>"; };
 		4E1A01E81FBFDE3200626F2D /* MAXJADictionaryCreationMapTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAXJADictionaryCreationMapTests.m; sourceTree = "<group>"; };
+		4E1A01EA1FBFDF9000626F2D /* MAXJAArrayDictionaryCreationMapTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAXJAArrayDictionaryCreationMapTests.m; sourceTree = "<group>"; };
 		4EEA8C5C1FBFD3B0006673F0 /* MAXJARuntimeUtilitiesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAXJARuntimeUtilitiesTests.m; sourceTree = "<group>"; };
 		4EEA8C611FBFD4FC006673F0 /* MAXJAPropertyMapTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAXJAPropertyMapTests.m; sourceTree = "<group>"; };
 		4EEA8C631FBFD860006673F0 /* MAXJAPropertySearcherTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAXJAPropertySearcherTests.m; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				4E1A01E81FBFDE3200626F2D /* MAXJADictionaryCreationMapTests.m */,
+				4E1A01EA1FBFDF9000626F2D /* MAXJAArrayDictionaryCreationMapTests.m */,
 			);
 			name = "Dictionary Adapter Map Tests";
 			sourceTree = "<group>";
@@ -533,6 +536,7 @@
 				4E1A01E91FBFDE3200626F2D /* MAXJADictionaryCreationMapTests.m in Sources */,
 				4EEA8C621FBFD4FC006673F0 /* MAXJAPropertyMapTests.m in Sources */,
 				4E1A01E71FBFDE2500626F2D /* MAXNumberToStringTransformer.m in Sources */,
+				4E1A01EB1FBFDF9000626F2D /* MAXJAArrayDictionaryCreationMapTests.m in Sources */,
 				4EEA8C5E1FBFD3B0006673F0 /* MAXJARuntimeUtilitiesTests.m in Sources */,
 				4E1A01E21FBFDBCC00626F2D /* MAXJAObjectSubclassCreationTests.m in Sources */,
 			);
