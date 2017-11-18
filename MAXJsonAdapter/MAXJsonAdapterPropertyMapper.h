@@ -13,7 +13,7 @@
 
 @interface MAXJsonAdapterPropertyMapper : NSObject
 
-#pragma mark - Property Name Map For Object Creation
+#pragma mark - Property Name Map For Object Creation Change
 
 +(NSArray <MAXJsonAdapterProperty *> *)MAXJACreateMappedPropertyListForObjectCreation:(Class)aClass delegate:(id <MAXJsonAdapterDelegate>)delegate;
 
