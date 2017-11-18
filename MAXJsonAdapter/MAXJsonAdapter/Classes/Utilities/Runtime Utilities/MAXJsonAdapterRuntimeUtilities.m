@@ -8,13 +8,13 @@
 
 #import "MAXJsonAdapterRuntimeUtilities.h"
 
-@implementation MAXJsonAdapterRuntimeUtilities
+@implementation MAXJARuntimeUtilities
 
 +(NSArray <NSString *> *)MAXJACreatePropertyNameListWithClass:(Class)aClass {
     
     NSMutableArray <NSString *> *propertyList = [NSMutableArray array];
     
-    [MAXJsonAdapterRuntimeUtilities MAXJAEnumeratePropertiesWithClass: aClass iterationBlock:^(objc_property_t currentProperty, NSNumber *stopIteration) {
+    [MAXJARuntimeUtilities MAXJAEnumeratePropertiesWithClass: aClass iterationBlock:^(objc_property_t currentProperty, NSNumber *stopIteration) {
         
         NSString *propertyName = @(property_getName( currentProperty ));
         

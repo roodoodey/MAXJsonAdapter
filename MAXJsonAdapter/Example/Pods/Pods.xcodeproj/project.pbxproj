@@ -22,7 +22,7 @@
 		622270038B0ED9DB36F0C958097C05C3 /* Pods-MAXJsonAdapter_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 918589997CB2883252E7FC760097DE3D /* Pods-MAXJsonAdapter_Tests-dummy.m */; };
 		769F374C6589BDF28E454E14A112F4D1 /* MAXJAObjectCreator.h in Headers */ = {isa = PBXBuildFile; fileRef = 77AFBB497C40B0EFFFB7EE273746FFD5 /* MAXJAObjectCreator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		772F22129632A1B5A3E9CA8CE2CA4485 /* MAXJAPropertyMapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 755AF034DD7EE31F7DD9DD15E1B76F35 /* MAXJAPropertyMapper.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7786521391B06183244D62696DB95DFB /* MAXJsonAdapterNSArraryUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = F21BE4AA5BC80AEFD98B0D90488BD7C5 /* MAXJsonAdapterNSArraryUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7786521391B06183244D62696DB95DFB /* MAXJANSArraryUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = F21BE4AA5BC80AEFD98B0D90488BD7C5 /* MAXJANSArraryUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		789B9214E98344457A0099BEE0BFD80E /* MAXJAPropertySearcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AB7779C5C48E0910FAFBA7B83068BF0 /* MAXJAPropertySearcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		845FAA380B7B721E2EBEE210A54E3534 /* MAXJsonAdapterRuntimeUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0564AB35E216FE06583E7546237D36 /* MAXJsonAdapterRuntimeUtilities.m */; };
 		93A88A08A30A1CA73CB9831644EA40AE /* MAXJASubclassedProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = F1130F26E738A80090B554F588850B3D /* MAXJASubclassedProperty.m */; };
@@ -36,7 +36,7 @@
 		DB08D2002E4A59E59CC7A28F072658AF /* MAXJAProperty.h in Headers */ = {isa = PBXBuildFile; fileRef = 910011E9E44DA81778531872CC0970E0 /* MAXJAProperty.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC6EF8BCAE96E6C8090F375716988A0C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		F48F030E0DBF11EF31738C3588DE557B /* MAXJsonAdapterRuntimeUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 67E2A584476612CDB1DF486C582DF02D /* MAXJsonAdapterRuntimeUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FDAF99B40D2B8C1B46F4FC630ACAC1DB /* MAXJsonAdapterNSArraryUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = FFC0B95FA23BF25E787BEC33157FBA51 /* MAXJsonAdapterNSArraryUtilities.m */; };
+		FDAF99B40D2B8C1B46F4FC630ACAC1DB /* MAXJANSArraryUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = FFC0B95FA23BF25E787BEC33157FBA51 /* MAXJANSArraryUtilities.m */; };
 		FF55EC04CBF7C12773AEC4251F84EA4A /* MAXJsonAdapter-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BB1D49D126999619473F289BD7D2EA8 /* MAXJsonAdapter-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
@@ -99,11 +99,11 @@
 		E3A1B2AA26ED3016E9C6B26497FD9456 /* MAXJsonAdapter.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MAXJsonAdapter.xcconfig; sourceTree = "<group>"; };
 		EA2B43AEAF967F0FA6838C2AF213BBAF /* Pods-MAXJsonAdapter_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MAXJsonAdapter_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		F1130F26E738A80090B554F588850B3D /* MAXJASubclassedProperty.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MAXJASubclassedProperty.m; sourceTree = "<group>"; };
-		F21BE4AA5BC80AEFD98B0D90488BD7C5 /* MAXJsonAdapterNSArraryUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MAXJsonAdapterNSArraryUtilities.h; sourceTree = "<group>"; };
+		F21BE4AA5BC80AEFD98B0D90488BD7C5 /* MAXJANSArraryUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MAXJANSArraryUtilities.h; sourceTree = "<group>"; };
 		F569738A1B4F373205AB3074163705DB /* MAXJsonAdapter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MAXJsonAdapter.m; sourceTree = "<group>"; };
 		FA9D7B904162DEB0F49542EB7159F804 /* Pods-MAXJsonAdapter_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MAXJsonAdapter_Tests-resources.sh"; sourceTree = "<group>"; };
 		FF0564AB35E216FE06583E7546237D36 /* MAXJsonAdapterRuntimeUtilities.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MAXJsonAdapterRuntimeUtilities.m; sourceTree = "<group>"; };
-		FFC0B95FA23BF25E787BEC33157FBA51 /* MAXJsonAdapterNSArraryUtilities.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MAXJsonAdapterNSArraryUtilities.m; sourceTree = "<group>"; };
+		FFC0B95FA23BF25E787BEC33157FBA51 /* MAXJANSArraryUtilities.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MAXJANSArraryUtilities.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,8 +146,8 @@
 		0881A36FE8ECA824B73AA111A3865BA6 /* NSArray Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				F21BE4AA5BC80AEFD98B0D90488BD7C5 /* MAXJsonAdapterNSArraryUtilities.h */,
-				FFC0B95FA23BF25E787BEC33157FBA51 /* MAXJsonAdapterNSArraryUtilities.m */,
+				F21BE4AA5BC80AEFD98B0D90488BD7C5 /* MAXJANSArraryUtilities.h */,
+				FFC0B95FA23BF25E787BEC33157FBA51 /* MAXJANSArraryUtilities.m */,
 			);
 			path = "NSArray Utilities";
 			sourceTree = "<group>";
@@ -408,7 +408,7 @@
 				C32612A59F94EF69D3CF06D1D3AA911B /* MAXJASubclassedProperty.h in Headers */,
 				FF55EC04CBF7C12773AEC4251F84EA4A /* MAXJsonAdapter-umbrella.h in Headers */,
 				3BB17DD267C365025AD92B0E35E0FDA4 /* MAXJsonAdapter.h in Headers */,
-				7786521391B06183244D62696DB95DFB /* MAXJsonAdapterNSArraryUtilities.h in Headers */,
+				7786521391B06183244D62696DB95DFB /* MAXJANSArraryUtilities.h in Headers */,
 				769F374C6589BDF28E454E14A112F4D1 /* MAXJAObjectCreator.h in Headers */,
 				DB08D2002E4A59E59CC7A28F072658AF /* MAXJAProperty.h in Headers */,
 				104BA85BF0B01C7C8981959BCE8C26D1 /* MAXJAPropertyMap.h in Headers */,
@@ -519,7 +519,7 @@
 				93A88A08A30A1CA73CB9831644EA40AE /* MAXJASubclassedProperty.m in Sources */,
 				29D77B4ACFBBB2F0B9670E4FAE770EAF /* MAXJsonAdapter-dummy.m in Sources */,
 				D42F0F44AA8853EDA8594E7BA6F117C3 /* MAXJsonAdapter.m in Sources */,
-				FDAF99B40D2B8C1B46F4FC630ACAC1DB /* MAXJsonAdapterNSArraryUtilities.m in Sources */,
+				FDAF99B40D2B8C1B46F4FC630ACAC1DB /* MAXJANSArraryUtilities.m in Sources */,
 				28897A824626C21B04FB2666F43FA2A1 /* MAXJAObjectCreator.m in Sources */,
 				4CAB1E078DFE7DA6F0022D3FD83785A6 /* MAXJAProperty.m in Sources */,
 				A972473239FD064078CEAE09DEB7FC57 /* MAXJAPropertyMap.m in Sources */,

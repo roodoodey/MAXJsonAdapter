@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MAXJsonAdapterRuntimeUtilities : NSObject
+@interface MAXJARuntimeUtilities : NSObject
 
 /**
  @abstract Creates an NSDictionary with the property names for the given class as the key and value and all of its subclasses property names.
