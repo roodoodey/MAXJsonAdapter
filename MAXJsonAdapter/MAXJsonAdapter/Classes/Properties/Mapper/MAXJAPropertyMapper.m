@@ -8,7 +8,7 @@
 
 #import "MAXJAPropertyMapper.h"
 #import "MAXJANSArraryUtilities.h"
-#import "MAXJsonAdapterRuntimeUtilities.h"
+#import "MAXJARuntimeUtilities.h"
 #import "MAXJAValueTransformer.h"
 
 @implementation MAXJAPropertyMapper

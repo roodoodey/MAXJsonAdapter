@@ -6,7 +6,7 @@
 //  Copyright © 2016 Konta ehf. All rights reserved.
 //
 
-#import "MAXJsonAdapterRuntimeUtilities.h"
+#import "MAXJARuntimeUtilities.h"
 
 @implementation MAXJARuntimeUtilities
 
