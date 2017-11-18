@@ -7,7 +7,7 @@
 //
 
 #import "MAXJsonAdapterPropertySearcher.h"
-#import "MAXJsonAdapterPropertyMapInfo.h"
+#import "MAXJAPropertyMap.h"
 
 @implementation MAXJsonAdapterPropertySearcher
 

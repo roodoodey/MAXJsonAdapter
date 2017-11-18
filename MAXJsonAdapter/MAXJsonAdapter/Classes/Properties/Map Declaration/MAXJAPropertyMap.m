@@ -6,7 +6,7 @@
 //  Copyright © 2016 Konta ehf. All rights reserved.
 //
 
-#import "MAXJsonAdapterPropertyMapInfo.h"
+#import "MAXJAPropertyMap.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

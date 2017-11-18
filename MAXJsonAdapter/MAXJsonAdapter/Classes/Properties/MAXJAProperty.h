@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MAXJsonAdapterPropertyMapInfo.h"
+#import "MAXJAPropertyMap.h"
 #import "MAXJsonAdapterValueTransformer.h"
 #import "MAXJASubclassedProperty.h"
 
