@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MAXJsonAdapterValueTransformer : NSObject
+@interface MAXJAValueTransformer : NSObject
 
 @property (nonatomic, strong) NSString *propertyKey;
 

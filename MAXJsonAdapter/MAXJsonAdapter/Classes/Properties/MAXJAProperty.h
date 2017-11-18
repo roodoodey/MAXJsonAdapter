@@ -33,7 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  @description The value transformer for the property
  */
-@property (nonatomic, strong, nullable) MAXJsonAdapterValueTransformer *valueTransformer;
+@property (nonatomic, strong, nullable) MAXJAValueTransformer *valueTransformer;
 
 /**
  @description The subclassed proeprty convert object

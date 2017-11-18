@@ -8,7 +8,7 @@
 
 #import "MAXJsonAdapterValueTransformer.h"
 
-@implementation MAXJsonAdapterValueTransformer
+@implementation MAXJAValueTransformer
 
 #pragma mark - Private Initializers
 

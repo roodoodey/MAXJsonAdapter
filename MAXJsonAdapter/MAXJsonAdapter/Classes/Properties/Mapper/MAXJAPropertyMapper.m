@@ -58,7 +58,7 @@
     
     if ([delegate respondsToSelector: @selector(MAXJAPropertyValueTransformers)] == YES) {
         
-        NSArray <MAXJsonAdapterValueTransformer *> *valueTransformers = [delegate MAXJAPropertyValueTransformers];
+        NSArray <MAXJAValueTransformer *> *valueTransformers = [delegate MAXJAPropertyValueTransformers];
         
         [self p_assignValueTransformers: valueTransformers toProperties: adapterProperties];
         
@@ -121,7 +121,7 @@
     // checks if there are value transformers added to specific properties.
     if ([delegate respondsToSelector: @selector(MAXJAPropertyValueTransformers)] == YES) {
         
-        NSArray <MAXJsonAdapterValueTransformer *> *valueTransformers = [delegate MAXJAPropertyValueTransformers];
+        NSArray <MAXJAValueTransformer *> *valueTransformers = [delegate MAXJAPropertyValueTransformers];
         
         [self p_assignValueTransformers: valueTransformers toProperties: adapterProperties];
         
@@ -225,9 +225,9 @@
 /**
  @description Assigns value transformers to properties if the property names match themselves.
  */
-+(void)p_assignValueTransformers:(NSArray <MAXJsonAdapterValueTransformer *> *)valueTransformers toProperties:(NSArray <MAXJAProperty *> *)properties {
++(void)p_assignValueTransformers:(NSArray <MAXJAValueTransformer *> *)valueTransformers toProperties:(NSArray <MAXJAProperty *> *)properties {
     
-    for (MAXJsonAdapterValueTransformer *currentValueTransformer in valueTransformers) {
+    for (MAXJAValueTransformer *currentValueTransformer in valueTransformers) {
         
         for (MAXJAProperty *currentProperty in properties) {
             

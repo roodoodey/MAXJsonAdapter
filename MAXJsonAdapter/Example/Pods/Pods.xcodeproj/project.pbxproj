@@ -10,7 +10,7 @@
 		0C87C855BDB0DD068DFB031810B6CDD1 /* Pods-MAXJsonAdapter_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 62C5E1A7997E7B0ED890006FA40E75FB /* Pods-MAXJsonAdapter_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		104BA85BF0B01C7C8981959BCE8C26D1 /* MAXJAPropertyMap.h in Headers */ = {isa = PBXBuildFile; fileRef = B663F4BAFF9DA7ACE6041C157CE45096 /* MAXJAPropertyMap.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1302CC64D68401102B9ED57EA6992CC7 /* MAXJsonAdapterValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = C217F3A27EBC35DC90FDBDA11CB28F35 /* MAXJsonAdapterValueTransformer.m */; };
-		1CC524449B1809F537A6BE6D8572833D /* MAXJsonAdapterPropertySearcher.m in Sources */ = {isa = PBXBuildFile; fileRef = DF901B606DA9E11392433B6CB8995989 /* MAXJsonAdapterPropertySearcher.m */; };
+		1CC524449B1809F537A6BE6D8572833D /* MAXJAPropertySearcher.m in Sources */ = {isa = PBXBuildFile; fileRef = DF901B606DA9E11392433B6CB8995989 /* MAXJAPropertySearcher.m */; };
 		28897A824626C21B04FB2666F43FA2A1 /* MAXJAObjectCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = BB2C80B729C35D13847A1FFBB73E6DDA /* MAXJAObjectCreator.m */; };
 		29D77B4ACFBBB2F0B9670E4FAE770EAF /* MAXJsonAdapter-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F2085F62EA70650A977A9ED4467A32A /* MAXJsonAdapter-dummy.m */; };
 		2FF14BE5BDD00CF5B53DDE365830793D /* MAXJADictionaryCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = AF4898DE3A08DBCBB6DB272346CDE021 /* MAXJADictionaryCreator.m */; };
@@ -23,7 +23,7 @@
 		769F374C6589BDF28E454E14A112F4D1 /* MAXJAObjectCreator.h in Headers */ = {isa = PBXBuildFile; fileRef = 77AFBB497C40B0EFFFB7EE273746FFD5 /* MAXJAObjectCreator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		772F22129632A1B5A3E9CA8CE2CA4485 /* MAXJAPropertyMapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 755AF034DD7EE31F7DD9DD15E1B76F35 /* MAXJAPropertyMapper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7786521391B06183244D62696DB95DFB /* MAXJsonAdapterNSArraryUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = F21BE4AA5BC80AEFD98B0D90488BD7C5 /* MAXJsonAdapterNSArraryUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		789B9214E98344457A0099BEE0BFD80E /* MAXJsonAdapterPropertySearcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AB7779C5C48E0910FAFBA7B83068BF0 /* MAXJsonAdapterPropertySearcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		789B9214E98344457A0099BEE0BFD80E /* MAXJAPropertySearcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AB7779C5C48E0910FAFBA7B83068BF0 /* MAXJAPropertySearcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		845FAA380B7B721E2EBEE210A54E3534 /* MAXJsonAdapterRuntimeUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0564AB35E216FE06583E7546237D36 /* MAXJsonAdapterRuntimeUtilities.m */; };
 		93A88A08A30A1CA73CB9831644EA40AE /* MAXJASubclassedProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = F1130F26E738A80090B554F588850B3D /* MAXJASubclassedProperty.m */; };
 		A972473239FD064078CEAE09DEB7FC57 /* MAXJAPropertyMap.m in Sources */ = {isa = PBXBuildFile; fileRef = DFC65EA09CA034597D61C475701A17D0 /* MAXJAPropertyMap.m */; };
@@ -52,7 +52,7 @@
 
 /* Begin PBXFileReference section */
 		0836A77B2A06DCAB975F7A865BBF5024 /* Pods-MAXJsonAdapter_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MAXJsonAdapter_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		0AB7779C5C48E0910FAFBA7B83068BF0 /* MAXJsonAdapterPropertySearcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MAXJsonAdapterPropertySearcher.h; sourceTree = "<group>"; };
+		0AB7779C5C48E0910FAFBA7B83068BF0 /* MAXJAPropertySearcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MAXJAPropertySearcher.h; sourceTree = "<group>"; };
 		1334FD66364C52D0F7CDEDB99EF5EAF5 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1C2C19D6003DA6CDED30A5838F4193BE /* MAXJsonAdapter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MAXJsonAdapter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		220EE1CDC869E87FA44A8BE43FB76B98 /* Pods-MAXJsonAdapter_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MAXJsonAdapter_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
@@ -93,7 +93,7 @@
 		BB2C80B729C35D13847A1FFBB73E6DDA /* MAXJAObjectCreator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MAXJAObjectCreator.m; sourceTree = "<group>"; };
 		C217F3A27EBC35DC90FDBDA11CB28F35 /* MAXJsonAdapterValueTransformer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MAXJsonAdapterValueTransformer.m; sourceTree = "<group>"; };
 		C426ADF713D6BB09643159AA1412CC8E /* MAXJsonAdapter-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MAXJsonAdapter-prefix.pch"; sourceTree = "<group>"; };
-		DF901B606DA9E11392433B6CB8995989 /* MAXJsonAdapterPropertySearcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MAXJsonAdapterPropertySearcher.m; sourceTree = "<group>"; };
+		DF901B606DA9E11392433B6CB8995989 /* MAXJAPropertySearcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MAXJAPropertySearcher.m; sourceTree = "<group>"; };
 		DFC65EA09CA034597D61C475701A17D0 /* MAXJAPropertyMap.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MAXJAPropertyMap.m; sourceTree = "<group>"; };
 		E1970AF058AF3142A666A20DAA748F91 /* Pods-MAXJsonAdapter_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MAXJsonAdapter_Example.release.xcconfig"; sourceTree = "<group>"; };
 		E3A1B2AA26ED3016E9C6B26497FD9456 /* MAXJsonAdapter.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MAXJsonAdapter.xcconfig; sourceTree = "<group>"; };
@@ -375,8 +375,8 @@
 		F411C270677BEDBC9A06655A91CDBEE7 /* Searcher */ = {
 			isa = PBXGroup;
 			children = (
-				0AB7779C5C48E0910FAFBA7B83068BF0 /* MAXJsonAdapterPropertySearcher.h */,
-				DF901B606DA9E11392433B6CB8995989 /* MAXJsonAdapterPropertySearcher.m */,
+				0AB7779C5C48E0910FAFBA7B83068BF0 /* MAXJAPropertySearcher.h */,
+				DF901B606DA9E11392433B6CB8995989 /* MAXJAPropertySearcher.m */,
 			);
 			path = Searcher;
 			sourceTree = "<group>";
@@ -413,7 +413,7 @@
 				DB08D2002E4A59E59CC7A28F072658AF /* MAXJAProperty.h in Headers */,
 				104BA85BF0B01C7C8981959BCE8C26D1 /* MAXJAPropertyMap.h in Headers */,
 				772F22129632A1B5A3E9CA8CE2CA4485 /* MAXJAPropertyMapper.h in Headers */,
-				789B9214E98344457A0099BEE0BFD80E /* MAXJsonAdapterPropertySearcher.h in Headers */,
+				789B9214E98344457A0099BEE0BFD80E /* MAXJAPropertySearcher.h in Headers */,
 				F48F030E0DBF11EF31738C3588DE557B /* MAXJsonAdapterRuntimeUtilities.h in Headers */,
 				D8B0AFE4BDA32D0D97270B99725C98DC /* MAXJsonAdapterValueTransformer.h in Headers */,
 			);
@@ -524,7 +524,7 @@
 				4CAB1E078DFE7DA6F0022D3FD83785A6 /* MAXJAProperty.m in Sources */,
 				A972473239FD064078CEAE09DEB7FC57 /* MAXJAPropertyMap.m in Sources */,
 				D1F64F6C4322E12623E579CAD72CA441 /* MAXJAPropertyMapper.m in Sources */,
-				1CC524449B1809F537A6BE6D8572833D /* MAXJsonAdapterPropertySearcher.m in Sources */,
+				1CC524449B1809F537A6BE6D8572833D /* MAXJAPropertySearcher.m in Sources */,
 				845FAA380B7B721E2EBEE210A54E3534 /* MAXJsonAdapterRuntimeUtilities.m in Sources */,
 				1302CC64D68401102B9ED57EA6992CC7 /* MAXJsonAdapterValueTransformer.m in Sources */,
 			);

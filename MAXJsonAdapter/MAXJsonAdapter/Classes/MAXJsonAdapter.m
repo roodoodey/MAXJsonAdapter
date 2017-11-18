@@ -12,7 +12,7 @@
 #import "MAXJAPropertyMapper.h"
 #import "MAXJAObjectCreator.h"
 #import "MAXJADictionaryCreator.h"
-#import "MAXJsonAdapterPropertySearcher.h"
+#import "MAXJAPropertySearcher.h"
 
 
 @implementation MAXJsonAdapter

@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @class MAXJAPropertyMap;
-@class MAXJsonAdapterValueTransformer;
+@class MAXJAValueTransformer;
 @class MAXJASubclassedProperty;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -64,7 +64,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  @description This method returns value transformers for the properties you want to transform the values of during serialization or deserialization. In order to create your value transformer you have to subclass MAXJsonAdapterValueTransformer with the corresponding transform method. Best is to have both of the transform methods implemented so it can be used for both serializationa and deserialization of JSON.
  */
--(NSArray <MAXJsonAdapterValueTransformer *> *)MAXJAPropertyValueTransformers;
+-(NSArray <MAXJAValueTransformer *> *)MAXJAPropertyValueTransformers;
 
 #pragma mark - Subclasses
 
