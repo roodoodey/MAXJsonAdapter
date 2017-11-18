@@ -9,7 +9,7 @@
 #import "MAXJsonAdapterPropertySearcher.h"
 #import "MAXJAPropertyMap.h"
 
-@implementation MAXJsonAdapterPropertySearcher
+@implementation MAXJAPropertySearcher
 
 +(nullable id)MAXJASearchForProperty:(MAXJAPropertyMap *)propertyMap inDictionary:(NSDictionary *)dictionary {
     
