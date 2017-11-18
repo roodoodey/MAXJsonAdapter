@@ -10,8 +10,8 @@
 #import "MAXJsonAdapterProperty.h"
 #import "MAXJsonAdapterPropertyMapInfo.h"
 #import "MAXJsonAdapterPropertyMapper.h"
-#import "MAXJsonAdapterObjectCreator.h"
-#import "MAXJsonAdapterDictionaryCreator.h"
+#import "MAXJAObjectCreator.h"
+#import "MAXJADictionaryCreator.h"
 #import "MAXJsonAdapterPropertySearcher.h"
 
 
@@ -32,7 +32,7 @@
 
 -(id)p_createInstanceOfClass:(Class)aClass delegate:(id <MAXJsonAdapterDelegate>)delegate fromDictionary:(NSDictionary *)dictionary properties:(NSArray <MAXJsonAdapterProperty *> *)properties {
     
-    id object = [MAXJsonAdapterObjectCreator MAXJACreateObjectOfClass: aClass withProperties: properties];
+    id object = [MAXJAObjectCreator MAXJACreateObjectOfClass: aClass withProperties: properties];
     
     return object;
 }
@@ -97,7 +97,7 @@
     
     properties = [adapter p_populateProperties: properties withObject: object];
     
-    NSDictionary *dictionary = [MAXJsonAdapterDictionaryCreator MAXJACreateDictionaryForProperties: properties];
+    NSDictionary *dictionary = [MAXJADictionaryCreator MAXJACreateDictionaryForProperties: properties];
     
     return dictionary;
 }
@@ -113,7 +113,7 @@
     properties = [adapter p_populateProperties: properties withObject: object];
     
     // creates objects and adds them to an array
-    NSArray *array = [MAXJsonAdapterDictionaryCreator MAXJACreateArrayOfDictionariesForProperties: properties];
+    NSArray *array = [MAXJADictionaryCreator MAXJACreateArrayOfDictionariesForProperties: properties];
     
     return array;
 }

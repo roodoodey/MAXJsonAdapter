@@ -10,7 +10,7 @@
 #endif
 #endif
 
-#import "MAXJsonAdapterDictionaryCreator.h"
+#import "MAXJADictionaryCreator.h"
 #import "MAXJsonAdapterObjectCreator.h"
 #import "MAXJsonAdapter.h"
 #import "MAXJsonAdapterPropertyMapInfo.h"

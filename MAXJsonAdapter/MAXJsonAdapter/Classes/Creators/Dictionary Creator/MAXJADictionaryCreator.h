@@ -10,7 +10,7 @@
 
 @class MAXJsonAdapterProperty;
 
-@interface MAXJsonAdapterDictionaryCreator : NSObject
+@interface MAXJADictionaryCreator : NSObject
 
 +(id)MAXJACreateJsonObjectForProperties:(NSArray <MAXJsonAdapterProperty *> *)properties;
 

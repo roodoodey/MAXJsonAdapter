@@ -6,10 +6,10 @@
 //  Copyright © 2017 Konta ehf. All rights reserved.
 //
 
-#import "MAXJsonAdapterDictionaryCreator.h"
+#import "MAXJADictionaryCreator.h"
 #import "MAXJsonAdapterProperty.h"
 
-@implementation MAXJsonAdapterDictionaryCreator
+@implementation MAXJADictionaryCreator
 
 +(id)MAXJACreateJsonObjectForProperties:(NSArray<MAXJsonAdapterProperty *> *)properties {
     
