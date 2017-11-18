@@ -32,7 +32,7 @@
 
 -(id)p_createInstanceOfClass:(Class)aClass delegate:(id <MAXJsonAdapterDelegate>)delegate fromDictionary:(NSDictionary *)dictionary properties:(NSArray <MAXJAProperty *> *)properties {
     
-    id object = [MAXJAObjectCreator MAXJACreateObjectOfClass: aClass withProperties: properties];
+    id object = [MAXJAObjectCreator MAXJAObjectOfClass: aClass withProperties: properties];
     
     return object;
 }

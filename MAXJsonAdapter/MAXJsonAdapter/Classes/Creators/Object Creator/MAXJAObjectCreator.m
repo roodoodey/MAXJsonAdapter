@@ -11,7 +11,7 @@
 
 @implementation MAXJAObjectCreator
 
-+(instancetype)MAXJACreateObjectOfClass:(Class)aClass withProperties:(NSArray <MAXJAProperty *> *)properties {
++(instancetype)MAXJAObjectOfClass:(Class)aClass withProperties:(NSArray <MAXJAProperty *> *)properties {
     
     id object = [[aClass alloc] init];
     
