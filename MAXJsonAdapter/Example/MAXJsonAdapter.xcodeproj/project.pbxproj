@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4EEA8C5E1FBFD3B0006673F0 /* MAXJARuntimeUtilitiesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEA8C5C1FBFD3B0006673F0 /* MAXJARuntimeUtilitiesTests.m */; };
 		4EEA8C621FBFD4FC006673F0 /* MAXJAPropertyMapTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEA8C611FBFD4FC006673F0 /* MAXJAPropertyMapTests.m */; };
+		4EEA8C641FBFD860006673F0 /* MAXJAPropertySearcherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEA8C631FBFD860006673F0 /* MAXJAPropertySearcherTests.m */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -42,6 +43,7 @@
 		0294C8A25A3745303F676021 /* Pods_MAXJsonAdapter_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MAXJsonAdapter_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EEA8C5C1FBFD3B0006673F0 /* MAXJARuntimeUtilitiesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAXJARuntimeUtilitiesTests.m; sourceTree = "<group>"; };
 		4EEA8C611FBFD4FC006673F0 /* MAXJAPropertyMapTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAXJAPropertyMapTests.m; sourceTree = "<group>"; };
+		4EEA8C631FBFD860006673F0 /* MAXJAPropertySearcherTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAXJAPropertySearcherTests.m; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* MAXJsonAdapter_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MAXJsonAdapter_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -174,6 +176,7 @@
 		4EEA8C601FBFD4A5006673F0 /* Property Searcher Tests */ = {
 			isa = PBXGroup;
 			children = (
+				4EEA8C631FBFD860006673F0 /* MAXJAPropertySearcherTests.m */,
 			);
 			name = "Property Searcher Tests";
 			sourceTree = "<group>";
@@ -491,6 +494,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F5BC195388D20070C39A /* Tests.m in Sources */,
+				4EEA8C641FBFD860006673F0 /* MAXJAPropertySearcherTests.m in Sources */,
 				4EEA8C621FBFD4FC006673F0 /* MAXJAPropertyMapTests.m in Sources */,
 				4EEA8C5E1FBFD3B0006673F0 /* MAXJARuntimeUtilitiesTests.m in Sources */,
 			);
