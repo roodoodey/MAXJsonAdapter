@@ -11,23 +11,23 @@
 
 @implementation MAXJADictionaryCreator
 
-+(id)MAXJACreateJsonObjectForProperties:(NSArray <MAXJAProperty *> *)properties {
++(id)MAXJAJsonObjectForProperties:(NSArray <MAXJAProperty *> *)properties {
     
     id object = nil;
     
     NSAssert([self p_isMixedArrayAndDictionaryFirstLevelForArray: properties] == YES, @"Cannot expect to return a dictionary and array based on mapping of properties.");
     
     if ([self p_areAllPropertiesForArray: properties] == YES) {
-        object = [self MAXJACreateArrayOfDictionariesForProperties: properties];
+        object = [self MAXJAArrayOfDictionariesForProperties: properties];
     }
     else {
-        object = [self MAXJACreateDictionaryForProperties: properties];
+        object = [self MAXJADictionaryForProperties: properties];
     }
     
     return object;
 }
 
-+(NSDictionary *)MAXJACreateDictionaryForProperties:(NSArray <MAXJAProperty *> *)properties {
++(NSDictionary *)MAXJADictionaryForProperties:(NSArray <MAXJAProperty *> *)properties {
     
     NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
     
@@ -58,7 +58,7 @@
     return dictionary;
 }
 
-+(NSArray *)MAXJACreateArrayOfDictionariesForProperties:(NSArray <MAXJAProperty *> *)properties {
++(NSArray *)MAXJAArrayOfDictionariesForProperties:(NSArray <MAXJAProperty *> *)properties {
     
     NSAssert([self p_areAllPropertiesForArray: properties] == YES, @"Not all properties are mapped to an array of properties this is usually due to an error in the property map.");
     

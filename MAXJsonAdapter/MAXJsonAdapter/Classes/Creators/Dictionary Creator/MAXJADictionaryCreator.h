@@ -12,10 +12,10 @@
 
 @interface MAXJADictionaryCreator : NSObject
 
-+(id)MAXJACreateJsonObjectForProperties:(NSArray <MAXJAProperty *> *)properties;
++(id)MAXJAJsonObjectForProperties:(NSArray <MAXJAProperty *> *)properties;
 
-+(NSDictionary *)MAXJACreateDictionaryForProperties:(NSArray <MAXJAProperty *> *)properties;
++(NSDictionary *)MAXJADictionaryForProperties:(NSArray <MAXJAProperty *> *)properties;
 
-+(NSArray *)MAXJACreateArrayOfDictionariesForProperties:(NSArray <MAXJAProperty *> *)properties;
++(NSArray *)MAXJAArrayOfDictionariesForProperties:(NSArray <MAXJAProperty *> *)properties;
 
 @end

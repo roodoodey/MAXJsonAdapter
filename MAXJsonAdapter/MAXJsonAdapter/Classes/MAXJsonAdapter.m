@@ -97,7 +97,7 @@
     
     properties = [adapter p_populateProperties: properties withObject: object];
     
-    NSDictionary *dictionary = [MAXJADictionaryCreator MAXJACreateDictionaryForProperties: properties];
+    NSDictionary *dictionary = [MAXJADictionaryCreator MAXJADictionaryForProperties: properties];
     
     return dictionary;
 }
@@ -113,7 +113,7 @@
     properties = [adapter p_populateProperties: properties withObject: object];
     
     // creates objects and adds them to an array
-    NSArray *array = [MAXJADictionaryCreator MAXJACreateArrayOfDictionariesForProperties: properties];
+    NSArray *array = [MAXJADictionaryCreator MAXJAArrayOfDictionariesForProperties: properties];
     
     return array;
 }
