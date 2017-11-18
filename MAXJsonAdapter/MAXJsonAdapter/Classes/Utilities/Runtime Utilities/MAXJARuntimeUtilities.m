@@ -10,7 +10,7 @@
 
 @implementation MAXJARuntimeUtilities
 
-+(NSArray <NSString *> *)MAXJACreatePropertyNameListWithClass:(Class)aClass {
++(NSArray <NSString *> *)MAXJAPropertyNameListWithClass:(Class)aClass {
     
     NSMutableArray <NSString *> *propertyList = [NSMutableArray array];
     
@@ -25,11 +25,11 @@
     return propertyList;
 }
 
-+(NSArray <NSString *> *)MAXJACreatePropertyNameListWithouthNSObjectPropertiesWithClass:(Class)aClass {
++(NSArray <NSString *> *)MAXJAPropertyNameListWithouthNSObjectPropertiesWithClass:(Class)aClass {
     
-    NSMutableArray *propertyListForClass = [[self MAXJACreatePropertyNameListWithClass: aClass] mutableCopy];
+    NSMutableArray *propertyListForClass = [[self MAXJAPropertyNameListWithClass: aClass] mutableCopy];
     
-    NSArray *propertyListForNSObject = [self MAXJACreatePropertyNameListWithClass: [NSObject class] ];
+    NSArray *propertyListForNSObject = [self MAXJAPropertyNameListWithClass: [NSObject class] ];
     
     for (NSString *currentNSObjectPropertyName in propertyListForNSObject) {
         

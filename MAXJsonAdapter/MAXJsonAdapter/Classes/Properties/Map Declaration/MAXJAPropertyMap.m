@@ -12,14 +12,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @implementation MAXJAPropertyMap
 
-+(instancetype)MAXJAMapWithKey:(NSString *)key nextPropertyMap:(nullable MAXJAPropertyMap *)propertyMap {
++(instancetype)MAXJAMapWithKey:(NSString *)key propertyMap:(nullable MAXJAPropertyMap *)propertyMap {
     
     MAXJAPropertyMap *map = [[MAXJAPropertyMap alloc] initWithKey: key index: nil nextProperty: propertyMap];
     
     return map;
 }
 
-+(instancetype)MAXJAMapWithIndex:(int)index nextPropertyMap:(nullable MAXJAPropertyMap *)propertyMap {
++(instancetype)MAXJAMapWithIndex:(int)index propertyMap:(nullable MAXJAPropertyMap *)propertyMap {
  
     MAXJAPropertyMap *map = [[MAXJAPropertyMap alloc] initWithKey: nil index: [NSNumber numberWithInt: index] nextProperty: propertyMap];
     

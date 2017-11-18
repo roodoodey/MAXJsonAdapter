@@ -31,7 +31,7 @@
     
     NSDictionary *singlePropertyDictionary = @{ @"name" : @"Batman" };
     
-    MAXJAPropertyMap *propertyMap = [MAXJAPropertyMap MAXJAMapWithKey: @"name" nextPropertyMap: nil];
+    MAXJAPropertyMap *propertyMap = [MAXJAPropertyMap MAXJAMapWithKey: @"name" propertyMap: nil];
     
     id value = [MAXJAPropertySearcher MAXJASearchForProperty: propertyMap inDictionary: singlePropertyDictionary];
     
@@ -44,7 +44,7 @@
     NSDictionary *dictionary = @{ @"person" : @{ @"name" : @"Superman" }
      };
     
-    MAXJAPropertyMap *propertyMap = [MAXJAPropertyMap MAXJAMapWithKey: @"person" nextPropertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"name" nextPropertyMap: nil] ];
+    MAXJAPropertyMap *propertyMap = [MAXJAPropertyMap MAXJAMapWithKey: @"person" propertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"name" propertyMap: nil] ];
     
     id value = [MAXJAPropertySearcher MAXJASearchForProperty: propertyMap inDictionary: dictionary];
     
@@ -55,7 +55,7 @@
     
     NSDictionary *dictionary = @{ @"person" : @[ @"firstPerson", @"secondPerson", @"thirdPerson"] };
     
-    MAXJAPropertyMap *propertyMap = [MAXJAPropertyMap MAXJAMapWithKey: @"person" nextPropertyMap: [MAXJAPropertyMap MAXJAMapWithIndex: 1 nextPropertyMap:nil] ];
+    MAXJAPropertyMap *propertyMap = [MAXJAPropertyMap MAXJAMapWithKey: @"person" propertyMap: [MAXJAPropertyMap MAXJAMapWithIndex: 1 propertyMap:nil] ];
     
     id value = [MAXJAPropertySearcher MAXJASearchForProperty: propertyMap inDictionary: dictionary];
     
@@ -67,7 +67,7 @@
     
     NSDictionary *dictionary = @{ @"person" : @[ @{@"name": @"Thor"}, @{@"name" : @"Ant Man"}, @{@"name" : @"Black Widow"}] };
     
-    MAXJAPropertyMap *propertyMap = [MAXJAPropertyMap MAXJAMapWithKey: @"person" nextPropertyMap: [MAXJAPropertyMap MAXJAMapWithIndex: 2 nextPropertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"name"  nextPropertyMap: nil] ] ];
+    MAXJAPropertyMap *propertyMap = [MAXJAPropertyMap MAXJAMapWithKey: @"person" propertyMap: [MAXJAPropertyMap MAXJAMapWithIndex: 2 propertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"name"  propertyMap: nil] ] ];
     
     id value = [MAXJAPropertySearcher MAXJASearchForProperty: propertyMap inDictionary: dictionary];
     
@@ -79,7 +79,7 @@
     
     NSDictionary *dictionary = @{ @"countries" : @{ @"persons" : @[@"Hulk", @"Iron Man", @"Hawkeye"] } };
     
-    MAXJAPropertyMap *propertyMap = [MAXJAPropertyMap MAXJAMapWithKey: @"countries" nextPropertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"persons" nextPropertyMap: [MAXJAPropertyMap MAXJAMapWithIndex: 1 nextPropertyMap: nil] ] ];
+    MAXJAPropertyMap *propertyMap = [MAXJAPropertyMap MAXJAMapWithKey: @"countries" propertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"persons" propertyMap: [MAXJAPropertyMap MAXJAMapWithIndex: 1 propertyMap: nil] ] ];
     
     id value = [MAXJAPropertySearcher MAXJASearchForProperty: propertyMap inDictionary: dictionary];
     

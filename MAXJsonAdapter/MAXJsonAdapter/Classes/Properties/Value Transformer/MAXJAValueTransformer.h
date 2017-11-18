@@ -26,7 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  */
-+(instancetype)MAXJACreateValueTransformerWithProperyKey:(NSString *)propertyKey;
++(instancetype)MAXJAValueTransformerWithProperyKey:(NSString *)propertyKey;
 
 /**
  @description Instantiates a value transformer with the given property key name. If the property key name does not match any property in the object or dictionary, depending on the way you are serializing, it will be ignored.

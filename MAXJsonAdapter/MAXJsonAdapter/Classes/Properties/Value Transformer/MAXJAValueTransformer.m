@@ -24,7 +24,7 @@
 
 #pragma mark - Initialization
 
-+(instancetype)MAXJACreateValueTransformerWithProperyKey:(NSString *)propertyKey {
++(instancetype)MAXJAValueTransformerWithProperyKey:(NSString *)propertyKey {
     
     return [[[self class] alloc] initValueTransformerWithPropertyKey: propertyKey];
 }

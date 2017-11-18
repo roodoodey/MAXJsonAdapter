@@ -45,7 +45,7 @@
 
 - (void)testCreatePropertyDictForMAXJARuntimeUtilTestClass {
     
-    NSArray <NSString *> *propertyList = [MAXJARuntimeUtilities MAXJACreatePropertyNameListWithClass: [MAXJARuntimeUtilitiesTestClass class] ];
+    NSArray <NSString *> *propertyList = [MAXJARuntimeUtilities MAXJAPropertyNameListWithClass: [MAXJARuntimeUtilitiesTestClass class] ];
     
     XCTAssertNotNil( propertyList );
     
@@ -64,7 +64,7 @@
 
 - (void)testCreatePropertyDictForMAXJARuntimeUtilTestClassWithoutNSObjectProperties {
     
-    NSArray <NSString *> *propertyList = [MAXJARuntimeUtilities MAXJACreatePropertyNameListWithouthNSObjectPropertiesWithClass: [MAXJARuntimeUtilitiesTestClass class] ];
+    NSArray <NSString *> *propertyList = [MAXJARuntimeUtilities MAXJAPropertyNameListWithouthNSObjectPropertiesWithClass: [MAXJARuntimeUtilitiesTestClass class] ];
     
     XCTAssertNotNil( propertyList );
     

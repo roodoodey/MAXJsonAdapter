@@ -51,7 +51,7 @@
 
 -(NSArray <MAXJAValueTransformer *> *)MAXJAPropertyValueTransformers {
     
-    return @[[MAXNumberToStringTransformer MAXJACreateValueTransformerWithProperyKey: @"stringAge"]];
+    return @[[MAXNumberToStringTransformer MAXJAValueTransformerWithProperyKey: @"stringAge"]];
 }
 
 @end
@@ -82,7 +82,7 @@
 
 -(NSArray <MAXJAValueTransformer *> *)MAXJAPropertyValueTransformers {
     
-    return @[[MAXNumberToStringTransformer MAXJACreateValueTransformerWithProperyKey:@"stringAge"]];
+    return @[[MAXNumberToStringTransformer MAXJAValueTransformerWithProperyKey:@"stringAge"]];
 }
 
 @end
@@ -101,17 +101,17 @@
 -(NSArray <MAXJAPropertyMap *> *)MAXJAPropertiesToMapObjectCreation {
     
     return @[
-             [MAXJAPropertyMap MAXJAMapWithKey: @"firstName" nextPropertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"person" nextPropertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"firstName" nextPropertyMap: nil]]],
-              [MAXJAPropertyMap MAXJAMapWithKey: @"lastName" nextPropertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"person" nextPropertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"familyName" nextPropertyMap: nil]]],
-             [MAXJAPropertyMap MAXJAMapWithKey: @"age" nextPropertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"person" nextPropertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"age" nextPropertyMap: nil]]],
-             [MAXJAPropertyMap MAXJAMapWithKey: @"stringAge" nextPropertyMap: [MAXJAPropertyMap MAXJAMapWithKey:@"person" nextPropertyMap: [MAXJAPropertyMap MAXJAMapWithKey:@"stringifiedAge" nextPropertyMap:nil]]]
+             [MAXJAPropertyMap MAXJAMapWithKey: @"firstName" propertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"person" propertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"firstName" propertyMap: nil]]],
+              [MAXJAPropertyMap MAXJAMapWithKey: @"lastName" propertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"person" propertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"familyName" propertyMap: nil]]],
+             [MAXJAPropertyMap MAXJAMapWithKey: @"age" propertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"person" propertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"age" propertyMap: nil]]],
+             [MAXJAPropertyMap MAXJAMapWithKey: @"stringAge" propertyMap: [MAXJAPropertyMap MAXJAMapWithKey:@"person" propertyMap: [MAXJAPropertyMap MAXJAMapWithKey:@"stringifiedAge" propertyMap:nil]]]
               ];
     
 }
 
 -(NSArray <MAXJAValueTransformer *> *)MAXJAPropertyValueTransformers {
     
-    return @[[MAXNumberToStringTransformer MAXJACreateValueTransformerWithProperyKey:@"stringAge"]];
+    return @[[MAXNumberToStringTransformer MAXJAValueTransformerWithProperyKey:@"stringAge"]];
 }
 
 @end
@@ -131,18 +131,18 @@
 -(NSArray <MAXJAPropertyMap *> *)MAXJAPropertiesToMapObjectCreation {
     
     return @[
-             [MAXJAPropertyMap MAXJAMapWithKey: @"firstName" nextPropertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"person" nextPropertyMap: [MAXJAPropertyMap MAXJAMapWithKey:@"name" nextPropertyMap:[MAXJAPropertyMap MAXJAMapWithIndex: 0 nextPropertyMap: nil]]]],
-              [MAXJAPropertyMap MAXJAMapWithKey: @"middleName" nextPropertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"person" nextPropertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"name" nextPropertyMap: [MAXJAPropertyMap MAXJAMapWithIndex: 1 nextPropertyMap: nil]]]],
-              [MAXJAPropertyMap MAXJAMapWithKey: @"lastName" nextPropertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"person" nextPropertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"name" nextPropertyMap: [MAXJAPropertyMap MAXJAMapWithIndex: 2 nextPropertyMap: nil]]]],
-             [MAXJAPropertyMap MAXJAMapWithKey: @"age" nextPropertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"person" nextPropertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"age" nextPropertyMap: nil]]],
-             [MAXJAPropertyMap MAXJAMapWithKey: @"stringAge" nextPropertyMap:[MAXJAPropertyMap MAXJAMapWithKey: @"person" nextPropertyMap:[MAXJAPropertyMap MAXJAMapWithKey: @"differentAges" nextPropertyMap:[MAXJAPropertyMap MAXJAMapWithIndex: 1 nextPropertyMap: nil]]]]
+             [MAXJAPropertyMap MAXJAMapWithKey: @"firstName" propertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"person" propertyMap: [MAXJAPropertyMap MAXJAMapWithKey:@"name" propertyMap:[MAXJAPropertyMap MAXJAMapWithIndex: 0 propertyMap: nil]]]],
+              [MAXJAPropertyMap MAXJAMapWithKey: @"middleName" propertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"person" propertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"name" propertyMap: [MAXJAPropertyMap MAXJAMapWithIndex: 1 propertyMap: nil]]]],
+              [MAXJAPropertyMap MAXJAMapWithKey: @"lastName" propertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"person" propertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"name" propertyMap: [MAXJAPropertyMap MAXJAMapWithIndex: 2 propertyMap: nil]]]],
+             [MAXJAPropertyMap MAXJAMapWithKey: @"age" propertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"person" propertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"age" propertyMap: nil]]],
+             [MAXJAPropertyMap MAXJAMapWithKey: @"stringAge" propertyMap:[MAXJAPropertyMap MAXJAMapWithKey: @"person" propertyMap:[MAXJAPropertyMap MAXJAMapWithKey: @"differentAges" propertyMap:[MAXJAPropertyMap MAXJAMapWithIndex: 1 propertyMap: nil]]]]
               ];
     
 }
 
 -(NSArray <MAXJAValueTransformer *> *)MAXJAPropertyValueTransformers {
     
-    return @[[MAXNumberToStringTransformer MAXJACreateValueTransformerWithProperyKey:@"stringAge"]];
+    return @[[MAXNumberToStringTransformer MAXJAValueTransformerWithProperyKey:@"stringAge"]];
 }
 
 

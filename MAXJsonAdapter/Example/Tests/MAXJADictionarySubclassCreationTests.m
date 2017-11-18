@@ -25,8 +25,8 @@
 -(NSArray <MAXJAPropertyMap *> *)MAXJAPropertiesToMapDictionaryCreation {
     
     return @[
-             [MAXJAPropertyMap MAXJAMapWithKey: @"age" nextPropertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"ageNumber" nextPropertyMap: nil]],
-             [MAXJAPropertyMap MAXJAMapWithKey: @"firstName" nextPropertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"name" nextPropertyMap: nil]]
+             [MAXJAPropertyMap MAXJAMapWithKey: @"age" propertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"ageNumber" propertyMap: nil]],
+             [MAXJAPropertyMap MAXJAMapWithKey: @"firstName" propertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"name" propertyMap: nil]]
              ];
 }
 
@@ -114,7 +114,7 @@
 
 -(NSArray <MAXJAPropertyMap *> *)MAXJAPropertiesToMapDictionaryCreation {
     
-    return @[[MAXJAPropertyMap MAXJAMapWithKey: @"person" nextPropertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"personData" nextPropertyMap: nil]]];
+    return @[[MAXJAPropertyMap MAXJAMapWithKey: @"person" propertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"personData" propertyMap: nil]]];
 }
 
 @end
@@ -132,7 +132,7 @@
 
 -(NSArray <MAXJAPropertyMap *> *)MAXJAPropertiesToMapDictionaryCreation {
     
-    return @[[MAXJAPropertyMap MAXJAMapWithKey: @"persons" nextPropertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"personsData" nextPropertyMap: nil]]];
+    return @[[MAXJAPropertyMap MAXJAMapWithKey: @"persons" propertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"personsData" propertyMap: nil]]];
 }
 
 @end

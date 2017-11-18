@@ -18,7 +18,7 @@
 +(NSArray <MAXJAProperty *> *)MAXJACreateMappedPropertyListForObjectCreation:(Class)aClass delegate:(id <MAXJsonAdapterDelegate>)delegate {
     
     // gets all of the names of the properties
-    NSArray <NSString *> *propertyList = [MAXJARuntimeUtilities MAXJACreatePropertyNameListWithouthNSObjectPropertiesWithClass: aClass];
+    NSArray <NSString *> *propertyList = [MAXJARuntimeUtilities MAXJAPropertyNameListWithouthNSObjectPropertiesWithClass: aClass];
     
     return [self MAXJAMapPropertyListForObjectCreation: propertyList delegate: delegate];
 }
@@ -79,7 +79,7 @@
 
 +(NSArray <MAXJAProperty *> *)MAXJACreateMappedPropertyListForDictionaryCreation:(Class)aClass delegate:(id<MAXJsonAdapterDelegate>)delegate {
     
-    NSArray <NSString *> *propertyList = [MAXJARuntimeUtilities MAXJACreatePropertyNameListWithouthNSObjectPropertiesWithClass: aClass];
+    NSArray <NSString *> *propertyList = [MAXJARuntimeUtilities MAXJAPropertyNameListWithouthNSObjectPropertiesWithClass: aClass];
     
     return [self MAXJAMapPropertyListForDictionaryCreation: propertyList delegate: delegate];
 }

@@ -78,9 +78,9 @@
 
 -(NSArray <MAXJAPropertyMap *> *)MAXJAPropertiesToMapObjectCreation {
     
-    MAXJAPropertyMap *firstMap = [MAXJAPropertyMap MAXJAMapWithKey: @"age" nextPropertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"fullAge" nextPropertyMap: nil] ];
+    MAXJAPropertyMap *firstMap = [MAXJAPropertyMap MAXJAMapWithKey: @"age" propertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"fullAge" propertyMap: nil] ];
     
-    MAXJAPropertyMap *secondMap = [MAXJAPropertyMap MAXJAMapWithKey: @"title" nextPropertyMap: nil];
+    MAXJAPropertyMap *secondMap = [MAXJAPropertyMap MAXJAMapWithKey: @"title" propertyMap: nil];
     
     
     return @[firstMap, secondMap];
@@ -88,7 +88,7 @@
 
 -(NSArray <MAXJAPropertyMap *> *)MAXJAPropertiesToMapDictionaryCreation {
     
-    MAXJAPropertyMap *firstMap = [MAXJAPropertyMap MAXJAMapWithKey: @"name" nextPropertyMap: [MAXJAPropertyMap MAXJAMapWithIndex: 2 nextPropertyMap: nil]];
+    MAXJAPropertyMap *firstMap = [MAXJAPropertyMap MAXJAMapWithKey: @"name" propertyMap: [MAXJAPropertyMap MAXJAMapWithIndex: 2 propertyMap: nil]];
     
     return @[firstMap];
 }
@@ -115,7 +115,7 @@
 
 -(void)testPropertyMapSingleLevelObjectCreation {
     
-    NSArray <NSString *> *propertyList = [MAXJARuntimeUtilities MAXJACreatePropertyNameListWithouthNSObjectPropertiesWithClass: [MAXJAPropertyMapObject class] ];
+    NSArray <NSString *> *propertyList = [MAXJARuntimeUtilities MAXJAPropertyNameListWithouthNSObjectPropertiesWithClass: [MAXJAPropertyMapObject class] ];
     
     NSArray <MAXJAProperty *> *properties = [MAXJAPropertyMapper MAXJAMapPropertyListForObjectCreation: propertyList delegate: [[MAXJAPropertyMapObject alloc] init] ];
     
@@ -129,7 +129,7 @@
 
 -(void)testPropertyMapSingleLevelDictionaryCreation {
     
-    NSArray <NSString *> *propertyList = [MAXJARuntimeUtilities MAXJACreatePropertyNameListWithouthNSObjectPropertiesWithClass: [MAXJAPropertyMapObject class] ];
+    NSArray <NSString *> *propertyList = [MAXJARuntimeUtilities MAXJAPropertyNameListWithouthNSObjectPropertiesWithClass: [MAXJAPropertyMapObject class] ];
     
     NSArray <MAXJAProperty *> *properties = [MAXJAPropertyMapper MAXJAMapPropertyListForDictionaryCreation: propertyList delegate: [[MAXJAPropertyMapObject alloc] init] ];
     
@@ -151,8 +151,8 @@
     
     NSArray <MAXJAProperty *> *properties = @[propertyOne, propertyTwo];
     
-    MAXJAPropertyMap *mapOne = [MAXJAPropertyMap MAXJAMapWithKey: @"age" nextPropertyMap: nil];
-    MAXJAPropertyMap *mapTwo = [MAXJAPropertyMap MAXJAMapWithKey: @"title" nextPropertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"fullName" nextPropertyMap: nil] ];
+    MAXJAPropertyMap *mapOne = [MAXJAPropertyMap MAXJAMapWithKey: @"age" propertyMap: nil];
+    MAXJAPropertyMap *mapTwo = [MAXJAPropertyMap MAXJAMapWithKey: @"title" propertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"fullName" propertyMap: nil] ];
     
     NSArray <MAXJAPropertyMap *> *propertyMaps = @[mapOne, mapTwo];
     
@@ -182,7 +182,7 @@
 
 -(void)testMultiplePropertyCreation {
     
-    NSArray <NSString *> *multipleProperties = [MAXJARuntimeUtilities MAXJACreatePropertyNameListWithouthNSObjectPropertiesWithClass: [MAXJAIgnoredPropertiesObject class] ];
+    NSArray <NSString *> *multipleProperties = [MAXJARuntimeUtilities MAXJAPropertyNameListWithouthNSObjectPropertiesWithClass: [MAXJAIgnoredPropertiesObject class] ];
     
     NSArray <MAXJAProperty *> *properties = [MAXJAPropertyMapper MAXJACreatePropertyForPropertyList: multipleProperties];
     
@@ -202,7 +202,7 @@
 
 -(void)testExplicitPropertiesObjectCreation {
     
-    NSArray <NSString *> *propertyList = [MAXJARuntimeUtilities MAXJACreatePropertyNameListWithouthNSObjectPropertiesWithClass: [MAXJAExplicitPropertiesObject class] ];
+    NSArray <NSString *> *propertyList = [MAXJARuntimeUtilities MAXJAPropertyNameListWithouthNSObjectPropertiesWithClass: [MAXJAExplicitPropertiesObject class] ];
     
     NSArray <MAXJAProperty *> *properties = [MAXJAPropertyMapper MAXJAMapPropertyListForObjectCreation: propertyList delegate: [[MAXJAExplicitPropertiesObject alloc] init] ];
     
@@ -217,7 +217,7 @@
 
 -(void)testExplicitPropertiesDictionaryCreation {
     
-    NSArray <NSString *> *propertyList = [MAXJARuntimeUtilities MAXJACreatePropertyNameListWithouthNSObjectPropertiesWithClass: [MAXJAExplicitPropertiesObject class] ];
+    NSArray <NSString *> *propertyList = [MAXJARuntimeUtilities MAXJAPropertyNameListWithouthNSObjectPropertiesWithClass: [MAXJAExplicitPropertiesObject class] ];
     
     NSArray <MAXJAProperty *> *properties = [MAXJAPropertyMapper MAXJAMapPropertyListForDictionaryCreation: propertyList delegate: [[MAXJAExplicitPropertiesObject alloc] init] ];
     
@@ -235,7 +235,7 @@
 
 -(void)testExplicitSingleProperty {
     
-    NSArray <NSString *> *propertyList = [MAXJARuntimeUtilities MAXJACreatePropertyNameListWithouthNSObjectPropertiesWithClass: [MAXJAIgnoredPropertiesObject class] ];
+    NSArray <NSString *> *propertyList = [MAXJARuntimeUtilities MAXJAPropertyNameListWithouthNSObjectPropertiesWithClass: [MAXJAIgnoredPropertiesObject class] ];
     
     NSArray <NSString *> *propertyListWithExplicitProperties = [MAXJAPropertyMapper MAXJAPropertiesToUseFromPropertyList: propertyList propertiesToUse: @[@"title"]];
     
@@ -254,7 +254,7 @@
 
 -(void)testRemoveIgnoredPropertiesObjectCreation {
     
-    NSArray <NSString *> *propertyList = [MAXJARuntimeUtilities MAXJACreatePropertyNameListWithouthNSObjectPropertiesWithClass: [MAXJAIgnoredPropertiesObject class] ];
+    NSArray <NSString *> *propertyList = [MAXJARuntimeUtilities MAXJAPropertyNameListWithouthNSObjectPropertiesWithClass: [MAXJAIgnoredPropertiesObject class] ];
     
     NSArray <MAXJAProperty *> *properties = [MAXJAPropertyMapper MAXJAMapPropertyListForObjectCreation: propertyList delegate: [[MAXJAIgnoredPropertiesObject alloc] init] ];
     
@@ -267,7 +267,7 @@
 
 -(void)testRemoveIgnoredPropertiesDictionaryCreation {
     
-    NSArray <NSString *> *propertyList = [MAXJARuntimeUtilities MAXJACreatePropertyNameListWithouthNSObjectPropertiesWithClass: [MAXJAIgnoredPropertiesObject class] ];
+    NSArray <NSString *> *propertyList = [MAXJARuntimeUtilities MAXJAPropertyNameListWithouthNSObjectPropertiesWithClass: [MAXJAIgnoredPropertiesObject class] ];
     
     NSArray <MAXJAProperty *> *properties = [MAXJAPropertyMapper MAXJAMapPropertyListForDictionaryCreation: propertyList delegate: [[MAXJAIgnoredPropertiesObject alloc] init] ];
     
@@ -285,7 +285,7 @@
     
     NSArray <NSString *> *ignoredProperties = @[@"title"];
     
-    NSArray <NSString *> *propertyList = [MAXJARuntimeUtilities MAXJACreatePropertyNameListWithouthNSObjectPropertiesWithClass: [MAXJAIgnoredPropertiesObject class] ];
+    NSArray <NSString *> *propertyList = [MAXJARuntimeUtilities MAXJAPropertyNameListWithouthNSObjectPropertiesWithClass: [MAXJAIgnoredPropertiesObject class] ];
     
     NSArray <NSString *> *propertyListWithRemovedProperties = [MAXJAPropertyMapper MAXJARemoveIgnoredPropertiesFromPropertyList: propertyList ignoredProperties: ignoredProperties];
     
@@ -300,7 +300,7 @@
     
     NSArray <NSString *> *ignoredProperties = @[@"title", @"age"];
     
-    NSArray <NSString *> *propertyList = [MAXJARuntimeUtilities MAXJACreatePropertyNameListWithouthNSObjectPropertiesWithClass: [MAXJAIgnoredPropertiesObject class] ];
+    NSArray <NSString *> *propertyList = [MAXJARuntimeUtilities MAXJAPropertyNameListWithouthNSObjectPropertiesWithClass: [MAXJAIgnoredPropertiesObject class] ];
     
     NSArray <NSString *> *propertyListWithRemovedProperties = [MAXJAPropertyMapper MAXJARemoveIgnoredPropertiesFromPropertyList: propertyList ignoredProperties: ignoredProperties];
     
