@@ -6,7 +6,7 @@
 //  Copyright © 2016 Konta ehf. All rights reserved.
 //
 
-#import "MAXJsonAdapterProperty.h"
+#import "MAXJAProperty.h"
 
 @implementation MAXJAProperty
 

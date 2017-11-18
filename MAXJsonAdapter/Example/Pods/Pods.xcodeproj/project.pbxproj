@@ -16,7 +16,7 @@
 		2FF14BE5BDD00CF5B53DDE365830793D /* MAXJADictionaryCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = AF4898DE3A08DBCBB6DB272346CDE021 /* MAXJADictionaryCreator.m */; };
 		34DA00877ED08A8A71C7F6EBA9A5646B /* MAXJADictionaryCreator.h in Headers */ = {isa = PBXBuildFile; fileRef = 33A7F3A44CE8E0508D9E22C2851A8DE2 /* MAXJADictionaryCreator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3BB17DD267C365025AD92B0E35E0FDA4 /* MAXJsonAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B450B0846BC65E0B08AB0461FE9F05 /* MAXJsonAdapter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4CAB1E078DFE7DA6F0022D3FD83785A6 /* MAXJsonAdapterProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 7774F31A3A3064D858B4B05ED886143D /* MAXJsonAdapterProperty.m */; };
+		4CAB1E078DFE7DA6F0022D3FD83785A6 /* MAXJAProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 7774F31A3A3064D858B4B05ED886143D /* MAXJAProperty.m */; };
 		56A42A0B3788F37436DA202027044E9A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		5E943AB4CDB611C095519330A0247C48 /* Pods-MAXJsonAdapter_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A315984B9710B015FD4378C7567E791A /* Pods-MAXJsonAdapter_Example-dummy.m */; };
 		622270038B0ED9DB36F0C958097C05C3 /* Pods-MAXJsonAdapter_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 918589997CB2883252E7FC760097DE3D /* Pods-MAXJsonAdapter_Tests-dummy.m */; };
@@ -33,7 +33,7 @@
 		D1F64F6C4322E12623E579CAD72CA441 /* MAXJsonAdapterPropertyMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB2635B90C9A601D69FA8A60D1A9738 /* MAXJsonAdapterPropertyMapper.m */; };
 		D42F0F44AA8853EDA8594E7BA6F117C3 /* MAXJsonAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = F569738A1B4F373205AB3074163705DB /* MAXJsonAdapter.m */; };
 		D8B0AFE4BDA32D0D97270B99725C98DC /* MAXJsonAdapterValueTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DDD24E95BB575C704FFDA1AD33FABB2 /* MAXJsonAdapterValueTransformer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DB08D2002E4A59E59CC7A28F072658AF /* MAXJsonAdapterProperty.h in Headers */ = {isa = PBXBuildFile; fileRef = 910011E9E44DA81778531872CC0970E0 /* MAXJsonAdapterProperty.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DB08D2002E4A59E59CC7A28F072658AF /* MAXJAProperty.h in Headers */ = {isa = PBXBuildFile; fileRef = 910011E9E44DA81778531872CC0970E0 /* MAXJAProperty.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC6EF8BCAE96E6C8090F375716988A0C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		F48F030E0DBF11EF31738C3588DE557B /* MAXJsonAdapterRuntimeUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 67E2A584476612CDB1DF486C582DF02D /* MAXJsonAdapterRuntimeUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FDAF99B40D2B8C1B46F4FC630ACAC1DB /* MAXJsonAdapterNSArraryUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = FFC0B95FA23BF25E787BEC33157FBA51 /* MAXJsonAdapterNSArraryUtilities.m */; };
@@ -71,7 +71,7 @@
 		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		67E2A584476612CDB1DF486C582DF02D /* MAXJsonAdapterRuntimeUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MAXJsonAdapterRuntimeUtilities.h; sourceTree = "<group>"; };
 		755AF034DD7EE31F7DD9DD15E1B76F35 /* MAXJsonAdapterPropertyMapper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MAXJsonAdapterPropertyMapper.h; sourceTree = "<group>"; };
-		7774F31A3A3064D858B4B05ED886143D /* MAXJsonAdapterProperty.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MAXJsonAdapterProperty.m; sourceTree = "<group>"; };
+		7774F31A3A3064D858B4B05ED886143D /* MAXJAProperty.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MAXJAProperty.m; sourceTree = "<group>"; };
 		77AFBB497C40B0EFFFB7EE273746FFD5 /* MAXJAObjectCreator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MAXJAObjectCreator.h; sourceTree = "<group>"; };
 		7D8B2502C6D51AE9B9E85B3A5FC59E9E /* Pods-MAXJsonAdapter_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MAXJsonAdapter_Tests-umbrella.h"; sourceTree = "<group>"; };
 		863D1D7EE61FC2D11DAD7BE3542105CB /* Pods-MAXJsonAdapter_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MAXJsonAdapter_Example-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -79,7 +79,7 @@
 		8B830EF598092CB3D50F460DAEF4FB61 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8CDF24D8BD90E23A84F9C0A4528DFAEF /* Pods-MAXJsonAdapter_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MAXJsonAdapter_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		8DDD24E95BB575C704FFDA1AD33FABB2 /* MAXJsonAdapterValueTransformer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MAXJsonAdapterValueTransformer.h; sourceTree = "<group>"; };
-		910011E9E44DA81778531872CC0970E0 /* MAXJsonAdapterProperty.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MAXJsonAdapterProperty.h; sourceTree = "<group>"; };
+		910011E9E44DA81778531872CC0970E0 /* MAXJAProperty.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MAXJAProperty.h; sourceTree = "<group>"; };
 		918589997CB2883252E7FC760097DE3D /* Pods-MAXJsonAdapter_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MAXJsonAdapter_Tests-dummy.m"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		96B450B0846BC65E0B08AB0461FE9F05 /* MAXJsonAdapter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MAXJsonAdapter.h; sourceTree = "<group>"; };
@@ -309,8 +309,8 @@
 		BE6DBD6DD9A7058CDC6D63A4F328A072 /* Properties */ = {
 			isa = PBXGroup;
 			children = (
-				910011E9E44DA81778531872CC0970E0 /* MAXJsonAdapterProperty.h */,
-				7774F31A3A3064D858B4B05ED886143D /* MAXJsonAdapterProperty.m */,
+				910011E9E44DA81778531872CC0970E0 /* MAXJAProperty.h */,
+				7774F31A3A3064D858B4B05ED886143D /* MAXJAProperty.m */,
 				03AE3DF5620305208707099CCD8E1EFA /* Map Declaration */,
 				A20782103ACF8DAAF6A5E1A610B96F66 /* Mapper */,
 				F411C270677BEDBC9A06655A91CDBEE7 /* Searcher */,
@@ -410,7 +410,7 @@
 				3BB17DD267C365025AD92B0E35E0FDA4 /* MAXJsonAdapter.h in Headers */,
 				7786521391B06183244D62696DB95DFB /* MAXJsonAdapterNSArraryUtilities.h in Headers */,
 				769F374C6589BDF28E454E14A112F4D1 /* MAXJAObjectCreator.h in Headers */,
-				DB08D2002E4A59E59CC7A28F072658AF /* MAXJsonAdapterProperty.h in Headers */,
+				DB08D2002E4A59E59CC7A28F072658AF /* MAXJAProperty.h in Headers */,
 				104BA85BF0B01C7C8981959BCE8C26D1 /* MAXJsonAdapterPropertyMapInfo.h in Headers */,
 				772F22129632A1B5A3E9CA8CE2CA4485 /* MAXJsonAdapterPropertyMapper.h in Headers */,
 				789B9214E98344457A0099BEE0BFD80E /* MAXJsonAdapterPropertySearcher.h in Headers */,
@@ -521,7 +521,7 @@
 				D42F0F44AA8853EDA8594E7BA6F117C3 /* MAXJsonAdapter.m in Sources */,
 				FDAF99B40D2B8C1B46F4FC630ACAC1DB /* MAXJsonAdapterNSArraryUtilities.m in Sources */,
 				28897A824626C21B04FB2666F43FA2A1 /* MAXJAObjectCreator.m in Sources */,
-				4CAB1E078DFE7DA6F0022D3FD83785A6 /* MAXJsonAdapterProperty.m in Sources */,
+				4CAB1E078DFE7DA6F0022D3FD83785A6 /* MAXJAProperty.m in Sources */,
 				A972473239FD064078CEAE09DEB7FC57 /* MAXJsonAdapterPropertyMapInfo.m in Sources */,
 				D1F64F6C4322E12623E579CAD72CA441 /* MAXJsonAdapterPropertyMapper.m in Sources */,
 				1CC524449B1809F537A6BE6D8572833D /* MAXJsonAdapterPropertySearcher.m in Sources */,

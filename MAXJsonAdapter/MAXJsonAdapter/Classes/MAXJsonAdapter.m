@@ -7,7 +7,7 @@
 //
 
 #import "MAXJsonAdapter.h"
-#import "MAXJsonAdapterProperty.h"
+#import "MAXJAProperty.h"
 #import "MAXJsonAdapterPropertyMapInfo.h"
 #import "MAXJsonAdapterPropertyMapper.h"
 #import "MAXJAObjectCreator.h"

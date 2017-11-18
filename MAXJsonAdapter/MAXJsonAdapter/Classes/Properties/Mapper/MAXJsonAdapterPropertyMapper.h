@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "MAXJsonAdapter.h"
 #import "MAXJsonAdapterPropertyMapInfo.h"
-#import "MAXJsonAdapterProperty.h"
+#import "MAXJAProperty.h"
 
 @interface MAXJsonAdapterPropertyMapper : NSObject
 
