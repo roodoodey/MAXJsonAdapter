@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E1A01E01FBFDAD900626F2D /* MAXJADictionarySubclassCreationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E1A01DF1FBFDAD800626F2D /* MAXJADictionarySubclassCreationTests.m */; };
 		4EEA8C5E1FBFD3B0006673F0 /* MAXJARuntimeUtilitiesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEA8C5C1FBFD3B0006673F0 /* MAXJARuntimeUtilitiesTests.m */; };
 		4EEA8C621FBFD4FC006673F0 /* MAXJAPropertyMapTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEA8C611FBFD4FC006673F0 /* MAXJAPropertyMapTests.m */; };
 		4EEA8C641FBFD860006673F0 /* MAXJAPropertySearcherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEA8C631FBFD860006673F0 /* MAXJAPropertySearcherTests.m */; };
@@ -41,6 +42,7 @@
 
 /* Begin PBXFileReference section */
 		0294C8A25A3745303F676021 /* Pods_MAXJsonAdapter_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MAXJsonAdapter_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E1A01DF1FBFDAD800626F2D /* MAXJADictionarySubclassCreationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAXJADictionarySubclassCreationTests.m; sourceTree = "<group>"; };
 		4EEA8C5C1FBFD3B0006673F0 /* MAXJARuntimeUtilitiesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAXJARuntimeUtilitiesTests.m; sourceTree = "<group>"; };
 		4EEA8C611FBFD4FC006673F0 /* MAXJAPropertyMapTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAXJAPropertyMapTests.m; sourceTree = "<group>"; };
 		4EEA8C631FBFD860006673F0 /* MAXJAPropertySearcherTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAXJAPropertySearcherTests.m; sourceTree = "<group>"; };
@@ -135,8 +137,8 @@
 		4EEA8C581FBFD29C006673F0 /* Adapter Tests */ = {
 			isa = PBXGroup;
 			children = (
-				4EEA8C5A1FBFD322006673F0 /* Subclassed Property Tests */,
 				4EEA8C541FBFD242006673F0 /* Map and Value Transformer Tests */,
+				4EEA8C5A1FBFD322006673F0 /* Subclassed Property Tests */,
 			);
 			name = "Adapter Tests";
 			sourceTree = "<group>";
@@ -152,6 +154,8 @@
 		4EEA8C5A1FBFD322006673F0 /* Subclassed Property Tests */ = {
 			isa = PBXGroup;
 			children = (
+				4EEA8C661FBFDA3A006673F0 /* Object Creation */,
+				4EEA8C651FBFDA31006673F0 /* JSON Creation */,
 			);
 			name = "Subclassed Property Tests";
 			sourceTree = "<group>";
@@ -179,6 +183,21 @@
 				4EEA8C631FBFD860006673F0 /* MAXJAPropertySearcherTests.m */,
 			);
 			name = "Property Searcher Tests";
+			sourceTree = "<group>";
+		};
+		4EEA8C651FBFDA31006673F0 /* JSON Creation */ = {
+			isa = PBXGroup;
+			children = (
+				4E1A01DF1FBFDAD800626F2D /* MAXJADictionarySubclassCreationTests.m */,
+			);
+			name = "JSON Creation";
+			sourceTree = "<group>";
+		};
+		4EEA8C661FBFDA3A006673F0 /* Object Creation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Object Creation";
 			sourceTree = "<group>";
 		};
 		6003F581195388D10070C39A = {
@@ -493,6 +512,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E1A01E01FBFDAD900626F2D /* MAXJADictionarySubclassCreationTests.m in Sources */,
 				6003F5BC195388D20070C39A /* Tests.m in Sources */,
 				4EEA8C641FBFD860006673F0 /* MAXJAPropertySearcherTests.m in Sources */,
 				4EEA8C621FBFD4FC006673F0 /* MAXJAPropertyMapTests.m in Sources */,
