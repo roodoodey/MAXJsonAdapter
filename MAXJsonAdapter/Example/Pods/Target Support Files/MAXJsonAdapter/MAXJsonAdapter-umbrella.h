@@ -11,16 +11,16 @@
 #endif
 
 #import "MAXJADictionaryCreator.h"
-#import "MAXJsonAdapterObjectCreator.h"
+#import "MAXJAObjectCreator.h"
 #import "MAXJsonAdapter.h"
-#import "MAXJsonAdapterPropertyMapInfo.h"
-#import "MAXJsonAdapterPropertyMapper.h"
-#import "MAXJsonAdapterProperty.h"
-#import "MAXJsonAdapterPropertySearcher.h"
+#import "MAXJAPropertyMap.h"
+#import "MAXJAPropertyMapper.h"
+#import "MAXJAProperty.h"
+#import "MAXJAPropertySearcher.h"
 #import "MAXJASubclassedProperty.h"
-#import "MAXJsonAdapterValueTransformer.h"
-#import "MAXJsonAdapterNSArraryUtilities.h"
-#import "MAXJsonAdapterRuntimeUtilities.h"
+#import "MAXJAValueTransformer.h"
+#import "MAXJANSArraryUtilities.h"
+#import "MAXJARuntimeUtilities.h"
 
 FOUNDATION_EXPORT double MAXJsonAdapterVersionNumber;
 FOUNDATION_EXPORT const unsigned char MAXJsonAdapterVersionString[];
