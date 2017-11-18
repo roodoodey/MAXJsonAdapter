@@ -169,7 +169,7 @@
     
     NSDictionary *dict = @{ @"firstName" : @"Bruce", @"lastName" : @"Wayne", @"age" : @34 };
     
-    MAXJAObjectNoDelegate *object = [MAXJsonAdapter MAXJACreateObjectOfClass: [MAXJAObjectNoDelegate class] delegate: nil fromDictionary: dict];
+    MAXJAObjectNoDelegate *object = [MAXJsonAdapter MAXJAObjectOfClass: [MAXJAObjectNoDelegate class] delegate: nil fromDictionary: dict];
     
     XCTAssertNotNil( object );
     XCTAssertEqualObjects(object.firstName, @"Bruce");
@@ -184,7 +184,7 @@
     
     NSDictionary *dictTwo = @{ @"firstName" : @"Peter", @"lastName" : @"Parker", @"age" : @18 };
     
-    NSArray <MAXJAObjectNoDelegate *> *objects = [MAXJsonAdapter MAXJACreateObjectsOfClass: [MAXJAObjectNoDelegate class] delegate: nil fromArray: @[dictOne, dictTwo] ];
+    NSArray <MAXJAObjectNoDelegate *> *objects = [MAXJsonAdapter MAXJAObjectsOfClass: [MAXJAObjectNoDelegate class] delegate: nil fromArray: @[dictOne, dictTwo] ];
     
     XCTAssertEqualObjects( @(objects.count),  @2);
     
@@ -207,7 +207,7 @@
     
     NSDictionary *dict = @{ @"firstName" : @"Bruce", @"lastName" : @"Wayne", @"age" : @34, @"stringAge" : @52 };
     
-    MAXJAObjectIgnoredProprties *object = [MAXJsonAdapter MAXJACreateObjectOfClass: [MAXJAObjectIgnoredProprties class] delegate: [[MAXJAObjectIgnoredProprties alloc] init] fromDictionary: dict];
+    MAXJAObjectIgnoredProprties *object = [MAXJsonAdapter MAXJAObjectOfClass: [MAXJAObjectIgnoredProprties class] delegate: [[MAXJAObjectIgnoredProprties alloc] init] fromDictionary: dict];
     
     XCTAssertNotNil( object );
     XCTAssertEqualObjects(object.firstName, nil);
@@ -223,7 +223,7 @@
     
     NSDictionary *dictTwo = @{ @"firstName" : @"Peter", @"lastName" : @"Parker", @"age" : @18, @"stringAge" : @21 };
     
-    NSArray *objects = [MAXJsonAdapter MAXJACreateObjectsOfClass: [MAXJAObjectIgnoredProprties class] delegate: [[MAXJAObjectIgnoredProprties alloc] init] fromArray: @[dictOne, dictTwo] ];
+    NSArray *objects = [MAXJsonAdapter MAXJAObjectsOfClass: [MAXJAObjectIgnoredProprties class] delegate: [[MAXJAObjectIgnoredProprties alloc] init] fromArray: @[dictOne, dictTwo] ];
     
     XCTAssertEqualObjects( @(objects.count), @2);
     
@@ -249,7 +249,7 @@
     
     NSDictionary *dict = @{ @"firstName" : @"Bruce", @"lastName" : @"Wayne", @"age" : @34, @"stringAge" : @21 };
     
-    MAXJAObjectSpecifiedProperties *object = [MAXJsonAdapter MAXJACreateObjectOfClass: [MAXJAObjectSpecifiedProperties class] delegate: [[MAXJAObjectSpecifiedProperties alloc] init] fromDictionary: dict];
+    MAXJAObjectSpecifiedProperties *object = [MAXJsonAdapter MAXJAObjectOfClass: [MAXJAObjectSpecifiedProperties class] delegate: [[MAXJAObjectSpecifiedProperties alloc] init] fromDictionary: dict];
     
     XCTAssertNotNil( object );
     XCTAssertEqualObjects(object.firstName, @"Bruce");
@@ -265,7 +265,7 @@
 
     NSDictionary *dictTwo = @{ @"firstName" : @"Peter", @"lastName" : @"Parker", @"age" : @18, @"stringAge" : @23 };
 
-    NSArray *objects = [MAXJsonAdapter MAXJACreateObjectsOfClass:  [MAXJAObjectSpecifiedProperties class] delegate: [[MAXJAObjectSpecifiedProperties alloc] init] fromArray: @[dictOne, dictTwo] ];
+    NSArray *objects = [MAXJsonAdapter MAXJAObjectsOfClass:  [MAXJAObjectSpecifiedProperties class] delegate: [[MAXJAObjectSpecifiedProperties alloc] init] fromArray: @[dictOne, dictTwo] ];
     
     XCTAssertEqualObjects( @(objects.count), @2);
     
@@ -292,7 +292,7 @@
     NSDictionary *dictionary = @{ @"person" : @{ @"firstName" : @"Bruce", @"familyName" : @"Wayne", @"age" : @34, @"stringifiedAge" : @24 }
                                   };
     
-    MAXJAObjectPropertyMap *propertyMapObject = [MAXJsonAdapter MAXJACreateObjectOfClass: [MAXJAObjectPropertyMap class] delegate: [[MAXJAObjectPropertyMap alloc] init]  fromDictionary: dictionary];
+    MAXJAObjectPropertyMap *propertyMapObject = [MAXJsonAdapter MAXJAObjectOfClass: [MAXJAObjectPropertyMap class] delegate: [[MAXJAObjectPropertyMap alloc] init]  fromDictionary: dictionary];
     
     XCTAssertNotNil( propertyMapObject );
     XCTAssertEqualObjects( propertyMapObject.firstName, @"Bruce");
@@ -310,7 +310,7 @@
     NSDictionary *dictTwo = @{ @"person" : @{ @"firstName" : @"Peter", @"familyName" : @"Parker", @"age" : @18, @"stringifiedAge" : @22 }
                                };
     
-    NSArray *objects = [MAXJsonAdapter MAXJACreateObjectsOfClass: [MAXJAObjectPropertyMap class] delegate: [[MAXJAObjectPropertyMap alloc] init] fromArray: @[dictOne, dictTwo] ];
+    NSArray *objects = [MAXJsonAdapter MAXJAObjectsOfClass: [MAXJAObjectPropertyMap class] delegate: [[MAXJAObjectPropertyMap alloc] init] fromArray: @[dictOne, dictTwo] ];
     
     XCTAssertEqualObjects( @(objects.count), @2);
     
@@ -339,7 +339,7 @@
                                          }
                                   };
     
-    MAXJAObjectPropertyIndexMap *indexMap = [MAXJsonAdapter MAXJACreateObjectOfClass: [MAXJAObjectPropertyIndexMap class] delegate: [MAXJAObjectPropertyIndexMap new] fromDictionary: dictionary];
+    MAXJAObjectPropertyIndexMap *indexMap = [MAXJsonAdapter MAXJAObjectOfClass: [MAXJAObjectPropertyIndexMap class] delegate: [MAXJAObjectPropertyIndexMap new] fromDictionary: dictionary];
     
     XCTAssertNotNil( indexMap );
     XCTAssertEqualObjects( indexMap.firstName, @"Bruce");
@@ -366,7 +366,7 @@
                                       }
                                };
     
-    NSArray *objects = [MAXJsonAdapter MAXJACreateObjectsOfClass: [MAXJAObjectPropertyIndexMap class] delegate: [MAXJAObjectPropertyIndexMap new] fromArray: @[dictOne, dictTwo] ];
+    NSArray *objects = [MAXJsonAdapter MAXJAObjectsOfClass: [MAXJAObjectPropertyIndexMap class] delegate: [MAXJAObjectPropertyIndexMap new] fromArray: @[dictOne, dictTwo] ];
     
     XCTAssertEqualObjects( @(objects.count), @2);
     

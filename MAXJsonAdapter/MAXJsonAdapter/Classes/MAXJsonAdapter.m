@@ -19,7 +19,7 @@
 
 #pragma mark - Object Creation From Dictionary
 
-+(id)MAXJACreateObjectOfClass:(Class)aClass delegate:(id<MAXJsonAdapterDelegate>)delegate fromDictionary:(NSDictionary *)dictionary {
++(id)MAXJAObjectOfClass:(Class)aClass delegate:(id<MAXJsonAdapterDelegate>)delegate fromDictionary:(NSDictionary *)dictionary {
     
     MAXJsonAdapter *adapter = [[MAXJsonAdapter alloc] init];
     
@@ -40,13 +40,13 @@
 
 #pragma mark - List of objects creations for array
 
-+(NSArray *)MAXJACreateObjectsOfClass:(Class)aClass delegate:(id<MAXJsonAdapterDelegate>)delegate fromArray:(NSArray<NSDictionary *> *)array {
++(NSArray *)MAXJAObjectsOfClass:(Class)aClass delegate:(id<MAXJsonAdapterDelegate>)delegate fromArray:(NSArray<NSDictionary *> *)array {
     
     NSMutableArray *arrayToReturn = [NSMutableArray array];
     
     for (NSDictionary *currentDictionary in array) {
         
-        id object =[MAXJsonAdapter MAXJACreateObjectOfClass: aClass delegate: delegate fromDictionary: currentDictionary];
+        id object =[MAXJsonAdapter MAXJAObjectOfClass: aClass delegate: delegate fromDictionary: currentDictionary];
         
         [arrayToReturn addObject: object];
         

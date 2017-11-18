@@ -231,7 +231,7 @@
     
     NSDictionary *dict = @{ @"name": @"Marius", @"transaction" : @{ @"merchantName" : @"Hagkaup", @"amount" : @3000 } };
     
-    MAXNormalRootObject *rootObj = [MAXJsonAdapter MAXJACreateObjectOfClass: [MAXNormalRootObject class] delegate: [MAXNormalRootObject new] fromDictionary: dict];
+    MAXNormalRootObject *rootObj = [MAXJsonAdapter MAXJAObjectOfClass: [MAXNormalRootObject class] delegate: [MAXNormalRootObject new] fromDictionary: dict];
     
     XCTAssertEqualObjects( rootObj.name, @"Marius");
     XCTAssertEqualObjects( rootObj.transaction.merchantName, @"Hagkaup");
@@ -243,7 +243,7 @@
     
     NSDictionary *dict =  @{ @"name": @"Marius", @"transactions" : @[ @{ @"merchantName" : @"Hagkaup", @"amount" : @3000 }, @{ @"merchantName" : @"Nói Síríus", @"amount" : @5000 } ] };
     
-    MAXNormalArrayRootObject *rootObj = [MAXJsonAdapter MAXJACreateObjectOfClass: [MAXNormalArrayRootObject class] delegate: [MAXNormalArrayRootObject new]  fromDictionary: dict];
+    MAXNormalArrayRootObject *rootObj = [MAXJsonAdapter MAXJAObjectOfClass: [MAXNormalArrayRootObject class] delegate: [MAXNormalArrayRootObject new]  fromDictionary: dict];
     
     XCTAssertEqualObjects( rootObj.name, @"Marius");
     XCTAssertEqualObjects( @(rootObj.transactions.count), @2);
@@ -260,7 +260,7 @@
     
     NSDictionary *dict = @{ @"name": @"Marius", @"transaction" : @{ @"merchant" : @"Hagkaup", @"transactionAmount" : @3000 } };
     
-    MAXNormalRootObjectWithDelegate *rootObj = [MAXJsonAdapter MAXJACreateObjectOfClass: [MAXNormalRootObjectWithDelegate class] delegate: [MAXNormalRootObjectWithDelegate new] fromDictionary: dict];
+    MAXNormalRootObjectWithDelegate *rootObj = [MAXJsonAdapter MAXJAObjectOfClass: [MAXNormalRootObjectWithDelegate class] delegate: [MAXNormalRootObjectWithDelegate new] fromDictionary: dict];
     
     XCTAssertEqualObjects( rootObj.name, @"Marius");
     XCTAssertEqualObjects( rootObj.transaction.merchantName, @"Hagkaup");
@@ -272,7 +272,7 @@
     
     NSDictionary *dict =  @{ @"name": @"Marius", @"transactions" : @[ @{ @"merchant" : @"Hagkaup", @"transactionAmount" : @3000 }, @{ @"merchant" : @"Nói Síríus", @"transactionAmount" : @5000 } ] };
     
-    MAXNormalArrayRootObjectWithDelegate *rootObj = [MAXJsonAdapter MAXJACreateObjectOfClass: [MAXNormalArrayRootObjectWithDelegate class] delegate: [MAXNormalArrayRootObjectWithDelegate new]  fromDictionary: dict];
+    MAXNormalArrayRootObjectWithDelegate *rootObj = [MAXJsonAdapter MAXJAObjectOfClass: [MAXNormalArrayRootObjectWithDelegate class] delegate: [MAXNormalArrayRootObjectWithDelegate new]  fromDictionary: dict];
     
     XCTAssertEqualObjects( rootObj.name, @"Marius");
     XCTAssertEqualObjects( @(rootObj.transactions.count), @2);
@@ -289,7 +289,7 @@
     
     NSDictionary *dict = @{ @"name": @"Marius", @"transaction" : @{ @"merchantName" : @"Hagkaup", @"amount" : @3000 } };
     
-    MAXKeyMappedRootObject *rootObj = [MAXJsonAdapter MAXJACreateObjectOfClass: [MAXKeyMappedRootObject class] delegate: [MAXKeyMappedRootObject new] fromDictionary: dict];
+    MAXKeyMappedRootObject *rootObj = [MAXJsonAdapter MAXJAObjectOfClass: [MAXKeyMappedRootObject class] delegate: [MAXKeyMappedRootObject new] fromDictionary: dict];
     
     XCTAssertEqualObjects( rootObj.mappedName, @"Marius");
     XCTAssertEqualObjects( rootObj.containedObject.merchantName, @"Hagkaup");
@@ -301,7 +301,7 @@
     
     NSDictionary *dict =  @{ @"name": @"Marius", @"transactions" : @[ @{ @"merchantName" : @"Hagkaup", @"amount" : @3000 }, @{ @"merchantName" : @"Nói Síríus", @"amount" : @5000 } ] };
     
-    MAXKeyMappedArrayRootObject *rootObj = [MAXJsonAdapter MAXJACreateObjectOfClass: [MAXKeyMappedArrayRootObject class] delegate: [MAXKeyMappedArrayRootObject new] fromDictionary: dict];
+    MAXKeyMappedArrayRootObject *rootObj = [MAXJsonAdapter MAXJAObjectOfClass: [MAXKeyMappedArrayRootObject class] delegate: [MAXKeyMappedArrayRootObject new] fromDictionary: dict];
     
     XCTAssertEqualObjects( rootObj.mappedName, @"Marius");
     XCTAssertEqualObjects( rootObj.containedObjects[0].merchantName, @"Hagkaup");
@@ -317,7 +317,7 @@
     
     NSDictionary *dict = @{ @"name": @"Marius", @"transaction" : @{ @"merchant" : @"Hagkaup", @"transactionAmount" : @3000 } };
     
-    MAXKeyMappedRootObjectWithDelegate *rootObj = [MAXJsonAdapter MAXJACreateObjectOfClass: [MAXKeyMappedRootObjectWithDelegate class] delegate: [MAXKeyMappedRootObjectWithDelegate new] fromDictionary: dict];
+    MAXKeyMappedRootObjectWithDelegate *rootObj = [MAXJsonAdapter MAXJAObjectOfClass: [MAXKeyMappedRootObjectWithDelegate class] delegate: [MAXKeyMappedRootObjectWithDelegate new] fromDictionary: dict];
     
     XCTAssertEqualObjects( rootObj.mappedName, @"Marius");
     XCTAssertEqualObjects( rootObj.containedObject.merchantName, @"Hagkaup");
@@ -329,7 +329,7 @@
     
     NSDictionary *dict =  @{ @"name": @"Marius", @"transactions" : @[ @{ @"merchant" : @"Hagkaup", @"transactionAmount" : @3000 }, @{ @"merchant" : @"Nói Síríus", @"transactionAmount" : @5000 } ] };
     
-    MAXKeyMappedArrayRootObjectWithDelegate *rootObj = [MAXJsonAdapter MAXJACreateObjectOfClass: [MAXKeyMappedArrayRootObjectWithDelegate class] delegate: [MAXKeyMappedArrayRootObjectWithDelegate new] fromDictionary: dict];
+    MAXKeyMappedArrayRootObjectWithDelegate *rootObj = [MAXJsonAdapter MAXJAObjectOfClass: [MAXKeyMappedArrayRootObjectWithDelegate class] delegate: [MAXKeyMappedArrayRootObjectWithDelegate new] fromDictionary: dict];
     
     XCTAssertEqualObjects( rootObj.mappedName, @"Marius");
     XCTAssertEqualObjects( rootObj.containedObjects[0].merchantName, @"Hagkaup");

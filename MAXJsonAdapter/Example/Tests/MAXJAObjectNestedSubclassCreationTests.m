@@ -139,7 +139,7 @@
     
     NSDictionary *dict = @{ @"person" : @{ @"name" : @"Maximus Aurelius", @"personInfo" : @{ @"personAge" : @20, @"streetName" : @"44th Washington Street" } } };
     
-    MAXNestedNormalRootObjectWithoutDelegate *rootObj = [MAXJsonAdapter MAXJACreateObjectOfClass: [MAXNestedNormalRootObjectWithoutDelegate class] delegate: [MAXNestedNormalRootObjectWithoutDelegate new] fromDictionary: dict];
+    MAXNestedNormalRootObjectWithoutDelegate *rootObj = [MAXJsonAdapter MAXJAObjectOfClass: [MAXNestedNormalRootObjectWithoutDelegate class] delegate: [MAXNestedNormalRootObjectWithoutDelegate new] fromDictionary: dict];
     
     XCTAssertEqualObjects( rootObj.person.name, @"Maximus Aurelius");
     XCTAssertEqualObjects( rootObj.person.personInfo.personAge, @20);
@@ -151,7 +151,7 @@
     
     NSDictionary *dict = @{ @"persons" : @[ @{ @"name" : @"Julian Delphiki", @"personInfo" : @{ @"personAge" : @42, @"streetName" : @"Garðsendi" } }, @{ @"name" : @"Petra Arkanian", @"personInfo" : @{ @"personAge" : @33, @"streetName" : @"Tunguvegur" } } ] };
     
-    MAXArrayNestedRootObject *rootObj = [MAXJsonAdapter MAXJACreateObjectOfClass: [MAXArrayNestedRootObject class] delegate: [MAXArrayNestedRootObject new] fromDictionary: dict];
+    MAXArrayNestedRootObject *rootObj = [MAXJsonAdapter MAXJAObjectOfClass: [MAXArrayNestedRootObject class] delegate: [MAXArrayNestedRootObject new] fromDictionary: dict];
     
     XCTAssertEqualObjects( @(rootObj.persons.count), @2);
     XCTAssertEqualObjects( rootObj.persons[0].name, @"Julian Delphiki");
@@ -167,7 +167,7 @@
     
     NSDictionary *dict = @{ @"person" : @{ @"name" : @"Gengis Khan", @"personInfos" : @[ @{ @"personAge" : @24, @"streetName" : @"Rue Faubourg" }, @{ @"personAge" : @43 } ] } };
     
-    MAXNestedRootObject *rootObj = [MAXJsonAdapter MAXJACreateObjectOfClass: [MAXNestedRootObject class] delegate: [MAXNestedRootObject new] fromDictionary: dict];
+    MAXNestedRootObject *rootObj = [MAXJsonAdapter MAXJAObjectOfClass: [MAXNestedRootObject class] delegate: [MAXNestedRootObject new] fromDictionary: dict];
     
     XCTAssertEqualObjects( rootObj.person.name, @"Gengis Khan");
     XCTAssertEqualObjects( rootObj.person.personInfos[0].personAge, @24);
@@ -184,7 +184,7 @@
                                     @{ @"name" : @"Peter Wiggin", @"personInfos" : @[ @{ @"personAge" : @16, @"streetName" : @"Carolina" }, @{ @"personAge" : @21,  @"streetName" : @"5th Street" } ] }
                                     ] };
     
-    MAXDoubleArrayNestedRootObject *rootObj = [MAXJsonAdapter MAXJACreateObjectOfClass: [MAXDoubleArrayNestedRootObject class] delegate: [MAXDoubleArrayNestedRootObject new] fromDictionary: dict];
+    MAXDoubleArrayNestedRootObject *rootObj = [MAXJsonAdapter MAXJAObjectOfClass: [MAXDoubleArrayNestedRootObject class] delegate: [MAXDoubleArrayNestedRootObject new] fromDictionary: dict];
     
     XCTAssertEqualObjects( rootObj.persons[0].name, @"Bonzo Madrid");
     XCTAssertEqualObjects( @(rootObj.persons[0].personInfos.count), @1);

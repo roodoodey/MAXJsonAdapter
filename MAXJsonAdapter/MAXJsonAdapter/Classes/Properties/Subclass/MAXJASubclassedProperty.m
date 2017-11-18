@@ -90,7 +90,7 @@
             NSAssert([[(NSArray *)value firstObject] isKindOfClass:[NSDictionary class]], @"Cannot create a an object from a list which does not contain an NSDictionary when a property is subclassed.");
             
             if ([[(NSArray *)value firstObject] isKindOfClass:[NSDictionary class]]) {
-                return [MAXJsonAdapter MAXJACreateObjectsOfClass: _aClass delegate: _delegate fromArray: (NSArray *)value];
+                return [MAXJsonAdapter MAXJAObjectsOfClass: _aClass delegate: _delegate fromArray: (NSArray *)value];
             }
         }
         
@@ -99,7 +99,7 @@
     }
     else if([value isKindOfClass: [NSDictionary class]]) {
         
-        return [MAXJsonAdapter MAXJACreateObjectOfClass: _aClass delegate: _delegate fromDictionary: (NSDictionary *)value];
+        return [MAXJsonAdapter MAXJAObjectOfClass: _aClass delegate: _delegate fromDictionary: (NSDictionary *)value];
         
     }
     
