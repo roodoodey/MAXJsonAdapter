@@ -1,0 +1,6 @@
+framework module MAXJsonAdapter {
+  umbrella header "MAXJsonAdapter-umbrella.h"
+
+  export *
+  module * { export * }
+}

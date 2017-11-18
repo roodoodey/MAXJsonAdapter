@@ -1,0 +1,22 @@
+{
+  "name": "MAXJsonAdapter",
+  "version": "0.1.0",
+  "summary": "A short description of MAXJsonAdapter.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/roodoodey/MAXJsonAdapter",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "roodoodey": "mathieugrettir@hotmail.com"
+  },
+  "source": {
+    "git": "https://github.com/roodoodey/MAXJsonAdapter.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "MAXJsonAdapter/Classes/**/*"
+}

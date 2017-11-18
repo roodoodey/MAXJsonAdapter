@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'MAXJsonAdapter_Example' do
+  pod 'MAXJsonAdapter', :path => '../'
+
+  target 'MAXJsonAdapter_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

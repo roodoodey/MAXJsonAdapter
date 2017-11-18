@@ -1,0 +1,717 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0C87C855BDB0DD068DFB031810B6CDD1 /* Pods-MAXJsonAdapter_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 62C5E1A7997E7B0ED890006FA40E75FB /* Pods-MAXJsonAdapter_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		35F618D09C00C9199C8EA56E5E154A26 /* MAXJsonAdapter-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BB1D49D126999619473F289BD7D2EA8 /* MAXJsonAdapter-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5E943AB4CDB611C095519330A0247C48 /* Pods-MAXJsonAdapter_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A315984B9710B015FD4378C7567E791A /* Pods-MAXJsonAdapter_Example-dummy.m */; };
+		5F48D317AD8614A4F172915515DC3B1E /* ReplaceMe.m in Sources */ = {isa = PBXBuildFile; fileRef = 653BBC44EF9983CFD1E33C426337B126 /* ReplaceMe.m */; };
+		622270038B0ED9DB36F0C958097C05C3 /* Pods-MAXJsonAdapter_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 918589997CB2883252E7FC760097DE3D /* Pods-MAXJsonAdapter_Tests-dummy.m */; };
+		726AD42BA590FB9C7303593439BD3223 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		ACD5C94F60D50CCA40BAD23993777BD3 /* Pods-MAXJsonAdapter_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7D8B2502C6D51AE9B9E85B3A5FC59E9E /* Pods-MAXJsonAdapter_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B2372977C5FE25A5A18FFB3FE25A68F0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		C77E817F9881ED669600B3FE50DEB34D /* MAXJsonAdapter-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F2085F62EA70650A977A9ED4467A32A /* MAXJsonAdapter-dummy.m */; };
+		EC6EF8BCAE96E6C8090F375716988A0C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		70573D22D0C2476BD8EE4951BDB490BC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FD4A8721A54A76509FD9915BBF25E3A4;
+			remoteInfo = MAXJsonAdapter;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0836A77B2A06DCAB975F7A865BBF5024 /* Pods-MAXJsonAdapter_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MAXJsonAdapter_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		1334FD66364C52D0F7CDEDB99EF5EAF5 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1C2C19D6003DA6CDED30A5838F4193BE /* MAXJsonAdapter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MAXJsonAdapter.framework; path = MAXJsonAdapter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		220EE1CDC869E87FA44A8BE43FB76B98 /* Pods-MAXJsonAdapter_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MAXJsonAdapter_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		336B713FAD59C8C6152EF9F30854C2C0 /* Pods_MAXJsonAdapter_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MAXJsonAdapter_Tests.framework; path = "Pods-MAXJsonAdapter_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A6715C17B1028A3FAC5A4B0129DB950 /* Pods-MAXJsonAdapter_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-MAXJsonAdapter_Tests.modulemap"; sourceTree = "<group>"; };
+		43D8ACE568B1B1D61C9C6F793555FF06 /* Pods-MAXJsonAdapter_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MAXJsonAdapter_Example-frameworks.sh"; sourceTree = "<group>"; };
+		49FA86F978E0BD35225DDFA9C6887D19 /* Pods_MAXJsonAdapter_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MAXJsonAdapter_Example.framework; path = "Pods-MAXJsonAdapter_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A074919EC5AD2086A0C9FF36B48B41E /* Pods-MAXJsonAdapter_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MAXJsonAdapter_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		4E60F3343800E7F04242A238195AF734 /* Pods-MAXJsonAdapter_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MAXJsonAdapter_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		4F2085F62EA70650A977A9ED4467A32A /* MAXJsonAdapter-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MAXJsonAdapter-dummy.m"; sourceTree = "<group>"; };
+		5F3D062E9067F582E492E4CC6AC3F397 /* Pods-MAXJsonAdapter_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MAXJsonAdapter_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		62C5E1A7997E7B0ED890006FA40E75FB /* Pods-MAXJsonAdapter_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MAXJsonAdapter_Example-umbrella.h"; sourceTree = "<group>"; };
+		653BBC44EF9983CFD1E33C426337B126 /* ReplaceMe.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ReplaceMe.m; sourceTree = "<group>"; };
+		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		7D8B2502C6D51AE9B9E85B3A5FC59E9E /* Pods-MAXJsonAdapter_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MAXJsonAdapter_Tests-umbrella.h"; sourceTree = "<group>"; };
+		863D1D7EE61FC2D11DAD7BE3542105CB /* Pods-MAXJsonAdapter_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MAXJsonAdapter_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		8B648A1787FAF409F9E3166DCCB54EE1 /* MAXJsonAdapter.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = MAXJsonAdapter.modulemap; sourceTree = "<group>"; };
+		8B830EF598092CB3D50F460DAEF4FB61 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8CDF24D8BD90E23A84F9C0A4528DFAEF /* Pods-MAXJsonAdapter_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MAXJsonAdapter_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		918589997CB2883252E7FC760097DE3D /* Pods-MAXJsonAdapter_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MAXJsonAdapter_Tests-dummy.m"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9BB1D49D126999619473F289BD7D2EA8 /* MAXJsonAdapter-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MAXJsonAdapter-umbrella.h"; sourceTree = "<group>"; };
+		A315984B9710B015FD4378C7567E791A /* Pods-MAXJsonAdapter_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MAXJsonAdapter_Example-dummy.m"; sourceTree = "<group>"; };
+		A3B211E34B591984A48B5326B9E7DC31 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A690E8D85B80960290D42C8AA8613B35 /* Pods-MAXJsonAdapter_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-MAXJsonAdapter_Example.modulemap"; sourceTree = "<group>"; };
+		B92E5196AB81F6E3862CE65179EF0668 /* Pods-MAXJsonAdapter_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MAXJsonAdapter_Example-resources.sh"; sourceTree = "<group>"; };
+		C426ADF713D6BB09643159AA1412CC8E /* MAXJsonAdapter-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MAXJsonAdapter-prefix.pch"; sourceTree = "<group>"; };
+		E1970AF058AF3142A666A20DAA748F91 /* Pods-MAXJsonAdapter_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MAXJsonAdapter_Example.release.xcconfig"; sourceTree = "<group>"; };
+		E3A1B2AA26ED3016E9C6B26497FD9456 /* MAXJsonAdapter.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MAXJsonAdapter.xcconfig; sourceTree = "<group>"; };
+		EA2B43AEAF967F0FA6838C2AF213BBAF /* Pods-MAXJsonAdapter_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MAXJsonAdapter_Tests-frameworks.sh"; sourceTree = "<group>"; };
+		FA9D7B904162DEB0F49542EB7159F804 /* Pods-MAXJsonAdapter_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MAXJsonAdapter_Tests-resources.sh"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0528531B80281FAC97CB1EF1A8DA677C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				726AD42BA590FB9C7303593439BD3223 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		87C508A44D625E3C51A11A751CFADFEF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC6EF8BCAE96E6C8090F375716988A0C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A7F72B411366B4BA7AB866133A602916 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B2372977C5FE25A5A18FFB3FE25A68F0 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0D66E20CE936A96422344E7CB5E4AC35 /* Pods-MAXJsonAdapter_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				A3B211E34B591984A48B5326B9E7DC31 /* Info.plist */,
+				3A6715C17B1028A3FAC5A4B0129DB950 /* Pods-MAXJsonAdapter_Tests.modulemap */,
+				4A074919EC5AD2086A0C9FF36B48B41E /* Pods-MAXJsonAdapter_Tests-acknowledgements.markdown */,
+				8CDF24D8BD90E23A84F9C0A4528DFAEF /* Pods-MAXJsonAdapter_Tests-acknowledgements.plist */,
+				918589997CB2883252E7FC760097DE3D /* Pods-MAXJsonAdapter_Tests-dummy.m */,
+				EA2B43AEAF967F0FA6838C2AF213BBAF /* Pods-MAXJsonAdapter_Tests-frameworks.sh */,
+				FA9D7B904162DEB0F49542EB7159F804 /* Pods-MAXJsonAdapter_Tests-resources.sh */,
+				7D8B2502C6D51AE9B9E85B3A5FC59E9E /* Pods-MAXJsonAdapter_Tests-umbrella.h */,
+				5F3D062E9067F582E492E4CC6AC3F397 /* Pods-MAXJsonAdapter_Tests.debug.xcconfig */,
+				4E60F3343800E7F04242A238195AF734 /* Pods-MAXJsonAdapter_Tests.release.xcconfig */,
+			);
+			name = "Pods-MAXJsonAdapter_Tests";
+			path = "Target Support Files/Pods-MAXJsonAdapter_Tests";
+			sourceTree = "<group>";
+		};
+		30C3CA5922D486CBC20ACC48FA40023E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1C2C19D6003DA6CDED30A5838F4193BE /* MAXJsonAdapter.framework */,
+				49FA86F978E0BD35225DDFA9C6887D19 /* Pods_MAXJsonAdapter_Example.framework */,
+				336B713FAD59C8C6152EF9F30854C2C0 /* Pods_MAXJsonAdapter_Tests.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7212EEEF53C9D77524FAD30D000B9563 /* Pods-MAXJsonAdapter_Example */ = {
+			isa = PBXGroup;
+			children = (
+				1334FD66364C52D0F7CDEDB99EF5EAF5 /* Info.plist */,
+				A690E8D85B80960290D42C8AA8613B35 /* Pods-MAXJsonAdapter_Example.modulemap */,
+				220EE1CDC869E87FA44A8BE43FB76B98 /* Pods-MAXJsonAdapter_Example-acknowledgements.markdown */,
+				863D1D7EE61FC2D11DAD7BE3542105CB /* Pods-MAXJsonAdapter_Example-acknowledgements.plist */,
+				A315984B9710B015FD4378C7567E791A /* Pods-MAXJsonAdapter_Example-dummy.m */,
+				43D8ACE568B1B1D61C9C6F793555FF06 /* Pods-MAXJsonAdapter_Example-frameworks.sh */,
+				B92E5196AB81F6E3862CE65179EF0668 /* Pods-MAXJsonAdapter_Example-resources.sh */,
+				62C5E1A7997E7B0ED890006FA40E75FB /* Pods-MAXJsonAdapter_Example-umbrella.h */,
+				0836A77B2A06DCAB975F7A865BBF5024 /* Pods-MAXJsonAdapter_Example.debug.xcconfig */,
+				E1970AF058AF3142A666A20DAA748F91 /* Pods-MAXJsonAdapter_Example.release.xcconfig */,
+			);
+			name = "Pods-MAXJsonAdapter_Example";
+			path = "Target Support Files/Pods-MAXJsonAdapter_Example";
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				BDA767EFDA0152BB7F39C723BD44B1EB /* Development Pods */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				30C3CA5922D486CBC20ACC48FA40023E /* Products */,
+				D30C74B88ACB58883B5B3A5D28CC8268 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		8B753574B82F0B8EDCAFE62F96053361 /* MAXJsonAdapter */ = {
+			isa = PBXGroup;
+			children = (
+				D570939FE2D5FC811086B58C7F7BBDE5 /* MAXJsonAdapter */,
+				D28027044F9A99E80D694D0F124E7978 /* Support Files */,
+			);
+			name = MAXJsonAdapter;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		8C3581C6E134BE9D279A25A497B1E84A /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				653BBC44EF9983CFD1E33C426337B126 /* ReplaceMe.m */,
+			);
+			name = Classes;
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D35AF013A5F0BAD4F32504907A52519E /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BDA767EFDA0152BB7F39C723BD44B1EB /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8B753574B82F0B8EDCAFE62F96053361 /* MAXJsonAdapter */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		D28027044F9A99E80D694D0F124E7978 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				8B830EF598092CB3D50F460DAEF4FB61 /* Info.plist */,
+				8B648A1787FAF409F9E3166DCCB54EE1 /* MAXJsonAdapter.modulemap */,
+				E3A1B2AA26ED3016E9C6B26497FD9456 /* MAXJsonAdapter.xcconfig */,
+				4F2085F62EA70650A977A9ED4467A32A /* MAXJsonAdapter-dummy.m */,
+				C426ADF713D6BB09643159AA1412CC8E /* MAXJsonAdapter-prefix.pch */,
+				9BB1D49D126999619473F289BD7D2EA8 /* MAXJsonAdapter-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/MAXJsonAdapter";
+			sourceTree = "<group>";
+		};
+		D30C74B88ACB58883B5B3A5D28CC8268 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				7212EEEF53C9D77524FAD30D000B9563 /* Pods-MAXJsonAdapter_Example */,
+				0D66E20CE936A96422344E7CB5E4AC35 /* Pods-MAXJsonAdapter_Tests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		D35AF013A5F0BAD4F32504907A52519E /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		D570939FE2D5FC811086B58C7F7BBDE5 /* MAXJsonAdapter */ = {
+			isa = PBXGroup;
+			children = (
+				8C3581C6E134BE9D279A25A497B1E84A /* Classes */,
+			);
+			name = MAXJsonAdapter;
+			path = MAXJsonAdapter;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		2A0A7C587003AD4D266BC130187594D6 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACD5C94F60D50CCA40BAD23993777BD3 /* Pods-MAXJsonAdapter_Tests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		43D2BEBA50006A2B39CA72F0CB15B4D3 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0C87C855BDB0DD068DFB031810B6CDD1 /* Pods-MAXJsonAdapter_Example-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E49CB1DE801C861BBD64A192E7BC5C0F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				35F618D09C00C9199C8EA56E5E154A26 /* MAXJsonAdapter-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		7E4949EABA5C4DADE26CD95C8FA4C423 /* Pods-MAXJsonAdapter_Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F51E5D30768244F67E7B27F89D25DF0B /* Build configuration list for PBXNativeTarget "Pods-MAXJsonAdapter_Example" */;
+			buildPhases = (
+				3B823441A9F3594BE4F50C9F0C46AD3A /* Sources */,
+				A7F72B411366B4BA7AB866133A602916 /* Frameworks */,
+				43D2BEBA50006A2B39CA72F0CB15B4D3 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A2E7285CBCFED2BDAAACBB37574B0DC2 /* PBXTargetDependency */,
+			);
+			name = "Pods-MAXJsonAdapter_Example";
+			productName = "Pods-MAXJsonAdapter_Example";
+			productReference = 49FA86F978E0BD35225DDFA9C6887D19 /* Pods_MAXJsonAdapter_Example.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		EEC5BBB37BDDC4619A2E735793A320C2 /* Pods-MAXJsonAdapter_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AF873001208608871DCD07B039E9B528 /* Build configuration list for PBXNativeTarget "Pods-MAXJsonAdapter_Tests" */;
+			buildPhases = (
+				B78E69F202CF4DD679D5E60E904AA490 /* Sources */,
+				87C508A44D625E3C51A11A751CFADFEF /* Frameworks */,
+				2A0A7C587003AD4D266BC130187594D6 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-MAXJsonAdapter_Tests";
+			productName = "Pods-MAXJsonAdapter_Tests";
+			productReference = 336B713FAD59C8C6152EF9F30854C2C0 /* Pods_MAXJsonAdapter_Tests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		FD4A8721A54A76509FD9915BBF25E3A4 /* MAXJsonAdapter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A7C0B28114A9D8975E3B97633EE5E832 /* Build configuration list for PBXNativeTarget "MAXJsonAdapter" */;
+			buildPhases = (
+				955F6E30B2A8FCF15A943151DDB96937 /* Sources */,
+				0528531B80281FAC97CB1EF1A8DA677C /* Frameworks */,
+				E49CB1DE801C861BBD64A192E7BC5C0F /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MAXJsonAdapter;
+			productName = MAXJsonAdapter;
+			productReference = 1C2C19D6003DA6CDED30A5838F4193BE /* MAXJsonAdapter.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 30C3CA5922D486CBC20ACC48FA40023E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FD4A8721A54A76509FD9915BBF25E3A4 /* MAXJsonAdapter */,
+				7E4949EABA5C4DADE26CD95C8FA4C423 /* Pods-MAXJsonAdapter_Example */,
+				EEC5BBB37BDDC4619A2E735793A320C2 /* Pods-MAXJsonAdapter_Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3B823441A9F3594BE4F50C9F0C46AD3A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E943AB4CDB611C095519330A0247C48 /* Pods-MAXJsonAdapter_Example-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		955F6E30B2A8FCF15A943151DDB96937 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C77E817F9881ED669600B3FE50DEB34D /* MAXJsonAdapter-dummy.m in Sources */,
+				5F48D317AD8614A4F172915515DC3B1E /* ReplaceMe.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B78E69F202CF4DD679D5E60E904AA490 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				622270038B0ED9DB36F0C958097C05C3 /* Pods-MAXJsonAdapter_Tests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A2E7285CBCFED2BDAAACBB37574B0DC2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MAXJsonAdapter;
+			target = FD4A8721A54A76509FD9915BBF25E3A4 /* MAXJsonAdapter */;
+			targetProxy = 70573D22D0C2476BD8EE4951BDB490BC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		157AF0CD5E5AB2A2E74D3B8ECD865185 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		228307E0846AE4B99ED620046C0BB2D0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E3A1B2AA26ED3016E9C6B26497FD9456 /* MAXJsonAdapter.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/MAXJsonAdapter/MAXJsonAdapter-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/MAXJsonAdapter/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/MAXJsonAdapter/MAXJsonAdapter.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = MAXJsonAdapter;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		27CE5D8C2EB7C68B6FC6EF06A7D37300 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E3A1B2AA26ED3016E9C6B26497FD9456 /* MAXJsonAdapter.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/MAXJsonAdapter/MAXJsonAdapter-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/MAXJsonAdapter/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/MAXJsonAdapter/MAXJsonAdapter.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = MAXJsonAdapter;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		5813B7410D52D44F5926B0E07594AA50 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4E60F3343800E7F04242A238195AF734 /* Pods-MAXJsonAdapter_Tests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-MAXJsonAdapter_Tests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-MAXJsonAdapter_Tests/Pods-MAXJsonAdapter_Tests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_MAXJsonAdapter_Tests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		9C6666B8C6D2B043E0420444877B05E7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0836A77B2A06DCAB975F7A865BBF5024 /* Pods-MAXJsonAdapter_Example.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-MAXJsonAdapter_Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-MAXJsonAdapter_Example/Pods-MAXJsonAdapter_Example.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_MAXJsonAdapter_Example;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		A0ED40EDB9A70D5EB924DBFB95001C78 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5F3D062E9067F582E492E4CC6AC3F397 /* Pods-MAXJsonAdapter_Tests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-MAXJsonAdapter_Tests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-MAXJsonAdapter_Tests/Pods-MAXJsonAdapter_Tests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_MAXJsonAdapter_Tests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		BA788E3E4F187E66F0794D1CCBC80E14 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E1970AF058AF3142A666A20DAA748F91 /* Pods-MAXJsonAdapter_Example.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-MAXJsonAdapter_Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-MAXJsonAdapter_Example/Pods-MAXJsonAdapter_Example.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_MAXJsonAdapter_Example;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		D7B1487F48E36BAD2CEF0AFCA4908B67 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D7B1487F48E36BAD2CEF0AFCA4908B67 /* Debug */,
+				157AF0CD5E5AB2A2E74D3B8ECD865185 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A7C0B28114A9D8975E3B97633EE5E832 /* Build configuration list for PBXNativeTarget "MAXJsonAdapter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				27CE5D8C2EB7C68B6FC6EF06A7D37300 /* Debug */,
+				228307E0846AE4B99ED620046C0BB2D0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AF873001208608871DCD07B039E9B528 /* Build configuration list for PBXNativeTarget "Pods-MAXJsonAdapter_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A0ED40EDB9A70D5EB924DBFB95001C78 /* Debug */,
+				5813B7410D52D44F5926B0E07594AA50 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F51E5D30768244F67E7B27F89D25DF0B /* Build configuration list for PBXNativeTarget "Pods-MAXJsonAdapter_Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9C6666B8C6D2B043E0420444877B05E7 /* Debug */,
+				BA788E3E4F187E66F0794D1CCBC80E14 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

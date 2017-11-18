@@ -1,0 +1,16 @@
+PODS:
+  - MAXJsonAdapter (0.1.0)
+
+DEPENDENCIES:
+  - MAXJsonAdapter (from `../`)
+
+EXTERNAL SOURCES:
+  MAXJsonAdapter:
+    :path: ../
+
+SPEC CHECKSUMS:
+  MAXJsonAdapter: 8269baaed568938d8680e9acda07b13239823558
+
+PODFILE CHECKSUM: 200aebbc68b150e9c34d1b79aaa514a7063c7d85
+
+COCOAPODS: 1.2.1
