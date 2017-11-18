@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class MAXJsonAdapterPropertyMap;
+@class MAXJAPropertyMap;
 
 NS_ASSUME_NONNULL_BEGIN;
 
@@ -25,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN;
  
  @return Returns nil or the value found by the mapping.
  */
-+(nullable id)MAXJASearchForProperty:(MAXJsonAdapterPropertyMap *)propertyMap inDictionary:(NSDictionary *)dictionary;
++(nullable id)MAXJASearchForProperty:(MAXJAPropertyMap *)propertyMap inDictionary:(NSDictionary *)dictionary;
 
 @end
 

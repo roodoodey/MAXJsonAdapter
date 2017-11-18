@@ -11,13 +11,13 @@
 
 @implementation MAXJsonAdapterPropertySearcher
 
-+(nullable id)MAXJASearchForProperty:(MAXJsonAdapterPropertyMap *)propertyMap inDictionary:(NSDictionary *)dictionary {
++(nullable id)MAXJASearchForProperty:(MAXJAPropertyMap *)propertyMap inDictionary:(NSDictionary *)dictionary {
     
     
     return [self p_findValueForPropertyMap: propertyMap inCollection: dictionary];
 }
 
-+(nullable id)p_findValueForPropertyMap:(MAXJsonAdapterPropertyMap *)propertyMap inCollection:(id)collection {
++(nullable id)p_findValueForPropertyMap:(MAXJAPropertyMap *)propertyMap inCollection:(id)collection {
     
     id value = [self p_valueForProperty: propertyMap inCollection: collection];
     
@@ -38,7 +38,7 @@
     return value;
 }
 
-+(nullable id)p_valueForProperty:(MAXJsonAdapterPropertyMap *)propertyMap inCollection:(id)collection {
++(nullable id)p_valueForProperty:(MAXJAPropertyMap *)propertyMap inCollection:(id)collection {
     
     if (propertyMap.key != nil && [collection isKindOfClass: [NSDictionary class] ] == YES) {
         

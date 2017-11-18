@@ -140,13 +140,13 @@
 
 #pragma mark - Private Helpers
 
-+(void)p_updateDictionary:(NSMutableDictionary *)dictionary withValue:(id)value propertyMap:(MAXJsonAdapterPropertyMap *)propertyMap {
++(void)p_updateDictionary:(NSMutableDictionary *)dictionary withValue:(id)value propertyMap:(MAXJAPropertyMap *)propertyMap {
     
     [self p_mapValue: value propertyMap: propertyMap object: dictionary];
     
 }
 
-+(id)p_mapValue:(id)value propertyMap:(MAXJsonAdapterPropertyMap *)propertyMap object:(id)object {
++(id)p_mapValue:(id)value propertyMap:(MAXJAPropertyMap *)propertyMap object:(id)object {
     
     // if the property map has another mapper we have to handle it
     if (propertyMap.nextPropertyMap != nil) {

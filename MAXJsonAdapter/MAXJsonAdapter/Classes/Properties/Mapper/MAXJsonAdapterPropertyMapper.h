@@ -40,7 +40,7 @@
 /**
  @description This method check whether the keys in the property maps match a key in the property dictionary, if the key matches it checks if the 
  */
-+(NSArray <MAXJAProperty *> *)MAXJAMapPropertyList:(NSArray <MAXJAProperty *> *)propertyList propertyMaps:(NSArray <MAXJsonAdapterPropertyMap *> *)propertyMaps;
++(NSArray <MAXJAProperty *> *)MAXJAMapPropertyList:(NSArray <MAXJAProperty *> *)propertyList propertyMaps:(NSArray <MAXJAPropertyMap *> *)propertyMaps;
 
 /**
  @description This method creates a MAXJsonAdapterProperty from a property list of strings.

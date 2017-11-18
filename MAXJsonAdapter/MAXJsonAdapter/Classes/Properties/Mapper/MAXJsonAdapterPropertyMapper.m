@@ -49,7 +49,7 @@
     // next we need to add the map for properties
     if ([delegate respondsToSelector: @selector(MAXJAPropertiesToMapObjectCreation)] == YES) {
         
-        NSArray <MAXJsonAdapterPropertyMap *> *propertyMaps = [delegate MAXJAPropertiesToMapObjectCreation];
+        NSArray <MAXJAPropertyMap *> *propertyMaps = [delegate MAXJAPropertiesToMapObjectCreation];
         
         // adds all of the property mappers to the object properties.
         adapterProperties = [self MAXJAMapPropertyList: adapterProperties propertyMaps: propertyMaps];
@@ -112,7 +112,7 @@
     // next we need to add the map for properties
     if ([delegate respondsToSelector: @selector(MAXJAPropertiesToMapDictionaryCreation)] == YES) {
         
-        NSArray <MAXJsonAdapterPropertyMap *> *propertyMaps = [delegate MAXJAPropertiesToMapDictionaryCreation];
+        NSArray <MAXJAPropertyMap *> *propertyMaps = [delegate MAXJAPropertiesToMapDictionaryCreation];
         
         adapterProperties = [self MAXJAMapPropertyList: adapterProperties propertyMaps: propertyMaps];
         
@@ -164,11 +164,11 @@
     return properties;
 }
 
-+(NSArray <MAXJAProperty *> *)MAXJAMapPropertyList:(NSArray <MAXJAProperty *> *)propertyList propertyMaps:(NSArray <MAXJsonAdapterPropertyMap *> *)propertyMaps {
++(NSArray <MAXJAProperty *> *)MAXJAMapPropertyList:(NSArray <MAXJAProperty *> *)propertyList propertyMaps:(NSArray <MAXJAPropertyMap *> *)propertyMaps {
     
     NSMutableArray *mappedPropertyList = [propertyList mutableCopy];
     
-    for (MAXJsonAdapterPropertyMap *currentMap in propertyMaps) {
+    for (MAXJAPropertyMap *currentMap in propertyMaps) {
         
         for (MAXJAProperty *currentProperty in mappedPropertyList) {
             

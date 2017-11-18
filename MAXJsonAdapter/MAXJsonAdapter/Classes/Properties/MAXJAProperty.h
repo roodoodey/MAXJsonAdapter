@@ -28,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  @description The property map object which contains the property mapping based on a property key or index in a list.
  */
-@property (nonatomic, strong, nullable) MAXJsonAdapterPropertyMap *propertyMap;
+@property (nonatomic, strong, nullable) MAXJAPropertyMap *propertyMap;
 
 /**
  @description The value transformer for the property
