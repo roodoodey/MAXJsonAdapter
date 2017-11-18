@@ -143,7 +143,7 @@
 
 +(NSArray <NSString *> *)MAXJARemoveIgnoredPropertiesFromPropertyList:(NSArray <NSString *> *)propertyList ignoredProperties:(NSArray <NSString *> *)ignoredProperties {
     
-     NSArray *newPropertyList = [MAXJsonAdapterNSArraryUtilities removeStrings: ignoredProperties fromArray: propertyList];
+     NSArray *newPropertyList = [MAXJANSArraryUtilities removeStrings: ignoredProperties fromArray: propertyList];
     
     return newPropertyList;
 }
@@ -154,7 +154,7 @@
     
     for (NSString *currentPropertyName in propertiesToUse) {
         
-        if ([MAXJsonAdapterNSArraryUtilities array: propertyList containsString: currentPropertyName] == YES) {
+        if ([MAXJANSArraryUtilities array: propertyList containsString: currentPropertyName] == YES) {
             
             [properties addObject: currentPropertyName];
         }

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface MAXJsonAdapterNSArraryUtilities : NSObject
+@interface MAXJANSArraryUtilities : NSObject
 
 +(NSArray <NSString *> *)removeStrings:(NSArray <NSString *> *)strings fromArray:(NSArray <NSString *> *)array;
 

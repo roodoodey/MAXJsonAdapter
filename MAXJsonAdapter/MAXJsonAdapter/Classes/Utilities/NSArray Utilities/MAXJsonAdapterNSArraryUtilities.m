@@ -8,7 +8,7 @@
 
 #import "MAXJsonAdapterNSArraryUtilities.h"
 
-@implementation MAXJsonAdapterNSArraryUtilities
+@implementation MAXJANSArraryUtilities
 
 +(NSArray <NSString *> *)removeStrings:(NSArray<NSString *> *)strings fromArray:(NSArray<NSString *> *)array {
     
@@ -16,7 +16,7 @@
     
     for (NSString *currentString in array) {
         
-        if ([MAXJsonAdapterNSArraryUtilities array: strings containsString: currentString] == NO) {
+        if ([MAXJANSArraryUtilities array: strings containsString: currentString] == NO) {
             
             [newArray addObject: currentString];
             
