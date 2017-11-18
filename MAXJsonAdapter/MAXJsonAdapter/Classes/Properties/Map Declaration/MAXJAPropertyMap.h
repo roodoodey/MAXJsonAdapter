@@ -36,9 +36,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, nullable, strong) MAXJAPropertyMap *nextPropertyMap;
 
 
-+(instancetype)MAXJACreateMapWithNewKey:(NSString *)key nextPropertyMap:(nullable MAXJAPropertyMap *)propertyMap;
++(instancetype)MAXJAMapWithKey:(NSString *)key nextPropertyMap:(nullable MAXJAPropertyMap *)propertyMap;
 
-+(instancetype)MAXJACreateMapWithIndex:(int)index nextPropertyMap:(nullable MAXJAPropertyMap *)propertyMap;
++(instancetype)MAXJAMapWithIndex:(int)index nextPropertyMap:(nullable MAXJAPropertyMap *)propertyMap;
 
 @end
 

@@ -26,8 +26,8 @@
 -(NSArray <MAXJAPropertyMap *> *)MAXJAPropertiesToMapObjectCreation {
     
     return @[
-             [MAXJAPropertyMap MAXJACreateMapWithNewKey: @"merchantName" nextPropertyMap: [MAXJAPropertyMap MAXJACreateMapWithNewKey: @"merchant" nextPropertyMap: nil]],
-             [MAXJAPropertyMap MAXJACreateMapWithNewKey: @"amount" nextPropertyMap: [MAXJAPropertyMap MAXJACreateMapWithNewKey: @"transactionAmount" nextPropertyMap: nil]]
+             [MAXJAPropertyMap MAXJAMapWithKey: @"merchantName" nextPropertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"merchant" nextPropertyMap: nil]],
+             [MAXJAPropertyMap MAXJAMapWithKey: @"amount" nextPropertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"transactionAmount" nextPropertyMap: nil]]
              ];
 }
 
@@ -121,8 +121,8 @@
 -(NSArray <MAXJAPropertyMap *> *)MAXJAPropertiesToMapObjectCreation {
     
     return @[
-             [MAXJAPropertyMap MAXJACreateMapWithNewKey: @"containedObject" nextPropertyMap: [MAXJAPropertyMap MAXJACreateMapWithNewKey: @"transaction" nextPropertyMap: nil]],
-             [MAXJAPropertyMap MAXJACreateMapWithNewKey: @"mappedName" nextPropertyMap: [MAXJAPropertyMap MAXJACreateMapWithNewKey: @"name" nextPropertyMap: nil]]
+             [MAXJAPropertyMap MAXJAMapWithKey: @"containedObject" nextPropertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"transaction" nextPropertyMap: nil]],
+             [MAXJAPropertyMap MAXJAMapWithKey: @"mappedName" nextPropertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"name" nextPropertyMap: nil]]
              ];
 }
 
@@ -146,8 +146,8 @@
 -(NSArray <MAXJAPropertyMap *> *)MAXJAPropertiesToMapObjectCreation {
     
     return @[
-             [MAXJAPropertyMap MAXJACreateMapWithNewKey: @"containedObject" nextPropertyMap: [MAXJAPropertyMap MAXJACreateMapWithNewKey: @"transaction" nextPropertyMap: nil]],
-             [MAXJAPropertyMap MAXJACreateMapWithNewKey: @"mappedName" nextPropertyMap: [MAXJAPropertyMap MAXJACreateMapWithNewKey: @"name" nextPropertyMap: nil]]
+             [MAXJAPropertyMap MAXJAMapWithKey: @"containedObject" nextPropertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"transaction" nextPropertyMap: nil]],
+             [MAXJAPropertyMap MAXJAMapWithKey: @"mappedName" nextPropertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"name" nextPropertyMap: nil]]
              ];
 }
 
@@ -171,8 +171,8 @@
 -(NSArray <MAXJAPropertyMap *> *)MAXJAPropertiesToMapObjectCreation {
     
     return @[
-             [MAXJAPropertyMap MAXJACreateMapWithNewKey: @"containedObjects" nextPropertyMap: [MAXJAPropertyMap MAXJACreateMapWithNewKey: @"transactions" nextPropertyMap: nil]],
-             [MAXJAPropertyMap MAXJACreateMapWithNewKey: @"mappedName" nextPropertyMap: [MAXJAPropertyMap MAXJACreateMapWithNewKey: @"name" nextPropertyMap: nil]]
+             [MAXJAPropertyMap MAXJAMapWithKey: @"containedObjects" nextPropertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"transactions" nextPropertyMap: nil]],
+             [MAXJAPropertyMap MAXJAMapWithKey: @"mappedName" nextPropertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"name" nextPropertyMap: nil]]
              ];
 }
 
@@ -196,8 +196,8 @@
 -(NSArray <MAXJAPropertyMap *> *)MAXJAPropertiesToMapObjectCreation {
     
     return @[
-             [MAXJAPropertyMap MAXJACreateMapWithNewKey: @"containedObjects" nextPropertyMap: [MAXJAPropertyMap MAXJACreateMapWithNewKey: @"transactions" nextPropertyMap: nil]],
-             [MAXJAPropertyMap MAXJACreateMapWithNewKey: @"mappedName" nextPropertyMap: [MAXJAPropertyMap MAXJACreateMapWithNewKey: @"name" nextPropertyMap: nil]]
+             [MAXJAPropertyMap MAXJAMapWithKey: @"containedObjects" nextPropertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"transactions" nextPropertyMap: nil]],
+             [MAXJAPropertyMap MAXJAMapWithKey: @"mappedName" nextPropertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"name" nextPropertyMap: nil]]
              ];
 }
 

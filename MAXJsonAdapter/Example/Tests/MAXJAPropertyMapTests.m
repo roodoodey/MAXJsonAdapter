@@ -78,9 +78,9 @@
 
 -(NSArray <MAXJAPropertyMap *> *)MAXJAPropertiesToMapObjectCreation {
     
-    MAXJAPropertyMap *firstMap = [MAXJAPropertyMap MAXJACreateMapWithNewKey: @"age" nextPropertyMap: [MAXJAPropertyMap MAXJACreateMapWithNewKey: @"fullAge" nextPropertyMap: nil] ];
+    MAXJAPropertyMap *firstMap = [MAXJAPropertyMap MAXJAMapWithKey: @"age" nextPropertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"fullAge" nextPropertyMap: nil] ];
     
-    MAXJAPropertyMap *secondMap = [MAXJAPropertyMap MAXJACreateMapWithNewKey: @"title" nextPropertyMap: nil];
+    MAXJAPropertyMap *secondMap = [MAXJAPropertyMap MAXJAMapWithKey: @"title" nextPropertyMap: nil];
     
     
     return @[firstMap, secondMap];
@@ -88,7 +88,7 @@
 
 -(NSArray <MAXJAPropertyMap *> *)MAXJAPropertiesToMapDictionaryCreation {
     
-    MAXJAPropertyMap *firstMap = [MAXJAPropertyMap MAXJACreateMapWithNewKey: @"name" nextPropertyMap: [MAXJAPropertyMap MAXJACreateMapWithIndex: 2 nextPropertyMap: nil]];
+    MAXJAPropertyMap *firstMap = [MAXJAPropertyMap MAXJAMapWithKey: @"name" nextPropertyMap: [MAXJAPropertyMap MAXJAMapWithIndex: 2 nextPropertyMap: nil]];
     
     return @[firstMap];
 }
@@ -151,8 +151,8 @@
     
     NSArray <MAXJAProperty *> *properties = @[propertyOne, propertyTwo];
     
-    MAXJAPropertyMap *mapOne = [MAXJAPropertyMap MAXJACreateMapWithNewKey: @"age" nextPropertyMap: nil];
-    MAXJAPropertyMap *mapTwo = [MAXJAPropertyMap MAXJACreateMapWithNewKey: @"title" nextPropertyMap: [MAXJAPropertyMap MAXJACreateMapWithNewKey: @"fullName" nextPropertyMap: nil] ];
+    MAXJAPropertyMap *mapOne = [MAXJAPropertyMap MAXJAMapWithKey: @"age" nextPropertyMap: nil];
+    MAXJAPropertyMap *mapTwo = [MAXJAPropertyMap MAXJAMapWithKey: @"title" nextPropertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"fullName" nextPropertyMap: nil] ];
     
     NSArray <MAXJAPropertyMap *> *propertyMaps = @[mapOne, mapTwo];
     
