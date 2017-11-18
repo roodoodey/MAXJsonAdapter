@@ -7,6 +7,9 @@
 //
 
 @import XCTest;
+@import MAXJsonAdapter;
+
+#import <MAXJsonAdapter/MAXJsonAdapter.h>
 
 @interface Tests : XCTestCase
 
@@ -28,7 +31,7 @@
 
 - (void)testExample
 {
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+    
 }
 
 @end

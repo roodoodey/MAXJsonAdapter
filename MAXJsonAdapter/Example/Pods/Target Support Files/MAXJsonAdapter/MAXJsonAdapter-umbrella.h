@@ -10,6 +10,17 @@
 #endif
 #endif
 
+#import "MAXJsonAdapterDictionaryCreator.h"
+#import "MAXJsonAdapterObjectCreator.h"
+#import "MAXJsonAdapter.h"
+#import "MAXJsonAdapterPropertyMapInfo.h"
+#import "MAXJsonAdapterPropertyMapper.h"
+#import "MAXJsonAdapterProperty.h"
+#import "MAXJsonAdapterPropertySearcher.h"
+#import "MAXJASubclassedProperty.h"
+#import "MAXJsonAdapterValueTransformer.h"
+#import "MAXJsonAdapterNSArraryUtilities.h"
+#import "MAXJsonAdapterRuntimeUtilities.h"
 
 FOUNDATION_EXPORT double MAXJsonAdapterVersionNumber;
 FOUNDATION_EXPORT const unsigned char MAXJsonAdapterVersionString[];
