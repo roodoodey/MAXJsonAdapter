@@ -9,7 +9,7 @@
 #import "MAXJsonAdapter.h"
 #import "MAXJAProperty.h"
 #import "MAXJAPropertyMap.h"
-#import "MAXJsonAdapterPropertyMapper.h"
+#import "MAXJAPropertyMapper.h"
 #import "MAXJAObjectCreator.h"
 #import "MAXJADictionaryCreator.h"
 #import "MAXJsonAdapterPropertySearcher.h"
@@ -23,7 +23,7 @@
     
     MAXJsonAdapter *adapter = [[MAXJsonAdapter alloc] init];
     
-    NSArray <MAXJAProperty *> *properties = [MAXJsonAdapterPropertyMapper MAXJACreateMappedPropertyListForObjectCreation: aClass delegate: delegate];
+    NSArray <MAXJAProperty *> *properties = [MAXJAPropertyMapper MAXJACreateMappedPropertyListForObjectCreation: aClass delegate: delegate];
     
     properties = [adapter p_populateProperties: properties withDictionary: dictionary];
     
@@ -93,7 +93,7 @@
     
     MAXJsonAdapter *adapter = [[MAXJsonAdapter alloc] init];
     
-    NSArray <MAXJAProperty *> *properties = [MAXJsonAdapterPropertyMapper MAXJACreateMappedPropertyListForDictionaryCreation: [object class] delegate: delegate];
+    NSArray <MAXJAProperty *> *properties = [MAXJAPropertyMapper MAXJACreateMappedPropertyListForDictionaryCreation: [object class] delegate: delegate];
     
     properties = [adapter p_populateProperties: properties withObject: object];
     
@@ -106,7 +106,7 @@
     
     MAXJsonAdapter *adapter = [[MAXJsonAdapter alloc] init];
     
-    NSArray <MAXJAProperty *> *properties = [MAXJsonAdapterPropertyMapper MAXJACreateMappedPropertyListForDictionaryCreation: [object class] delegate: delegate];
+    NSArray <MAXJAProperty *> *properties = [MAXJAPropertyMapper MAXJACreateMappedPropertyListForDictionaryCreation: [object class] delegate: delegate];
     
     // Populates the value of property from the objects property keys which will be used later
     // to populate the mapped or non mapped property.
