@@ -8,7 +8,7 @@
 
 #import "MAXJsonAdapterProperty.h"
 
-@implementation MAXJsonAdapterProperty
+@implementation MAXJAProperty
 
 
 @end

@@ -8,14 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-@class MAXJsonAdapterProperty;
+@class MAXJAProperty;
 
 @interface MAXJADictionaryCreator : NSObject
 
-+(id)MAXJACreateJsonObjectForProperties:(NSArray <MAXJsonAdapterProperty *> *)properties;
++(id)MAXJACreateJsonObjectForProperties:(NSArray <MAXJAProperty *> *)properties;
 
-+(NSDictionary *)MAXJACreateDictionaryForProperties:(NSArray <MAXJsonAdapterProperty *> *)properties;
++(NSDictionary *)MAXJACreateDictionaryForProperties:(NSArray <MAXJAProperty *> *)properties;
 
-+(NSArray *)MAXJACreateArrayOfDictionariesForProperties:(NSArray <MAXJsonAdapterProperty *> *)properties;
++(NSArray *)MAXJACreateArrayOfDictionariesForProperties:(NSArray <MAXJAProperty *> *)properties;
 
 @end

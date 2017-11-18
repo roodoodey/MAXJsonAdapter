@@ -13,7 +13,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MAXJsonAdapterProperty : NSObject
+@interface MAXJAProperty : NSObject
 
 /**
  @description The name of the property key.

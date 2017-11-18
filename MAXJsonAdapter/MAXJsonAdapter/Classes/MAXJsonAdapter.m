@@ -23,14 +23,14 @@
     
     MAXJsonAdapter *adapter = [[MAXJsonAdapter alloc] init];
     
-    NSArray <MAXJsonAdapterProperty *> *properties = [MAXJsonAdapterPropertyMapper MAXJACreateMappedPropertyListForObjectCreation: aClass delegate: delegate];
+    NSArray <MAXJAProperty *> *properties = [MAXJsonAdapterPropertyMapper MAXJACreateMappedPropertyListForObjectCreation: aClass delegate: delegate];
     
     properties = [adapter p_populateProperties: properties withDictionary: dictionary];
     
     return [adapter p_createInstanceOfClass: aClass delegate: delegate fromDictionary: dictionary properties: properties];
 }
 
--(id)p_createInstanceOfClass:(Class)aClass delegate:(id <MAXJsonAdapterDelegate>)delegate fromDictionary:(NSDictionary *)dictionary properties:(NSArray <MAXJsonAdapterProperty *> *)properties {
+-(id)p_createInstanceOfClass:(Class)aClass delegate:(id <MAXJsonAdapterDelegate>)delegate fromDictionary:(NSDictionary *)dictionary properties:(NSArray <MAXJAProperty *> *)properties {
     
     id object = [MAXJAObjectCreator MAXJACreateObjectOfClass: aClass withProperties: properties];
     
@@ -57,9 +57,9 @@
 
 #pragma mark - Object Creation Populating Property Values
 
--(NSArray <MAXJsonAdapterProperty *> *)p_populateProperties:(NSArray <MAXJsonAdapterProperty *> *)properties withDictionary:(NSDictionary *)dictionary {
+-(NSArray <MAXJAProperty *> *)p_populateProperties:(NSArray <MAXJAProperty *> *)properties withDictionary:(NSDictionary *)dictionary {
     
-    for (MAXJsonAdapterProperty *currentProperty in properties) {
+    for (MAXJAProperty *currentProperty in properties) {
         
         // if we have no property mapping on the property we simply fetch the value of the key
         if (currentProperty.propertyMap == nil) {
@@ -93,7 +93,7 @@
     
     MAXJsonAdapter *adapter = [[MAXJsonAdapter alloc] init];
     
-    NSArray <MAXJsonAdapterProperty *> *properties = [MAXJsonAdapterPropertyMapper MAXJACreateMappedPropertyListForDictionaryCreation: [object class] delegate: delegate];
+    NSArray <MAXJAProperty *> *properties = [MAXJsonAdapterPropertyMapper MAXJACreateMappedPropertyListForDictionaryCreation: [object class] delegate: delegate];
     
     properties = [adapter p_populateProperties: properties withObject: object];
     
@@ -106,7 +106,7 @@
     
     MAXJsonAdapter *adapter = [[MAXJsonAdapter alloc] init];
     
-    NSArray <MAXJsonAdapterProperty *> *properties = [MAXJsonAdapterPropertyMapper MAXJACreateMappedPropertyListForDictionaryCreation: [object class] delegate: delegate];
+    NSArray <MAXJAProperty *> *properties = [MAXJsonAdapterPropertyMapper MAXJACreateMappedPropertyListForDictionaryCreation: [object class] delegate: delegate];
     
     // Populates the value of property from the objects property keys which will be used later
     // to populate the mapped or non mapped property.
@@ -130,9 +130,9 @@
     return array;
 }
 
--(NSArray <MAXJsonAdapterProperty *> *)p_populateProperties:(NSArray <MAXJsonAdapterProperty *> *)properties withObject:(id)object {
+-(NSArray <MAXJAProperty *> *)p_populateProperties:(NSArray <MAXJAProperty *> *)properties withObject:(id)object {
     
-    for (MAXJsonAdapterProperty *currentProperty in properties) {
+    for (MAXJAProperty *currentProperty in properties) {
         
         id value = [object valueForKey: currentProperty.propertyKey];
         

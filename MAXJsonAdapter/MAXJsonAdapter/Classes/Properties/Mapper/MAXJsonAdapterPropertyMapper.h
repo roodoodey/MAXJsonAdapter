@@ -15,15 +15,15 @@
 
 #pragma mark - Property Name Map For Object Creation
 
-+(NSArray <MAXJsonAdapterProperty *> *)MAXJACreateMappedPropertyListForObjectCreation:(Class)aClass delegate:(id <MAXJsonAdapterDelegate>)delegate;
++(NSArray <MAXJAProperty *> *)MAXJACreateMappedPropertyListForObjectCreation:(Class)aClass delegate:(id <MAXJsonAdapterDelegate>)delegate;
 
-+(NSArray <MAXJsonAdapterProperty *> *)MAXJAMapPropertyListForObjectCreation:(NSArray <NSString *> *)propertyList delegate:(id <MAXJsonAdapterDelegate>)delegate;
++(NSArray <MAXJAProperty *> *)MAXJAMapPropertyListForObjectCreation:(NSArray <NSString *> *)propertyList delegate:(id <MAXJsonAdapterDelegate>)delegate;
 
 #pragma mark - Property Name Map For Dictionary Creation
 
-+(NSArray <MAXJsonAdapterProperty *> *)MAXJACreateMappedPropertyListForDictionaryCreation:(Class)aClass delegate:(id <MAXJsonAdapterDelegate>)delegate;
++(NSArray <MAXJAProperty *> *)MAXJACreateMappedPropertyListForDictionaryCreation:(Class)aClass delegate:(id <MAXJsonAdapterDelegate>)delegate;
 
-+(NSArray <MAXJsonAdapterProperty *> *)MAXJAMapPropertyListForDictionaryCreation:(NSArray <NSString *> *)propertyList delegate:(id <MAXJsonAdapterDelegate>)delegate;
++(NSArray <MAXJAProperty *> *)MAXJAMapPropertyListForDictionaryCreation:(NSArray <NSString *> *)propertyList delegate:(id <MAXJsonAdapterDelegate>)delegate;
 
 #pragma mark - Helper Methods
 
@@ -40,12 +40,12 @@
 /**
  @description This method check whether the keys in the property maps match a key in the property dictionary, if the key matches it checks if the 
  */
-+(NSArray <MAXJsonAdapterProperty *> *)MAXJAMapPropertyList:(NSArray <MAXJsonAdapterProperty *> *)propertyList propertyMaps:(NSArray <MAXJsonAdapterPropertyMap *> *)propertyMaps;
++(NSArray <MAXJAProperty *> *)MAXJAMapPropertyList:(NSArray <MAXJAProperty *> *)propertyList propertyMaps:(NSArray <MAXJsonAdapterPropertyMap *> *)propertyMaps;
 
 /**
  @description This method creates a MAXJsonAdapterProperty from a property list of strings.
  */
-+(NSArray <MAXJsonAdapterProperty *> *)MAXJACreatePropertyForPropertyList:(NSArray <NSString *> *)propertyList;
++(NSArray <MAXJAProperty *> *)MAXJACreatePropertyForPropertyList:(NSArray <NSString *> *)propertyList;
 
 
 @end

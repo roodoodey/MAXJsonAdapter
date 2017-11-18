@@ -15,7 +15,7 @@
 
 #pragma mark - Property Name Map For Object Creation
 
-+(NSArray <MAXJsonAdapterProperty *> *)MAXJACreateMappedPropertyListForObjectCreation:(Class)aClass delegate:(id <MAXJsonAdapterDelegate>)delegate {
++(NSArray <MAXJAProperty *> *)MAXJACreateMappedPropertyListForObjectCreation:(Class)aClass delegate:(id <MAXJsonAdapterDelegate>)delegate {
     
     // gets all of the names of the properties
     NSArray <NSString *> *propertyList = [MAXJsonAdapterRuntimeUtilities MAXJACreatePropertyNameListWithouthNSObjectPropertiesWithClass: aClass];
@@ -23,7 +23,7 @@
     return [self MAXJAMapPropertyListForObjectCreation: propertyList delegate: delegate];
 }
 
-+(NSArray <MAXJsonAdapterProperty *> *)MAXJAMapPropertyListForObjectCreation:(NSArray <NSString *> *)propertyList delegate:(id<MAXJsonAdapterDelegate>)delegate {
++(NSArray <MAXJAProperty *> *)MAXJAMapPropertyListForObjectCreation:(NSArray <NSString *> *)propertyList delegate:(id<MAXJsonAdapterDelegate>)delegate {
     
     NSArray <NSString *> *propertyListWithoutIgnoredProperties = [NSArray arrayWithArray: propertyList];
     
@@ -44,7 +44,7 @@
     }
     
     // after having removed all the properties which are supposed to be removed create the Adapter Property Object which contains all the information for serialization.
-    NSArray <MAXJsonAdapterProperty *> *adapterProperties = [self MAXJACreatePropertyForPropertyList: propertyListWithoutIgnoredProperties];
+    NSArray <MAXJAProperty *> *adapterProperties = [self MAXJACreatePropertyForPropertyList: propertyListWithoutIgnoredProperties];
     
     // next we need to add the map for properties
     if ([delegate respondsToSelector: @selector(MAXJAPropertiesToMapObjectCreation)] == YES) {
@@ -77,14 +77,14 @@
 
 #pragma mark - Property Name Map For Dictionary Creation
 
-+(NSArray <MAXJsonAdapterProperty *> *)MAXJACreateMappedPropertyListForDictionaryCreation:(Class)aClass delegate:(id<MAXJsonAdapterDelegate>)delegate {
++(NSArray <MAXJAProperty *> *)MAXJACreateMappedPropertyListForDictionaryCreation:(Class)aClass delegate:(id<MAXJsonAdapterDelegate>)delegate {
     
     NSArray <NSString *> *propertyList = [MAXJsonAdapterRuntimeUtilities MAXJACreatePropertyNameListWithouthNSObjectPropertiesWithClass: aClass];
     
     return [self MAXJAMapPropertyListForDictionaryCreation: propertyList delegate: delegate];
 }
 
-+(NSArray <MAXJsonAdapterProperty *> *)MAXJAMapPropertyListForDictionaryCreation:(NSArray <NSString *> *)propertyList delegate:(id<MAXJsonAdapterDelegate>)delegate {
++(NSArray <MAXJAProperty *> *)MAXJAMapPropertyListForDictionaryCreation:(NSArray <NSString *> *)propertyList delegate:(id<MAXJsonAdapterDelegate>)delegate {
     
     NSArray <NSString *> *propertyListWithoutIgnoredProperties = [NSArray arrayWithArray: propertyList];
     
@@ -107,7 +107,7 @@
     }
     
     // after having removed all the properties which are supposed to be removed create the Adapter PropertyObject which contains all the information for serialization.
-    NSArray <MAXJsonAdapterProperty *> *adapterProperties = [self MAXJACreatePropertyForPropertyList: propertyListWithoutIgnoredProperties];
+    NSArray <MAXJAProperty *> *adapterProperties = [self MAXJACreatePropertyForPropertyList: propertyListWithoutIgnoredProperties];
     
     // next we need to add the map for properties
     if ([delegate respondsToSelector: @selector(MAXJAPropertiesToMapDictionaryCreation)] == YES) {
@@ -164,13 +164,13 @@
     return properties;
 }
 
-+(NSArray <MAXJsonAdapterProperty *> *)MAXJAMapPropertyList:(NSArray <MAXJsonAdapterProperty *> *)propertyList propertyMaps:(NSArray <MAXJsonAdapterPropertyMap *> *)propertyMaps {
++(NSArray <MAXJAProperty *> *)MAXJAMapPropertyList:(NSArray <MAXJAProperty *> *)propertyList propertyMaps:(NSArray <MAXJsonAdapterPropertyMap *> *)propertyMaps {
     
     NSMutableArray *mappedPropertyList = [propertyList mutableCopy];
     
     for (MAXJsonAdapterPropertyMap *currentMap in propertyMaps) {
         
-        for (MAXJsonAdapterProperty *currentProperty in mappedPropertyList) {
+        for (MAXJAProperty *currentProperty in mappedPropertyList) {
             
             // the base map property should reference the property you want to map, th enext property incorporates the hierarchy
             // needed to know the mapping.
@@ -188,13 +188,13 @@
     return mappedPropertyList;
 }
 
-+(NSArray <MAXJsonAdapterProperty *> *)MAXJACreatePropertyForPropertyList:(NSArray<NSString *> *)propertyList {
++(NSArray <MAXJAProperty *> *)MAXJACreatePropertyForPropertyList:(NSArray<NSString *> *)propertyList {
     
-    NSMutableArray <MAXJsonAdapterProperty *> *properties = [NSMutableArray array];
+    NSMutableArray <MAXJAProperty *> *properties = [NSMutableArray array];
     
     for (NSString *currentPropertyKey in propertyList) {
         
-        MAXJsonAdapterProperty *currentProperty = [[MAXJsonAdapterProperty alloc] init];
+        MAXJAProperty *currentProperty = [[MAXJAProperty alloc] init];
         currentProperty.propertyKey = currentPropertyKey;
         
         [properties addObject: currentProperty];
@@ -206,11 +206,11 @@
 
 #pragma mark - Private Helpers
 
-+(void)p_assignSubclassProperties:(NSArray <MAXJASubclassedProperty *> *)subclassedProperties toProperties:(NSArray <MAXJsonAdapterProperty *> *)properties {
++(void)p_assignSubclassProperties:(NSArray <MAXJASubclassedProperty *> *)subclassedProperties toProperties:(NSArray <MAXJAProperty *> *)properties {
     
     for (MAXJASubclassedProperty *currentSubclass in subclassedProperties) {
         
-        for (MAXJsonAdapterProperty *currentProperty in properties) {
+        for (MAXJAProperty *currentProperty in properties) {
             
             if ([currentSubclass.propertyKey isEqualToString: currentProperty.propertyKey]) {
                 currentProperty.subclassedProperty = currentSubclass;
@@ -225,11 +225,11 @@
 /**
  @description Assigns value transformers to properties if the property names match themselves.
  */
-+(void)p_assignValueTransformers:(NSArray <MAXJsonAdapterValueTransformer *> *)valueTransformers toProperties:(NSArray <MAXJsonAdapterProperty *> *)properties {
++(void)p_assignValueTransformers:(NSArray <MAXJsonAdapterValueTransformer *> *)valueTransformers toProperties:(NSArray <MAXJAProperty *> *)properties {
     
     for (MAXJsonAdapterValueTransformer *currentValueTransformer in valueTransformers) {
         
-        for (MAXJsonAdapterProperty *currentProperty in properties) {
+        for (MAXJAProperty *currentProperty in properties) {
             
             if ([currentValueTransformer.propertyKey isEqualToString: currentProperty.propertyKey] == YES) {
                 

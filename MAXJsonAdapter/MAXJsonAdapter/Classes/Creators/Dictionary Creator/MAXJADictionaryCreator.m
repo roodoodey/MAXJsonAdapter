@@ -11,7 +11,7 @@
 
 @implementation MAXJADictionaryCreator
 
-+(id)MAXJACreateJsonObjectForProperties:(NSArray<MAXJsonAdapterProperty *> *)properties {
++(id)MAXJACreateJsonObjectForProperties:(NSArray <MAXJAProperty *> *)properties {
     
     id object = nil;
     
@@ -27,11 +27,11 @@
     return object;
 }
 
-+(NSDictionary *)MAXJACreateDictionaryForProperties:(NSArray<MAXJsonAdapterProperty *> *)properties {
++(NSDictionary *)MAXJACreateDictionaryForProperties:(NSArray <MAXJAProperty *> *)properties {
     
     NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
     
-    for (MAXJsonAdapterProperty *currentProperty in properties) {
+    for (MAXJAProperty *currentProperty in properties) {
         
         id value = currentProperty.value;
         
@@ -58,13 +58,13 @@
     return dictionary;
 }
 
-+(NSArray *)MAXJACreateArrayOfDictionariesForProperties:(NSArray<MAXJsonAdapterProperty *> *)properties {
++(NSArray *)MAXJACreateArrayOfDictionariesForProperties:(NSArray <MAXJAProperty *> *)properties {
     
     NSAssert([self p_areAllPropertiesForArray: properties] == YES, @"Not all properties are mapped to an array of properties this is usually due to an error in the property map.");
     
     NSMutableArray *array = [NSMutableArray array];
     
-    for (MAXJsonAdapterProperty *currentProperty in properties) {
+    for (MAXJAProperty *currentProperty in properties) {
         
         id value = currentProperty.value;
         if (currentProperty.valueTransformer != nil) {
@@ -85,9 +85,9 @@
     return array;
 }
 
-+(BOOL)p_areAllPropertiesForArray:(NSArray <MAXJsonAdapterProperty *> *)properties {
++(BOOL)p_areAllPropertiesForArray:(NSArray <MAXJAProperty *> *)properties {
     
-    for (MAXJsonAdapterProperty *currentProperty in properties) {
+    for (MAXJAProperty *currentProperty in properties) {
         
         if (currentProperty.propertyMap == nil) {
             
@@ -107,12 +107,12 @@
 /**
  Used to determine whether we should start with an array as the root object or a dictionary when creating the json object as users can map the values so that they are an array instead of a dictionary.
 */
-+(BOOL)p_isMixedArrayAndDictionaryFirstLevelForArray:(NSArray <MAXJsonAdapterProperty *> *)properties {
++(BOOL)p_isMixedArrayAndDictionaryFirstLevelForArray:(NSArray <MAXJAProperty *> *)properties {
     
     BOOL isArray = NO;
     BOOL isDictionary = NO;
     
-    for (MAXJsonAdapterProperty *currentProperty in properties) {
+    for (MAXJAProperty *currentProperty in properties) {
         
         if (currentProperty.propertyMap == nil) {
             isDictionary = YES;

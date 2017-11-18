@@ -8,10 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@class MAXJsonAdapterProperty;
+@class MAXJAProperty;
 
 @interface MAXJAObjectCreator : NSObject
 
-+(instancetype)MAXJACreateObjectOfClass:(Class)aClass withProperties:(NSArray <MAXJsonAdapterProperty *> *)properties;
++(instancetype)MAXJACreateObjectOfClass:(Class)aClass withProperties:(NSArray <MAXJAProperty *> *)properties;
 
 @end

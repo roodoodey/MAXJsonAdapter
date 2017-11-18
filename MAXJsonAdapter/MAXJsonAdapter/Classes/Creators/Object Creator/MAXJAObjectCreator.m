@@ -11,11 +11,11 @@
 
 @implementation MAXJAObjectCreator
 
-+(instancetype)MAXJACreateObjectOfClass:(Class)aClass withProperties:(NSArray <MAXJsonAdapterProperty *> *)properties {
++(instancetype)MAXJACreateObjectOfClass:(Class)aClass withProperties:(NSArray <MAXJAProperty *> *)properties {
     
     id object = [[aClass alloc] init];
     
-    for (MAXJsonAdapterProperty *currentProperty in properties) {
+    for (MAXJAProperty *currentProperty in properties) {
         
         id value = currentProperty.value;
         
