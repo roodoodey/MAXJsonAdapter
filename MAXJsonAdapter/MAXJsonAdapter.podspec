@@ -34,7 +34,7 @@ Subclassing is a vital aspect of programming and most of the time we would like 
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'MAXJsonAdapter/Classes/**/*'
+  s.source_files = 'MAXJsonAdapter/MAXJsonAdapter/Classes/**/*'
   
   # s.resource_bundles = {
   #   'MAXJsonAdapter' => ['MAXJsonAdapter/Assets/*.png']
