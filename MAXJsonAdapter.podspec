@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'MAXJsonAdapter'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = 'MAXJsonAdapter is a powerful object serialization and deserialization framework for JSON.'
 
 # This description is used to generate tags and improve search results.
