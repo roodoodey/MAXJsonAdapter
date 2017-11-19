@@ -22,7 +22,7 @@ pod 'MAXJsonAdapter'
 
 ## Author
 
-roodoodey, mathieugrettir@hotmail.com
+roodoodey, Mathieu Grettir Skúlason.
 
 ## License
 
