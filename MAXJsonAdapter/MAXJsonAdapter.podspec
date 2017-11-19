@@ -27,7 +27,7 @@ Subclassing is a vital aspect of programming and most of the time we would like 
 
   s.homepage         = 'https://github.com/roodoodey/MAXJsonAdapter'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
-  s.license          = { :type => 'MIT', :file => 'LICENSE' }
+  s.license          = { :type => 'MIT', :file => 'MAXJsonAdapter/LICENSE' }
   s.author           = { 'roodoodey' => 'Mathieu Grettir Skúlason' }
   s.source           = { :git => 'https://github.com/roodoodey/MAXJsonAdapter.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
