@@ -63,7 +63,7 @@
     
     NSArray <MAXJAProperty *> *properties = [MAXJAPropertyMapper MAXJACreateMappedPropertyListForObjectCreation: [object class] delegate: delegate];
     
-    properties = [adapter p_populateProperties: properties withObject: object];
+    properties = [adapter p_populateProperties: properties withDictionary: dictionary];
     
     [MAXJAObjectCreator MAXJAPopulateObject: object properties: properties];
 }
