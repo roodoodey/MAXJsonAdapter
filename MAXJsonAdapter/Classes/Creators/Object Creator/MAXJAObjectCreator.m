@@ -11,29 +11,35 @@
 
 @implementation MAXJAObjectCreator
 
-+(instancetype)MAXJAObjectOfClass:(Class)aClass withProperties:(NSArray <MAXJAProperty *> *)properties {
++(instancetype)MAXJAObjectOfClass:(Class)aClass properties:(NSArray <MAXJAProperty *> *)properties {
     
     id object = [[aClass alloc] init];
+    
+    [self MAXJAPopulateObject: object properties: properties];
+    
+    return object;
+}
+
++(void)MAXJAPopulateObject:(NSObject *)object properties:(NSArray<MAXJAProperty *> *)properties {
     
     for (MAXJAProperty *currentProperty in properties) {
         
         id value = currentProperty.value;
         
         if (currentProperty.valueTransformer != nil && value != nil) {
-         value = [currentProperty.valueTransformer MAXJAObjectCreationFormat: currentProperty.value];
+            value = [currentProperty.valueTransformer MAXJAObjectCreationFormat: currentProperty.value];
         }
         
         if (currentProperty.subclassedProperty != nil && value != nil) {
             value = [currentProperty.subclassedProperty objectFromValue: value];
         }
-       
+        
         if (value != nil) {
             [object setValue: value forKey: currentProperty.propertyKey];
         }
         
     }
     
-    return object;
 }
 
 @end

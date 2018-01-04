@@ -178,6 +178,24 @@
     
 }
 
+-(void)testObjectRefreshWithNoDelegate {
+    
+    NSDictionary *dict = @{ @"firstName" : @"Bruce", @"lastName" : @"Wayne", @"age" : @34 };
+    
+    MAXJAObjectNoDelegate *object = [[MAXJAObjectNoDelegate alloc] init];
+    object.firstName = @"Bean";
+    object.lastName = @"Unknown";
+    object.age = @22;
+    
+    [MAXJsonAdapter MAXJARefreshObject: object delegate: nil fromDictionary: dict];
+    
+    XCTAssertNotNil( object );
+    XCTAssertEqualObjects(object.firstName, @"Bruce");
+    XCTAssertEqualObjects(object.lastName, @"Wayne");
+    XCTAssertEqualObjects(object.age, @34);
+    
+}
+
 -(void)testArrayObjectCreationWithNoDelegate {
     
     NSDictionary *dictOne = @{ @"firstName" : @"Bruce", @"lastName" : @"Wayne", @"age" : @34 };
@@ -211,6 +229,26 @@
     
     XCTAssertNotNil( object );
     XCTAssertEqualObjects(object.firstName, nil);
+    XCTAssertEqualObjects(object.lastName, @"Wayne");
+    XCTAssertEqualObjects(object.age, @34);
+    XCTAssertEqualObjects(object.stringAge, @"52");
+    
+}
+
+-(void)testObjectRefreshWithIgnoredProperty {
+    
+    NSDictionary *dict = @{ @"firstName" : @"Bruce", @"lastName" : @"Wayne", @"age" : @34, @"stringAge" : @52 };
+    
+    MAXJAObjectIgnoredProprties *object = [[MAXJAObjectIgnoredProprties alloc] init];
+    object.firstName = @"Ender";
+    object.lastName = @"Wiggin";
+    object.age = @33;
+    object.stringAge = @"Thousands of years old if you count near lightspeed travel.";
+    
+    [MAXJsonAdapter MAXJARefreshObject: object delegate: [[MAXJAObjectIgnoredProprties alloc] init] fromDictionary: dict];
+    
+    XCTAssertNotNil( object );
+    XCTAssertEqualObjects(object.firstName, @"Ender");
     XCTAssertEqualObjects(object.lastName, @"Wayne");
     XCTAssertEqualObjects(object.age, @34);
     XCTAssertEqualObjects(object.stringAge, @"52");
@@ -259,6 +297,24 @@
     
 }
 
+-(void)testObjectRefreshWithSpecifiedProperties {
+    
+    NSDictionary *dict = @{ @"firstName" : @"Bruce", @"lastName" : @"Wayne", @"age" : @34, @"stringAge" : @21 };
+
+    MAXJAObjectSpecifiedProperties *object = [[MAXJAObjectSpecifiedProperties alloc] init];
+    object.firstName = @"Dwayne";
+    object.lastName = @"Bullshit";
+    
+    [MAXJsonAdapter MAXJARefreshObject: object delegate: [[MAXJAObjectSpecifiedProperties alloc] init] fromDictionary: dict];
+    
+    XCTAssertNotNil( object );
+    XCTAssertEqualObjects(object.firstName, @"Bruce");
+    XCTAssertEqualObjects(object.lastName, @"Bullshit");
+    XCTAssertEqualObjects(object.age, nil);
+    XCTAssertEqualObjects(object.stringAge, nil);
+    
+}
+
 -(void)testArrayObjectCreationWithSpecifiedProperties {
     
     NSDictionary *dictOne = @{ @"firstName" : @"Bruce", @"lastName" : @"Wayne", @"age" : @34, @"stringAge" : @21 };
@@ -293,6 +349,27 @@
                                   };
     
     MAXJAObjectPropertyMap *propertyMapObject = [MAXJsonAdapter MAXJAObjectOfClass: [MAXJAObjectPropertyMap class] delegate: [[MAXJAObjectPropertyMap alloc] init]  fromDictionary: dictionary];
+    
+    XCTAssertNotNil( propertyMapObject );
+    XCTAssertEqualObjects( propertyMapObject.firstName, @"Bruce");
+    XCTAssertEqualObjects( propertyMapObject.lastName, @"Wayne");
+    XCTAssertEqualObjects( propertyMapObject.age, @34);
+    XCTAssertEqualObjects( propertyMapObject.stringAge, @"24");
+    
+}
+
+-(void)testRefreshObjectPropertyKeyMap {
+    
+    NSDictionary *dictionary = @{ @"person" : @{ @"firstName" : @"Bruce", @"familyName" : @"Wayne", @"age" : @34, @"stringifiedAge" : @24 }
+                                  };
+    
+    MAXJAObjectPropertyMap *propertyMapObject = [[MAXJAObjectPropertyMap alloc] init];
+    propertyMapObject.firstName = @"Nathan";
+    propertyMapObject.lastName = @"Neer";
+    propertyMapObject.age = @28;
+    propertyMapObject.stringAge = @"Very old";
+    
+    [MAXJsonAdapter MAXJARefreshObject: propertyMapObject delegate: [[MAXJAObjectPropertyMap alloc] init] fromDictionary: dictionary];
     
     XCTAssertNotNil( propertyMapObject );
     XCTAssertEqualObjects( propertyMapObject.firstName, @"Bruce");

@@ -32,7 +32,7 @@
 
 -(id)p_createInstanceOfClass:(Class)aClass delegate:(id <MAXJsonAdapterDelegate>)delegate fromDictionary:(NSDictionary *)dictionary properties:(NSArray <MAXJAProperty *> *)properties {
     
-    id object = [MAXJAObjectCreator MAXJAObjectOfClass: aClass withProperties: properties];
+    id object = [MAXJAObjectCreator MAXJAObjectOfClass: aClass properties: properties];
     
     return object;
 }
@@ -46,13 +46,26 @@
     
     for (NSDictionary *currentDictionary in array) {
         
-        id object =[MAXJsonAdapter MAXJAObjectOfClass: aClass delegate: delegate fromDictionary: currentDictionary];
+        id object = [MAXJsonAdapter MAXJAObjectOfClass: aClass delegate: delegate fromDictionary: currentDictionary];
         
         [arrayToReturn addObject: object];
         
     }
     
     return arrayToReturn;
+}
+
+#pragma mark - Object Refresh
+
++(void)MAXJARefreshObject:(NSObject *)object delegate:(id<MAXJsonAdapterDelegate>)delegate fromDictionary:(NSDictionary *)dictionary {
+    
+    MAXJsonAdapter *adapter = [[MAXJsonAdapter alloc] init];
+    
+    NSArray <MAXJAProperty *> *properties = [MAXJAPropertyMapper MAXJACreateMappedPropertyListForObjectCreation: [object class] delegate: delegate];
+    
+    properties = [adapter p_populateProperties: properties withDictionary: dictionary];
+    
+    [MAXJAObjectCreator MAXJAPopulateObject: object properties: properties];
 }
 
 #pragma mark - Object Creation Populating Property Values

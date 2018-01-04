@@ -12,6 +12,8 @@
 
 @interface MAXJAObjectCreator : NSObject
 
-+(instancetype)MAXJAObjectOfClass:(Class)aClass withProperties:(NSArray <MAXJAProperty *> *)properties;
++(instancetype)MAXJAObjectOfClass:(Class)aClass properties:(NSArray <MAXJAProperty *> *)properties;
+
++(void)MAXJAPopulateObject:(NSObject *)object properties:(NSArray <MAXJAProperty *> *)properties;
 
 @end

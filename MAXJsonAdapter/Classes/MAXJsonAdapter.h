@@ -90,6 +90,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 +(NSArray *)MAXJAObjectsOfClass:(Class)aClass delegate:(nullable id <MAXJsonAdapterDelegate>)delegate fromArray:(NSArray <NSDictionary *> *)array;
 
+/**
+ @description Refreshes the instance property with the values of the dictionary (most likely json)
+ */
++(void)MAXJARefreshObject:(NSObject *)object delegate:(nullable id <MAXJsonAdapterDelegate>)delegate fromDictionary:(NSDictionary *)dictionary;
+
 #pragma mark - Methods For Dictionary Creation From Model Objects
 
 /**
