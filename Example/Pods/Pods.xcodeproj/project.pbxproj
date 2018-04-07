@@ -56,16 +56,16 @@
 		1334FD66364C52D0F7CDEDB99EF5EAF5 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18D55FCAA1C8CC17E93DD57685DC1E7C /* MAXJAValueTransformer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MAXJAValueTransformer.h; sourceTree = "<group>"; };
 		1B64C0B116B2F9F46408329D3EAA6A2F /* MAXJAPropertySearcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MAXJAPropertySearcher.h; sourceTree = "<group>"; };
-		1C2C19D6003DA6CDED30A5838F4193BE /* MAXJsonAdapter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MAXJsonAdapter.framework; path = MAXJsonAdapter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C2C19D6003DA6CDED30A5838F4193BE /* MAXJsonAdapter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MAXJsonAdapter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		220EE1CDC869E87FA44A8BE43FB76B98 /* Pods-MAXJsonAdapter_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MAXJsonAdapter_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		336B713FAD59C8C6152EF9F30854C2C0 /* Pods_MAXJsonAdapter_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MAXJsonAdapter_Tests.framework; path = "Pods-MAXJsonAdapter_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		336B713FAD59C8C6152EF9F30854C2C0 /* Pods_MAXJsonAdapter_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MAXJsonAdapter_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		33A7F3A44CE8E0508D9E22C2851A8DE2 /* MAXJADictionaryCreator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MAXJADictionaryCreator.h; sourceTree = "<group>"; };
 		393E6276ABD689BA53F787B03EACDBC5 /* MAXJAValueTransformer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MAXJAValueTransformer.m; sourceTree = "<group>"; };
 		39D85DC8D01E0679468B7F77D69FE6FE /* MAXJARuntimeUtilities.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MAXJARuntimeUtilities.m; sourceTree = "<group>"; };
-		3A6715C17B1028A3FAC5A4B0129DB950 /* Pods-MAXJsonAdapter_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-MAXJsonAdapter_Tests.modulemap"; sourceTree = "<group>"; };
+		3A6715C17B1028A3FAC5A4B0129DB950 /* Pods-MAXJsonAdapter_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-MAXJsonAdapter_Tests.modulemap"; sourceTree = "<group>"; };
 		4339E5C0C8A415938ECADCB375880FB1 /* MAXJANSArraryUtilities.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MAXJANSArraryUtilities.m; sourceTree = "<group>"; };
 		43D8ACE568B1B1D61C9C6F793555FF06 /* Pods-MAXJsonAdapter_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MAXJsonAdapter_Example-frameworks.sh"; sourceTree = "<group>"; };
-		49FA86F978E0BD35225DDFA9C6887D19 /* Pods_MAXJsonAdapter_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MAXJsonAdapter_Example.framework; path = "Pods-MAXJsonAdapter_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		49FA86F978E0BD35225DDFA9C6887D19 /* Pods_MAXJsonAdapter_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MAXJsonAdapter_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A074919EC5AD2086A0C9FF36B48B41E /* Pods-MAXJsonAdapter_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MAXJsonAdapter_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		4AED5A8622DFA1C033CB14126FCF1C9A /* MAXJANSArraryUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MAXJANSArraryUtilities.h; sourceTree = "<group>"; };
 		4E60F3343800E7F04242A238195AF734 /* Pods-MAXJsonAdapter_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MAXJsonAdapter_Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -81,17 +81,17 @@
 		863D1D7EE61FC2D11DAD7BE3542105CB /* Pods-MAXJsonAdapter_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MAXJsonAdapter_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		884663325FF3712FB84BECA17F2C5100 /* MAXJAPropertySearcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MAXJAPropertySearcher.m; sourceTree = "<group>"; };
 		898A3A7F74AE144BB30303CFA63815F5 /* MAXJAProperty.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MAXJAProperty.m; sourceTree = "<group>"; };
-		8B648A1787FAF409F9E3166DCCB54EE1 /* MAXJsonAdapter.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = MAXJsonAdapter.modulemap; sourceTree = "<group>"; };
+		8B648A1787FAF409F9E3166DCCB54EE1 /* MAXJsonAdapter.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = MAXJsonAdapter.modulemap; sourceTree = "<group>"; };
 		8B830EF598092CB3D50F460DAEF4FB61 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8CDF24D8BD90E23A84F9C0A4528DFAEF /* Pods-MAXJsonAdapter_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MAXJsonAdapter_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		8D8D801E590F59B96633215683500254 /* MAXJAPropertyMapper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MAXJAPropertyMapper.h; sourceTree = "<group>"; };
 		918589997CB2883252E7FC760097DE3D /* Pods-MAXJsonAdapter_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MAXJsonAdapter_Tests-dummy.m"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		96B450B0846BC65E0B08AB0461FE9F05 /* MAXJsonAdapter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MAXJsonAdapter.h; sourceTree = "<group>"; };
 		9BB1D49D126999619473F289BD7D2EA8 /* MAXJsonAdapter-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MAXJsonAdapter-umbrella.h"; sourceTree = "<group>"; };
 		A315984B9710B015FD4378C7567E791A /* Pods-MAXJsonAdapter_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MAXJsonAdapter_Example-dummy.m"; sourceTree = "<group>"; };
 		A3B211E34B591984A48B5326B9E7DC31 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A690E8D85B80960290D42C8AA8613B35 /* Pods-MAXJsonAdapter_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-MAXJsonAdapter_Example.modulemap"; sourceTree = "<group>"; };
+		A690E8D85B80960290D42C8AA8613B35 /* Pods-MAXJsonAdapter_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-MAXJsonAdapter_Example.modulemap"; sourceTree = "<group>"; };
 		AB14321664A3B86652C5913DAA309638 /* MAXJARuntimeUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MAXJARuntimeUtilities.h; sourceTree = "<group>"; };
 		ABD0B03D5C22E7F0326656153C89D0C5 /* MAXJAPropertyMap.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MAXJAPropertyMap.m; sourceTree = "<group>"; };
 		AF4898DE3A08DBCBB6DB272346CDE021 /* MAXJADictionaryCreator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MAXJADictionaryCreator.m; sourceTree = "<group>"; };
@@ -158,7 +158,6 @@
 				18D55FCAA1C8CC17E93DD57685DC1E7C /* MAXJAValueTransformer.h */,
 				393E6276ABD689BA53F787B03EACDBC5 /* MAXJAValueTransformer.m */,
 			);
-			name = "Value Transformer";
 			path = "Value Transformer";
 			sourceTree = "<group>";
 		};
@@ -178,7 +177,6 @@
 				AB14321664A3B86652C5913DAA309638 /* MAXJARuntimeUtilities.h */,
 				39D85DC8D01E0679468B7F77D69FE6FE /* MAXJARuntimeUtilities.m */,
 			);
-			name = "Runtime Utilities";
 			path = "Runtime Utilities";
 			sourceTree = "<group>";
 		};
@@ -188,7 +186,6 @@
 				E19CFF3A389A8FDBA2A50D0E3D72623B /* NSArray Utilities */,
 				4466D1C0E2F0281F0CFD57CEB3B865A3 /* Runtime Utilities */,
 			);
-			name = Utilities;
 			path = Utilities;
 			sourceTree = "<group>";
 		};
@@ -215,7 +212,6 @@
 			children = (
 				CAD487D3781DCB44DABF7088A6C392B5 /* Classes */,
 			);
-			name = MAXJsonAdapter;
 			path = MAXJsonAdapter;
 			sourceTree = "<group>";
 		};
@@ -225,7 +221,6 @@
 				1B64C0B116B2F9F46408329D3EAA6A2F /* MAXJAPropertySearcher.h */,
 				884663325FF3712FB84BECA17F2C5100 /* MAXJAPropertySearcher.m */,
 			);
-			name = Searcher;
 			path = Searcher;
 			sourceTree = "<group>";
 		};
@@ -256,7 +251,6 @@
 				33A7F3A44CE8E0508D9E22C2851A8DE2 /* MAXJADictionaryCreator.h */,
 				AF4898DE3A08DBCBB6DB272346CDE021 /* MAXJADictionaryCreator.m */,
 			);
-			name = "Dictionary Creator";
 			path = "Dictionary Creator";
 			sourceTree = "<group>";
 		};
@@ -266,7 +260,6 @@
 				75296BF974497FD70BB120C9B4D6E482 /* MAXJASubclassedProperty.h */,
 				75D8F410FAD7830B57A039FB5E33CE9B /* MAXJASubclassedProperty.m */,
 			);
-			name = Subclass;
 			path = Subclass;
 			sourceTree = "<group>";
 		};
@@ -276,7 +269,6 @@
 				8D8D801E590F59B96633215683500254 /* MAXJAPropertyMapper.h */,
 				78BB2B375F5196526AB6D38B5B040164 /* MAXJAPropertyMapper.m */,
 			);
-			name = Mapper;
 			path = Mapper;
 			sourceTree = "<group>";
 		};
@@ -302,7 +294,6 @@
 				9CE4C8BE42464A0EB99426E57E48C56B /* Dictionary Creator */,
 				CB7B22109F41B64BC72CC86045C639D4 /* Object Creator */,
 			);
-			name = Creators;
 			path = Creators;
 			sourceTree = "<group>";
 		};
@@ -312,7 +303,6 @@
 				B2F715A62314DAAE77F722A4EE4F438E /* MAXJAPropertyMap.h */,
 				ABD0B03D5C22E7F0326656153C89D0C5 /* MAXJAPropertyMap.m */,
 			);
-			name = "Map Declaration";
 			path = "Map Declaration";
 			sourceTree = "<group>";
 		};
@@ -325,7 +315,6 @@
 				DBE1F65F517BF8DF37BB2F6713351E98 /* Properties */,
 				591B4AE54F7C0F86717241C2D72DB37B /* Utilities */,
 			);
-			name = Classes;
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -335,7 +324,6 @@
 				55DBEA4D4FF10B5AC4D6661C29F980AF /* MAXJAObjectCreator.h */,
 				02CE0EBFDD950BE4E7CFDD5B088ABD06 /* MAXJAObjectCreator.m */,
 			);
-			name = "Object Creator";
 			path = "Object Creator";
 			sourceTree = "<group>";
 		};
@@ -381,7 +369,6 @@
 				B0CE9CB920566392E50C35C8AD2F993D /* Subclass */,
 				16E4F8CBB7652A24C924732390ACF78F /* Value Transformer */,
 			);
-			name = Properties;
 			path = Properties;
 			sourceTree = "<group>";
 		};
@@ -391,7 +378,6 @@
 				4AED5A8622DFA1C033CB14126FCF1C9A /* MAXJANSArraryUtilities.h */,
 				4339E5C0C8A415938ECADCB375880FB1 /* MAXJANSArraryUtilities.m */,
 			);
-			name = "NSArray Utilities";
 			path = "NSArray Utilities";
 			sourceTree = "<group>";
 		};

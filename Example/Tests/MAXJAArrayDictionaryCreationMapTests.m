@@ -106,7 +106,8 @@
     NSDictionary *dict = [MAXJsonAdapter MAXJADictFromObject: arrayCreationObject delegate: [[MAXJAArraySecondLevelCreation alloc] init] ];
     
     XCTAssertNotNil( dict );
-    XCTAssertEqualObjects( @(dict.allKeys.count), @1);
+    XCTAssertEqualObjects( @(dict.allKeys.count), @2);
+    XCTAssertEqualObjects([dict objectForKey:@"age"], [NSNull null]);
     
     NSArray <NSString *> *array = [dict objectForKey: @"person"];
     

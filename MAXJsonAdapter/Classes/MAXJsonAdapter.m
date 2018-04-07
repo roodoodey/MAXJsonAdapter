@@ -79,7 +79,7 @@
             
             id value = [dictionary objectForKey: currentProperty.propertyKey];
             
-            if (value != [NSNull null] || value != nil) {
+            if (value != nil) {
                 currentProperty.value = value;
             }
             
@@ -89,7 +89,7 @@
             // if we have a property map we want to find its value.
             id value = [MAXJAPropertySearcher MAXJASearchForProperty: currentProperty.propertyMap inDictionary: dictionary];
             
-            if (value != [NSNull null] || value != nil) {
+            if (value != nil) {
                 currentProperty.value = value;
             }
             
@@ -149,8 +149,14 @@
         
         id value = [object valueForKey: currentProperty.propertyKey];
         
-        if (value != nil || value != [NSNull null]) {
+        if (value != nil) {
             currentProperty.value = value;
+        }
+        else {
+            // as thi method is only to populate properties from objects,
+            // when a value for a key is null we want to make it NSNull so it
+            // can be inserted into a dictionary to represent a null value.
+            currentProperty.value = [NSNull null];
         }
         
     }
