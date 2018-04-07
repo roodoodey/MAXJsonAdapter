@@ -26,6 +26,7 @@
         
         if (value == nil) {
             
+            // MARK: Should probably throw an error here as this property does not exist
             // Should not occur unless the implementee has caused an error. Should probably throw an error here.
             
             return nil;
