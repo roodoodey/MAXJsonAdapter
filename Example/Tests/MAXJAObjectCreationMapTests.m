@@ -23,6 +23,8 @@
 @property (nonatomic, strong) NSString *firstName;
 @property (nonatomic, strong) NSString *lastName;
 @property (nonatomic, strong) NSNumber *age;
+@property (nonatomic, strong) NSString *email;
+@property (nonatomic, strong) NSString *secondEmail;
 
 @end
 
@@ -167,7 +169,7 @@
 
 -(void)testObjectCreationWithNoDelegate {
     
-    NSDictionary *dict = @{ @"firstName" : @"Bruce", @"lastName" : @"Wayne", @"age" : @34 };
+    NSDictionary *dict = @{ @"firstName" : @"Bruce", @"lastName" : @"Wayne", @"age" : @34, @"email" : [NSNull null] };
     
     MAXJAObjectNoDelegate *object = [MAXJsonAdapter MAXJAObjectOfClass: [MAXJAObjectNoDelegate class] delegate: nil fromDictionary: dict];
     
@@ -175,17 +177,20 @@
     XCTAssertEqualObjects(object.firstName, @"Bruce");
     XCTAssertEqualObjects(object.lastName, @"Wayne");
     XCTAssertEqualObjects(object.age, @34);
+    XCTAssertEqualObjects(object.email, nil);
     
 }
 
 -(void)testObjectRefreshWithNoDelegate {
     
-    NSDictionary *dict = @{ @"firstName" : @"Bruce", @"lastName" : @"Wayne", @"age" : @34 };
+    NSDictionary *dict = @{ @"firstName" : @"Bruce", @"lastName" : @"Wayne", @"age" : @34, @"email": [NSNull null] };
     
     MAXJAObjectNoDelegate *object = [[MAXJAObjectNoDelegate alloc] init];
     object.firstName = @"Bean";
     object.lastName = @"Unknown";
     object.age = @22;
+    object.email = @"batman@batman.com";
+    object.secondEmail = @"robin@lickbatmansshoes.com";
     
     [MAXJsonAdapter MAXJARefreshObject: object delegate: nil fromDictionary: dict];
     
@@ -193,6 +198,8 @@
     XCTAssertEqualObjects(object.firstName, @"Bruce");
     XCTAssertEqualObjects(object.lastName, @"Wayne");
     XCTAssertEqualObjects(object.age, @34);
+    XCTAssertEqualObjects(object.email, nil);
+    XCTAssertEqualObjects(object.secondEmail, @"robin@lickbatmansshoes.com");
     
 }
 
