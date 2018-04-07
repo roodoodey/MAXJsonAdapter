@@ -232,7 +232,7 @@
         
         for (MAXJAProperty *currentProperty in properties) {
             
-            if ([currentValueTransformer.propertyKey isEqualToString: currentProperty.propertyKey] == YES) {
+            if ([currentValueTransformer containsKey: currentProperty.propertyKey] == YES) {
                 
                 currentProperty.valueTransformer = currentValueTransformer;
                 
