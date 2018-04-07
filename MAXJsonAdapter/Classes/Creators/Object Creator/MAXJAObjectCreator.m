@@ -35,7 +35,14 @@
         }
         
         if (value != nil) {
-            [object setValue: value forKey: currentProperty.propertyKey];
+            
+            if ([value isEqual:[NSNull null]]) {
+                [object setValue: nil forKey: currentProperty.propertyKey];
+            }
+            else {
+                [object setValue: value forKey: currentProperty.propertyKey];
+
+            }
         }
         
     }
