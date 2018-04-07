@@ -10,5 +10,13 @@
 
 @implementation MAXJAProperty
 
+-(nullable id)value {
+    
+    if (_value == nil) {
+        return [NSNull null]
+    }
+    
+    return _value;
+}
 
 @end
