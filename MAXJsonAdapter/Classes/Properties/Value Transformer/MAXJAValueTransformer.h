@@ -44,6 +44,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 -(instancetype)initValueTransformerWithPropertyKeys:(NSArray <NSString *> *)propertyKeys;
 
+/**
+ */
+-(instancetype)initValueTransformerWithPropertyKey:(NSString *)propertyKey;
+
 @end
 
 NS_ASSUME_NONNULL_END

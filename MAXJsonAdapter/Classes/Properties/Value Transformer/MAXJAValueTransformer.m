@@ -12,6 +12,17 @@
 
 #pragma mark - Private Initializers
 
+-(BOOL)containsKey:(NSString *)key {
+    
+    for (NSString *currentKey in _propertyKeys) {
+        if ([currentKey isEqualToString: key]) {
+            return YES;
+        }
+    }
+    
+    return NO;
+}
+
 -(id)MAXJAJsonFormat:(id)value {
     
     return value;
@@ -26,15 +37,23 @@
 
 +(instancetype)MAXJAValueTransformerWithProperyKey:(NSString *)propertyKey {
     
-    return [[[self class] alloc] initValueTransformerWithPropertyKey: propertyKey];
+    return [[[self class] alloc] initValueTransformerWithPropertyKeys: @[propertyKey]];
 }
 
--(instancetype)initValueTransformerWithPropertyKey:(NSString *)propertyKey {
++(instancetype)MAXJAValueTransofmerWithPropertyKeys:(NSArray<NSString *> *)propertyKeys {
+    return [[[self class] alloc] initValueTransformerWithPropertyKeys: propertyKeys];
+}
+
+-(instancetype)initValueTransformerWithPropertyKeys:(NSArray <NSString *>  *)propertyKeys {
     if (self = [super init]) {
-        _propertyKey = propertyKey;
+        _propertyKeys = propertyKeys;
     }
     
     return self;
+}
+
+-(instancetype)initValueTransformerWithPropertyKey:(NSString *)propertyKey {
+    return [self initValueTransformerWithPropertyKeys: @[propertyKey]];
 }
 
 @end
