@@ -12,7 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MAXJAValueTransformer : NSObject
 
-@property (nonatomic, strong) NSString *propertyKey;
+@property (nonatomic, strong) NSArray <NSString *> *propertyKeys;
+
+-(BOOL)containsKey:(NSString *)key;
 
 /**
  @description The transformation of the value of a given property from json format to object format.
@@ -29,12 +31,20 @@ NS_ASSUME_NONNULL_BEGIN
 +(instancetype)MAXJAValueTransformerWithProperyKey:(NSString *)propertyKey;
 
 /**
+ */
++(instancetype)MAXJAValueTransofmerWithPropertyKeys:(NSArray <NSString *> *)propertyKeys;
+
+/**
  @description Instantiates a value transformer with the given property key name. If the property key name does not match any property in the object or dictionary, depending on the way you are serializing, it will be ignored.
  
- @param propertyKey This is property key you want to transform the value of before it is serialized to json format or deserialized from json to an objective c object.
+ @param propertyKeys This is the list of property keys you want to transform the value of before it is serialized to json format or deserialized from json to an objective c object.
  
  @warning The property key for the value transformer is not a mapped property name instead its the original name of the property which will be later on mapped with the value transformer attached to it and then applied when the dictionary or object is being created.
  
+ */
+-(instancetype)initValueTransformerWithPropertyKeys:(NSArray <NSString *> *)propertyKeys;
+
+/**
  */
 -(instancetype)initValueTransformerWithPropertyKey:(NSString *)propertyKey;
 

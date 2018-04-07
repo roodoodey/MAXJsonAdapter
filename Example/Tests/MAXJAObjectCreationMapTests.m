@@ -41,6 +41,7 @@
 @property (nonatomic, strong) NSString *lastName;
 @property (nonatomic, strong) NSNumber *age;
 @property (nonatomic, strong) NSString *stringAge;
+@property (nonatomic, strong) NSString *stringSecondAge;
 @property (nonatomic, strong) NSString *email;
 @property (nonatomic, strong) NSString *secondEmail;
 
@@ -55,7 +56,7 @@
 
 -(NSArray <MAXJAValueTransformer *> *)MAXJAPropertyValueTransformers {
     
-    return @[[MAXNumberToStringTransformer MAXJAValueTransformerWithProperyKey: @"stringAge"]];
+    return @[[MAXNumberToStringTransformer MAXJAValueTransofmerWithPropertyKeys: @[@"stringAge", @"stringSecondAge"]]];
 }
 
 @end
@@ -68,6 +69,7 @@
 @property (nonatomic, strong) NSString *lastName;
 @property (nonatomic, strong) NSNumber *age;
 @property (nonatomic, strong) NSString *stringAge;
+@property (nonatomic, strong) NSString *secondStringAge;
 
 @end
 
@@ -75,7 +77,7 @@
 
 -(NSArray <NSString *> *)MAXJAPropertiesForObjectCreation {
     
-    return @[@"firstName"];
+    return @[@"firstName", @"stringAge"];
 }
 
 // should be ignored as the other method takes priority
@@ -86,7 +88,7 @@
 
 -(NSArray <MAXJAValueTransformer *> *)MAXJAPropertyValueTransformers {
     
-    return @[[MAXNumberToStringTransformer MAXJAValueTransformerWithProperyKey:@"stringAge"]];
+    return @[[MAXNumberToStringTransformer MAXJAValueTransofmerWithPropertyKeys:@[@"stringAge", @"secondStringAge"]]];
 }
 
 @end
@@ -239,7 +241,7 @@
 
 -(void)testObjectCreationWithIgnoredProperty {
     
-    NSDictionary *dict = @{ @"firstName" : @"Bruce", @"lastName" : @"Wayne", @"age" : @34, @"stringAge" : @52 };
+    NSDictionary *dict = @{ @"firstName" : @"Bruce", @"lastName" : @"Wayne", @"age" : @34, @"stringAge" : @52, @"stringSecondAge" : @34 };
     
     MAXJAObjectIgnoredProprties *object = [MAXJsonAdapter MAXJAObjectOfClass: [MAXJAObjectIgnoredProprties class] delegate: [[MAXJAObjectIgnoredProprties alloc] init] fromDictionary: dict];
     
@@ -248,6 +250,7 @@
     XCTAssertEqualObjects(object.lastName, @"Wayne");
     XCTAssertEqualObjects(object.age, @34);
     XCTAssertEqualObjects(object.stringAge, @"52");
+    XCTAssertEqualObjects(object.stringSecondAge, @"34");
     
 }
 
@@ -305,7 +308,7 @@
 
 -(void)testObjectCreationWithSpecifiedProperties {
     
-    NSDictionary *dict = @{ @"firstName" : @"Bruce", @"lastName" : @"Wayne", @"age" : @34, @"stringAge" : @21 };
+    NSDictionary *dict = @{ @"firstName" : @"Bruce", @"lastName" : @"Wayne", @"age" : @34, @"stringAge" : @21, @"secondStringAge" : @33 };
     
     MAXJAObjectSpecifiedProperties *object = [MAXJsonAdapter MAXJAObjectOfClass: [MAXJAObjectSpecifiedProperties class] delegate: [[MAXJAObjectSpecifiedProperties alloc] init] fromDictionary: dict];
     
@@ -313,13 +316,14 @@
     XCTAssertEqualObjects(object.firstName, @"Bruce");
     XCTAssertEqualObjects(object.lastName, nil);
     XCTAssertEqualObjects(object.age, nil);
-    XCTAssertEqualObjects(object.stringAge, nil);
+    XCTAssertEqualObjects(object.stringAge, @"21");
+    XCTAssertEqualObjects(object.secondStringAge, nil);
     
 }
 
 -(void)testObjectRefreshWithSpecifiedProperties {
     
-    NSDictionary *dict = @{ @"firstName" : @"Bruce", @"lastName" : @"Wayne", @"age" : @34, @"stringAge" : @21 };
+    NSDictionary *dict = @{ @"firstName" : @"Bruce", @"lastName" : @"Wayne", @"age" : @34, @"stringAge" : @21, @"secondStringAge" : @33 };
 
     MAXJAObjectSpecifiedProperties *object = [[MAXJAObjectSpecifiedProperties alloc] init];
     object.firstName = @"Dwayne";
@@ -331,7 +335,8 @@
     XCTAssertEqualObjects(object.firstName, @"Bruce");
     XCTAssertEqualObjects(object.lastName, @"Bullshit");
     XCTAssertEqualObjects(object.age, nil);
-    XCTAssertEqualObjects(object.stringAge, nil);
+    XCTAssertEqualObjects(object.stringAge, @"21");
+    XCTAssertEqualObjects(object.secondStringAge, nil);
     
 }
 
