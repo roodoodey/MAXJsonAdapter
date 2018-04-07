@@ -41,6 +41,8 @@
 @property (nonatomic, strong) NSString *lastName;
 @property (nonatomic, strong) NSNumber *age;
 @property (nonatomic, strong) NSString *stringAge;
+@property (nonatomic, strong) NSString *email;
+@property (nonatomic, strong) NSString *secondEmail;
 
 @end
 
@@ -48,7 +50,7 @@
 
 -(NSArray <NSString *> *)MAXJAPropertiesToIgnoreObjectCreation {
     
-    return @[@"firstName"];
+    return @[@"firstName", @"secondEmail"];
 }
 
 -(NSArray <MAXJAValueTransformer *> *)MAXJAPropertyValueTransformers {
@@ -95,6 +97,8 @@
 @property (nonatomic, strong) NSString *lastName;
 @property (nonatomic, strong) NSNumber *age;
 @property (nonatomic, strong) NSString *stringAge;
+@property (nonatomic, strong) NSString *email;
+@property (nonatomic, strong) NSString *secondEmail;
 
 @end
 
@@ -106,7 +110,8 @@
              [MAXJAPropertyMap MAXJAMapWithKey: @"firstName" propertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"person" propertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"firstName" propertyMap: nil]]],
               [MAXJAPropertyMap MAXJAMapWithKey: @"lastName" propertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"person" propertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"familyName" propertyMap: nil]]],
              [MAXJAPropertyMap MAXJAMapWithKey: @"age" propertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"person" propertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"age" propertyMap: nil]]],
-             [MAXJAPropertyMap MAXJAMapWithKey: @"stringAge" propertyMap: [MAXJAPropertyMap MAXJAMapWithKey:@"person" propertyMap: [MAXJAPropertyMap MAXJAMapWithKey:@"stringifiedAge" propertyMap:nil]]]
+             [MAXJAPropertyMap MAXJAMapWithKey: @"stringAge" propertyMap: [MAXJAPropertyMap MAXJAMapWithKey:@"person" propertyMap: [MAXJAPropertyMap MAXJAMapWithKey:@"stringifiedAge" propertyMap:nil]]],
+             [MAXJAPropertyMap MAXJAMapWithKey: @"email" propertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"person" propertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"email" propertyMap: nil]]]
               ];
     
 }
@@ -248,13 +253,15 @@
 
 -(void)testObjectRefreshWithIgnoredProperty {
     
-    NSDictionary *dict = @{ @"firstName" : @"Bruce", @"lastName" : @"Wayne", @"age" : @34, @"stringAge" : @52 };
+    NSDictionary *dict = @{ @"firstName" : @"Bruce", @"lastName" : @"Wayne", @"age" : @34, @"stringAge" : @52, @"email" : [NSNull null], @"secondEmail" : [NSNull null] };
     
     MAXJAObjectIgnoredProprties *object = [[MAXJAObjectIgnoredProprties alloc] init];
     object.firstName = @"Ender";
     object.lastName = @"Wiggin";
     object.age = @33;
     object.stringAge = @"Thousands of years old if you count near lightspeed travel.";
+    object.email = @"batman@flyingbat.com";
+    object.secondEmail = @"robin@flyigmattress.com";
     
     [MAXJsonAdapter MAXJARefreshObject: object delegate: [[MAXJAObjectIgnoredProprties alloc] init] fromDictionary: dict];
     
@@ -263,6 +270,8 @@
     XCTAssertEqualObjects(object.lastName, @"Wayne");
     XCTAssertEqualObjects(object.age, @34);
     XCTAssertEqualObjects(object.stringAge, @"52");
+    XCTAssertEqualObjects(object.email, nil);
+    XCTAssertEqualObjects(object.secondEmail, @"robin@flyigmattress.com");
     
 }
 
@@ -371,7 +380,7 @@
 
 -(void)testRefreshObjectPropertyKeyMap {
     
-    NSDictionary *dictionary = @{ @"person" : @{ @"firstName" : @"Bruce", @"familyName" : @"Wayne", @"age" : @34, @"stringifiedAge" : @24 }
+    NSDictionary *dictionary = @{ @"person" : @{ @"firstName" : @"Bruce", @"familyName" : @"Wayne", @"age" : @34, @"stringifiedAge" : @24, @"email" : [NSNull null] }
                                   };
     
     MAXJAObjectPropertyMap *propertyMapObject = [[MAXJAObjectPropertyMap alloc] init];
@@ -379,6 +388,9 @@
     propertyMapObject.lastName = @"Neer";
     propertyMapObject.age = @28;
     propertyMapObject.stringAge = @"Very old";
+    propertyMapObject.email = @"frosty@frostythesnowman.com";
+    propertyMapObject.secondEmail = @"joker@killthedarkknight.io";
+    
     
     [MAXJsonAdapter MAXJARefreshObject: propertyMapObject delegate: [[MAXJAObjectPropertyMap alloc] init] fromDictionary: dictionary];
     
@@ -387,6 +399,8 @@
     XCTAssertEqualObjects( propertyMapObject.lastName, @"Wayne");
     XCTAssertEqualObjects( propertyMapObject.age, @34);
     XCTAssertEqualObjects( propertyMapObject.stringAge, @"24");
+    XCTAssertEqualObjects( propertyMapObject.email, nil);
+    XCTAssertEqualObjects( propertyMapObject.secondEmail, @"joker@killthedarkknight.io");
     
 }
 
