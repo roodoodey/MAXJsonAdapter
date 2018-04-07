@@ -205,7 +205,7 @@
 
 -(void)testArrayObjectCreationWithNoDelegate {
     
-    NSDictionary *dictOne = @{ @"firstName" : @"Bruce", @"lastName" : @"Wayne", @"age" : @34 };
+    NSDictionary *dictOne = @{ @"firstName" : @"Bruce", @"lastName" : @"Wayne", @"age" : @34, @"email" : [NSNull null] };
     
     NSDictionary *dictTwo = @{ @"firstName" : @"Peter", @"lastName" : @"Parker", @"age" : @18 };
     
@@ -219,10 +219,14 @@
     XCTAssertEqualObjects( objectOne.firstName, @"Bruce");
     XCTAssertEqualObjects( objectOne.lastName, @"Wayne");
     XCTAssertEqualObjects( objectOne.age, @34);
+    XCTAssertEqualObjects( objectOne.email, nil);
+    XCTAssertEqualObjects( objectOne.secondEmail, nil);
     
     XCTAssertEqualObjects( objectTwo.firstName,  @"Peter");
     XCTAssertEqualObjects( objectTwo.lastName,  @"Parker");
     XCTAssertEqualObjects( objectTwo.age, @18);
+    XCTAssertEqualObjects( objectTwo.email, nil);
+    XCTAssertEqualObjects( objectTwo.secondEmail, nil);
     
 }
 
