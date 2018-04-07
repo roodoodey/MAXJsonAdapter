@@ -28,6 +28,7 @@
     NSArray <NSString *> *propertyListWithoutIgnoredProperties = [NSArray arrayWithArray: propertyList];
     
     // if the properties to be used have been declared explicitly we use those over the properties to ignore
+    // MARK: Removes or selects properties which are supposed to be in the creation of the object
     if ([delegate respondsToSelector: @selector(MAXJAPropertiesForObjectCreation)] == YES) {
         
         NSArray <NSString *> *propertiesForObject = [delegate MAXJAPropertiesForObjectCreation];

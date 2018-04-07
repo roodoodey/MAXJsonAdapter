@@ -89,7 +89,7 @@
             // if we have a property map we want to find its value.
             id value = [MAXJAPropertySearcher MAXJASearchForProperty: currentProperty.propertyMap inDictionary: dictionary];
             
-            if (value != [NSNull null] || value != nil) {
+            if (value != nil) {
                 currentProperty.value = value;
             }
             
