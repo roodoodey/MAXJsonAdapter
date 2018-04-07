@@ -37,6 +37,7 @@
 @property (nonatomic, strong) NSString *lastName;
 @property (nonatomic, strong) NSNumber *age;
 @property (nonatomic, strong) NSString *stringAge;
+@property (nonatomic, strong) NSString *secondStringAge;
 @property (nonatomic, strong) NSString *email;
 
 @end
@@ -50,7 +51,7 @@
 
 -(NSArray <MAXJAValueTransformer *> *)MAXJAPropertyValueTransformers {
     
-    return @[[MAXNumberToStringTransformer MAXJAValueTransformerWithProperyKey:@"stringAge"]];
+    return @[[MAXNumberToStringTransformer MAXJAValueTransofmerWithPropertyKeys: @[@"stringAge", @"secondStringAge"]]];
 }
 
 @end
@@ -63,6 +64,7 @@
 @property (nonatomic, strong) NSString *lastName;
 @property (nonatomic, strong) NSNumber *age;
 @property (nonatomic, strong) NSString *stringAge;
+@property (nonatomic, strong) NSString *secondStringAge;
 @property (nonatomic, strong) NSString *email;
 
 @end
@@ -82,7 +84,7 @@
 
 -(NSArray <MAXJAValueTransformer *> *)MAXJAPropertyValueTransformers {
     
-    return @[[MAXNumberToStringTransformer MAXJAValueTransformerWithProperyKey:@"stringAge"]];
+    return @[[MAXNumberToStringTransformer MAXJAValueTransofmerWithPropertyKeys: @[@"stringAge", @"secondStringAge"]]];
 }
 
 @end
@@ -190,6 +192,7 @@
     object.lastName = @"Wayne";
     object.age = @34;
     object.stringAge = @"36";
+    object.secondStringAge = @"24";
     object.email = nil;
     
     NSDictionary *dictionary = [MAXJsonAdapter MAXJADictFromObject: object delegate: [[MAXJADictionaryIgnoredProprties alloc] init] ];
@@ -199,6 +202,7 @@
     XCTAssertEqualObjects([dictionary objectForKey: @"stringAge"], nil);
     XCTAssertEqualObjects([dictionary objectForKey: @"lastName"], object.lastName);
     XCTAssertEqualObjects([dictionary objectForKey: @"age"], @34);
+    XCTAssertEqualObjects([dictionary objectForKey: @"secondStringAge"], @24);
     XCTAssertEqualObjects([dictionary objectForKey: @"email"], [NSNull null]);
     
 }
@@ -213,6 +217,7 @@
     object.lastName = @"Wayne";
     object.age = @34;
     object.stringAge = @"24";
+    object.secondStringAge = @"22";
     object.email = nil;
     
     NSDictionary *dictionary = [MAXJsonAdapter MAXJADictFromObject: object delegate: [[MAXJADictionarySpecifiedProperties alloc] init] ];
@@ -220,6 +225,7 @@
     XCTAssertNotNil( dictionary );
     XCTAssertEqualObjects([dictionary objectForKey: @"firstName"], object.firstName);
     XCTAssertEqualObjects([dictionary objectForKey: @"stringAge"], @24);
+    XCTAssertEqualObjects([dictionary objectForKey: @"secondStringAge"], nil);
     XCTAssertEqualObjects([dictionary objectForKey: @"lastName"], nil);
     XCTAssertEqualObjects([dictionary objectForKey: @"age"], nil);
     XCTAssertEqualObjects([dictionary objectForKey: @"email"], [NSNull null]);
