@@ -51,6 +51,28 @@ Let us consider the following simple interface and implementation for a user mod
 @end
 ```
 
+The user model is initialized with a dictionary which was serialized from the following json data:
+
+```json
+{
+    "email" : "batman@batman.com",
+    "firstName" : "Bruce",
+    "lastName" : "Wayne",
+    "middleName": null,
+    "phoneNumber" : "0018008608889",
+    "usernames" : ["KillTheJoker", "RobinIsMyPet101", "TheRiddlerRiddlesTheRiddle"],
+    "parentUser" : {
+        "email" : "thomas@we.com",
+        "firstName" : "Thomas",
+        "middleName" : null,
+        "lastName" : "Wayne",
+        "phoneNumber" : "0018008608889",
+        "usernames" : null,
+        "parentUser" : null
+    }
+}
+```
+
 This is a simplified model where we do not have any dates or other values that need to be transformed at runtime. For such behavior checkout the chapter on value transformers.
 
 Instead of having to initialize and manually declare which properties we should load from the dictionary in the initWithJsonDict: we can instead use the MAXJsonAdapter to do it for us, by using the following method:
