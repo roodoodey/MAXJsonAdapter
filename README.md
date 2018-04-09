@@ -9,7 +9,68 @@
 
 The burden of serializing model objects from, or into, JSON in Objective-C requires a lot of boilerplate code. MAXJsonAdapter takes care of serializing and deserializing model objects without needing a specific subclass other than the NSObject which is the default base level object class.
 
-Let us consider the following interface and implementation for a user model :
+Let us consider the following simple interface and implementation for a user model :
+
+```objective-c
+@interface User : NSObject
+
+@property (nonatomic, strong) NSString *email;
+@property (nonatomic, strong) NSString *firstName;
+@property (nonatomic, strong) NSString *middleName;
+@property (nonatomic, strong) NSString *lastName;
+@property (nonatomic, strong) NSString *phoneNumber;
+
+@property (nonatomic, strong) NSArray <NSString *> *usernames;
+@property (nonatomic, strong) User *parentUser;
+
+-(id)initWithJsonDict:(NSDictionary *)dict;
+
+@end
+```
+```objective-c
+@implementation User
+
+-(id)initWithJsonDict:(NSDictionary *)dict {
+
+    if(self = [super init]) {
+    
+     _email = [dict objectForKey:@"email"];
+     _firstName = [dict objectForKey:@"firstName"];
+     _middleName = [dict objectForKey:@"middleName"];
+     _lastName = [dict objectForKey:@"lastName"];
+     _phoneNumber = [dict objectForKey:@"phoneNumber"];
+     
+     _usernames = [dict objectForKey:@"usernames"];
+     _parentUser = [[User alloc] initWithJsonDict: [dict objectForKey:@"parent"];
+     
+    }
+    
+    return self;
+}
+
+@end
+```
+
+This is a simplified model where we do not have any dates or other values that need to be transformed at runtime. For such behavior checkout the chapter on value transformers.
+
+Instead of having to initialize and manually declare which properties we should load from the dictionary in the initWithJsonDict: we can instead use the MAXJsonAdapter to do it for us, by using the following method:
+
+```objective-c
+User *user = [MAXJsonAdapter MAXJAObjectOfClass:[User class] delegate: nil fromDictionary: dict];
+```
+
+If you already have a model object and want to update it with a dictionary the json adapter can do that as well:
+
+```objective-c
+[MAXJsonAdapter refreshObject: object delegate: nil fromDictionary: dict]
+```
+
+These methods will read the name of all of the properties on the User model and match them with the values from the dictionary.
+
+
+
+The delegate object contains various methods to map property values to different names, assigning value transformers to transform values from string to dates or any other transformation, and also using subclassed values.
+
 
 ```objective-c
 @interface User : NSObject
@@ -37,27 +98,25 @@ Let us consider the following interface and implementation for a user model :
 
 -(id)initWithJsonDict:(NSDictionary *)dict {
 
-    if(self = [super init]) {
-    
-     _email = [dict objectForKey:@"userEmail"];
-     _firstName = [dict objectForKey:@"firstName"];
-     _middleName = [dict objectForKey:@"middleName"];
-     _lastName = [dict objectForKey:@"lastName"];
-     _phoneNumber = [dict objectForKey:@"phoneNumber"];
-     _isEmailVerified = [[dict objectForKey:@"emailVerified"] boolValue];
-     
-     _usernames = [dict objectForKey:@"usernames"];
-     _parentUser = [[User alloc] initWithJsonDict: [dict objectForKey:@"parent"];
-     
-    }
-    
-    return self;
+if(self = [super init]) {
+
+_email = [dict objectForKey:@"userEmail"];
+_firstName = [dict objectForKey:@"firstName"];
+_middleName = [dict objectForKey:@"middleName"];
+_lastName = [dict objectForKey:@"lastName"];
+_phoneNumber = [dict objectForKey:@"phoneNumber"];
+_isEmailVerified = [[dict objectForKey:@"emailVerified"] boolValue];
+
+_usernames = [dict objectForKey:@"usernames"];
+_parentUser = [[User alloc] initWithJsonDict: [dict objectForKey:@"parent"];
+
+}
+
+return self;
 }
 
 @end
 ```
-
-
 
 
 ### Example Json Serialization
