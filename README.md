@@ -143,7 +143,44 @@ User *user = [MAXJsonAdapter MAXJAObjectOfClass: [User class] delegate: [[User a
 
 You can make any NSObject conform to the MAXJsonAdapterDelegate to map values, transform them, and do many other runtime tasks. As a conveniece we placed it on the user class.
 
-If you need to create 
+If you need to create an NSDictionary to send back to the server as json with mappings, the json adapter also supports mapping values when creating a NSDictionary from the object. Again, we use the MAXJsonAdapterDelegate protocol and we impelement the method MAXJAPropertiesToMapDictionaryCreation:.
+
+```objective-c
+
+@implementation User
+
+-(NSArray <MAXJAPropertyMap *> *)MAXJAPropertiesToMapDictionaryCreation {
+return @[[MAXJAPropertyMap MAXJAMapWithKey: @"firstName" propertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"personInfo" propertyMap: [MAXJAMapWithKey: @"firstName" propertyMap: nil]]],
+[MAXJAPropertyMap MAXJAMapWithKey: @"middleName" propertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"personInfo" propertyMap: [MAXJAMapWithKey: @"middleName" propertyMap: nil]]],
+[MAXJAPropertyMap MAXJAMapWithKey: @"lastName" propertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"personInfo" propertyMap: [MAXJAMapWithKey: @"lastName" propertyMap: nil]]],
+[MAXJAPropertyMap MAXJAMapWithKey: @"email" propertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"userEmail" propertyMap: nil]],
+[MAXJAPropertyMap MAXJAMapWithKey: @"usernames" propertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"aliases" propertyMap: nil]]
+];
+}
+```
+
+Using this mapping we will create an identic NSDictionary as we received from the server. We can create the NSDictionary from the user object by using the following method:
+
+```objective-c
+NSDictionary *userDict = [MAXJsonAdapter MAXJADictFromObject: user delegate: user];
+```
+
+This assumes the User object conforms to the MAXJsonAdapterDelegate protocol. Which will create a json in the following format:
+
+The new user json data format:
+
+```json
+{
+"personInfo" : {
+"firstName" : "Bruce",
+"middleName" : null,
+"lastName" : "Wayne"
+},
+"phoneNumber" : "7728282737"
+"userEmail" : "batman@batman.com",
+"aliases" : ["KillTheJoker", "RobinIsMyPet101", "TheRiddlerRiddlesTheRiddle"]
+}
+```
 
 ### Ignoring or Specifying Values
 
