@@ -104,9 +104,46 @@ The new user json data format:
 
 ```json
 {
-
+    "personInfo" : {
+        "firstName" : "Bruce",
+        "middleName" : null,
+        "lastName" : "Wayne"
+    },
+    "phoneNumber" : "7728282737"
+    "userEmail" : "batman@batman.com",
+    "aliases" : ["KillTheJoker", "RobinIsMyPet101", "TheRiddlerRiddlesTheRiddle"]
 }
 ```
+
+Now the name properties are embedded in another field called person info and the email and usernames have been renamed userEmail and aliases. In order to make sure that we serialize the properties correctly we need too add new property mappers to the implementation of the User file.
+
+```objective-c
+@implementation User
+
+
+-(NSArray <MAXJAPropertyMap *> *)MAXJAPropertiesToMapObjectCreation {
+return @[[MAXJAPropertyMap MAXJAMapWithKey: @"firstName" propertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"personInfo" propertyMap: [MAXJAMapWithKey: @"firstName" propertyMap: nil]]],
+[MAXJAPropertyMap MAXJAMapWithKey: @"middleName" propertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"personInfo" propertyMap: [MAXJAMapWithKey: @"middleName" propertyMap: nil]]],
+[MAXJAPropertyMap MAXJAMapWithKey: @"lastName" propertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"personInfo" propertyMap: [MAXJAMapWithKey: @"lastName" propertyMap: nil]]],
+[MAXJAPropertyMap MAXJAMapWithKey: @"email" propertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"userEmail" propertyMap: nil]],
+[MAXJAPropertyMap MAXJAMapWithKey: @"usernames" propertyMap: [MAXJAPropertyMap MAXJAMapWithKey: @"aliases" propertyMap: nil]]
+];
+}
+
+@end
+```
+
+In the array of MAXJAPropertyMap objects we first assign the name of the key we want to map the values of, such as firstName, and then declare the next key we want to drill linto in the json, which is personInfo, and then we declare the next key to get the value from which is firstName. When the MAXJsonAdapter has to drill down json fields to find the values for some keys it will check if the there is a property map declared. For the email property we simply declared a new mapping to userEmail as the name just changed and the only mapping is the name, no need to map it further down the json.
+
+In order to make this work we just have to pass an instance of the object which contains the delegate to the MAXJsonAdapter in the following manner:
+
+```objective-c
+User *user = [MAXJsonAdapter MAXJAObjectOfClass: [User class] delegate: [[User alloc] init] fromDictionary: jsonDict];
+```
+
+You can make any NSObject conform to the MAXJsonAdapterDelegate to map values, transform them, and do many other runtime tasks. As a conveniece we placed it on the user class.
+
+If you need to create 
 
 ### Ignoring or Specifying Values
 
