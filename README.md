@@ -21,7 +21,6 @@ Let us consider the following simple interface and implementation for a user mod
 @property (nonatomic, strong) NSString *phoneNumber;
 
 @property (nonatomic, strong) NSArray <NSString *> *usernames;
-@property (nonatomic, strong) User *parentUser;
 
 -(id)initWithJsonDict:(NSDictionary *)dict;
 
@@ -41,7 +40,6 @@ Let us consider the following simple interface and implementation for a user mod
      _phoneNumber = [dict objectForKey:@"phoneNumber"];
      
      _usernames = [dict objectForKey:@"usernames"];
-     _parentUser = [[User alloc] initWithJsonDict: [dict objectForKey:@"parent"];
      
     }
     
@@ -60,16 +58,7 @@ The user model is initialized with a dictionary which was serialized from the fo
     "lastName" : "Wayne",
     "middleName": null,
     "phoneNumber" : "0018008608889",
-    "usernames" : ["KillTheJoker", "RobinIsMyPet101", "TheRiddlerRiddlesTheRiddle"],
-    "parentUser" : {
-        "email" : "thomas@we.com",
-        "firstName" : "Thomas",
-        "middleName" : null,
-        "lastName" : "Wayne",
-        "phoneNumber" : "0018008608889",
-        "usernames" : null,
-        "parentUser" : null
-    }
+    "usernames" : ["KillTheJoker", "RobinIsMyPet101", "TheRiddlerRiddlesTheRiddle"]
 }
 ```
 
@@ -87,15 +76,18 @@ If you already have a model object and want to update it with a dictionary the j
 [MAXJsonAdapter refreshObject: object delegate: nil fromDictionary: dict]
 ```
 
-These methods will read the name of all of the properties on the User model and match them with the values from the dictionary.
+These methods will read the name of all of the properties on the User model and match them with the values from the dictionary. All of the properties from the user will be appropriately populated. Making the initWithJsonDict: method redundant, which can be removed. We can also easily update models with the same set of information.
 
+When the names of the properties in the model and the properties in the dictionary are not the same, or are located in different fields, we can use property mappers to load their data from different fields, or export them into json into different fields. More on property mapping in the chapter Mapping Values below. You can map these values by conforming to the MAXJsonAdapterDelegate protocol and passing a delegate argument to the MAXJsonAdapter.
 
+Often times we receive data in different formats from APIs in our dictionaries, a good example of that are dates, which need to be changed from type NSString to NSDate, in order to do so you can use Value Transformers by conforming to the MAXJsonAdapterDelegate protocol and passing a delegate argument to the MAXJsonAdapter. More on value transformers in the chapter below.
 
-The delegate object contains various methods to map property values to different names, assigning value transformers to transform values from string to dates or any other transformation, and also using subclassed values.
+### Mapping Values
 
+Let us reuse the User class interface we implemented before. But this time the JSON we got sent from the server has changed its format and the property names do not match anymore. In this case we make the class conform to the MAXJsonAdapterDelegate protocol and implement the MAJAPropertiesToMapObjectCreation and MAXJApropertiesToMapDictionaryCreation so that we can map properties differently if we are creating a json dictionary from the object or creating on object from a json dictionary.
 
 ```objective-c
-@interface User : NSObject
+@interface User : NSObject <MAXJsonAdapterDelegate>
 
 @property (nonatomic, strong) NSString *email;
 @property (nonatomic, strong) NSString *firstName;
@@ -103,47 +95,20 @@ The delegate object contains various methods to map property values to different
 @property (nonatomic, strong) NSString *lastName;
 @property (nonatomic, strong) NSString *phoneNumber;
 
-@property (nonatomic) BOOL isEmailVerified;
-
-@property (nonatomic, strong) NSDate *createdAt;
-@property (nonatomic, strong) NSDate *updatedAt;
-
 @property (nonatomic, strong) NSArray <NSString *> *usernames;
-@property (nonatomic, strong) User *parentUser;
-
--(id)initWithJsonDict:(NSDictionary *)dict;
-
-@end
-```
-```objective-c
-@implementation User
-
--(id)initWithJsonDict:(NSDictionary *)dict {
-
-if(self = [super init]) {
-
-_email = [dict objectForKey:@"userEmail"];
-_firstName = [dict objectForKey:@"firstName"];
-_middleName = [dict objectForKey:@"middleName"];
-_lastName = [dict objectForKey:@"lastName"];
-_phoneNumber = [dict objectForKey:@"phoneNumber"];
-_isEmailVerified = [[dict objectForKey:@"emailVerified"] boolValue];
-
-_usernames = [dict objectForKey:@"usernames"];
-_parentUser = [[User alloc] initWithJsonDict: [dict objectForKey:@"parent"];
-
-}
-
-return self;
-}
 
 @end
 ```
 
+The new user json data format:
 
-### Example Json Serialization
+```json
+{
 
-### Mapping Values
+}
+```
+
+### Ignoring or Specifying Values
 
 ### Value Transformers
 
