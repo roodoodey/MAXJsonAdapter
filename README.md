@@ -78,6 +78,12 @@ If you already have a model object and want to update it with a dictionary the j
 
 These methods will read the name of all of the properties on the User model and match them with the values from the dictionary. All of the properties from the user will be appropriately populated. Making the initWithJsonDict: method redundant, which can be removed. We can also easily update models with the same set of information.
 
+If you have a model object and want to create a dictionary from it to send back to a server, or for some other reason, you can use the following method:
+
+```objective-c
+NSDictionary *objectDict = [MAXJsonAdapter MAXJADictFromObject: object delegate: nil];
+```
+
 When the names of the properties in the model and the properties in the dictionary are not the same, or are located in different fields, we can use property mappers to load their data from different fields, or export them into json into different fields. More on property mapping in the chapter Mapping Values below. You can map these values by conforming to the MAXJsonAdapterDelegate protocol and passing a delegate argument to the MAXJsonAdapter.
 
 Often times we receive data in different formats from APIs in our dictionaries, a good example of that are dates, which need to be changed from type NSString to NSDate, in order to do so you can use Value Transformers by conforming to the MAXJsonAdapterDelegate protocol and passing a delegate argument to the MAXJsonAdapter. More on value transformers in the chapter below.
