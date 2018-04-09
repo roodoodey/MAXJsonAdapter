@@ -190,6 +190,24 @@ The new user json data format:
 
 ### Ignoring or Specifying Values
 
+What if you want to ignore a property when creating an object or dictionary from an object? You can use the MAXJAPropertiesToIgnoreObjectCreation: method or MAXJAPropertiesToIgnoreDictionaryCreation: method in the MAXJsonAdapterDelegate protocol to list the properties you want to ignore.
+
+Here is an example implementation on the User model which would ignore the email property on the user model when creating its json:
+
+```objective-c
+@implementation User
+
+-(NSArray <NSString *> *)MAXJAPropertiesToIgnoreDictionaryCreation {
+return @[@"email"];
+}
+
+@end
+```
+
+By supplying an array of strings of the property names you want to ignore to the appropriate method in the json adapter delegate, you can ignore any property you want.
+
+
+
 ### Value Transformers
 
 ### Subclassing
