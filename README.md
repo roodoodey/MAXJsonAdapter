@@ -237,7 +237,108 @@ Do note that if you implement both properties to ignore and the properties you d
 
 ### Value Transformers
 
+Often when creating model objects you want to transform a property, for example a String to a date, which is a very common use case. In order to transform a value you first need to declare which transformer you want to use by using the MAXJAPropertyValueTransformers: protocol method. You also need to sublcass the MAXJAValueTransformer with its appropriate methods to transform the value.
+
+Example implementation of MAXJAValueTransformer subclass which changes String to Date, and then Date back to String when creating a NSDictionary from the object.
+
+```objective-c
+
+static NSDateFormatter *_formatter = nil;
+
+@implementation DateValueTransformer
+
++(NSDateFormatter *)formatter {
+
+    if(_formatter == nil) {
+        _formatter = [[NSDateFormatter alloc] init];
+        [_formatter setDateFormat:@"yyyy-MM-dd"];
+    }
+    
+    return _formatter;
+}
+
+-(id)MAXJAObjectCreationFormat:(id)value {
+
+    if(value == nil) {
+    return nil;
+    }
+    
+    if([value isKindOfClass: [NSString class]]) {
+        NSDate *date = [_formatter dateFromString: (NSString *)value];
+        return date;
+    }
+    
+    return nil;
+
+}
+
+-(id)MAXJsonFormat:(id)value {
+
+    if(value == nil) {
+    return nil;
+    }
+    
+    if([value isKindOfClass: [NSDate class]]) {
+        NSString *dateString = [_formatter stringFromDate: (NSDate*)value];
+        return dateString;
+    }
+    
+    return nil;
+}
+
+@end
+```
+
+There are two methods to implement, the value to transform when you are creating an object MAXJAObjectCreationFormat: and the value to transform when you are creating a dictionary which is the MAXJsonFormat: method.
+
+Once these methods are implemented you need to add them to the MAXJsonAdapterDelegate in the method MAXJAPropertyValueTransformers, where you declare which properties the value transformers should be used on. In the model below we have two date properties which need to have value transformer associated to it.
+
+```objective-c
+@interface User : NSObject
+
+@property (nonatomic, strong) NSString *email;
+@property (nonatomic, strong) NSString *firstName;
+@property (nonatomic, strong) NSString *middleName;
+@property (nonatomic, strong) NSString *lastName;
+@property (nonatomic, strong) NSString *phoneNumber;
+
+@property (nonatomic, strong) NSArray <NSString *> *usernames;
+
+@property (nonatomic, strong) NSDate *createdAt;
+@property (nonatomic, strong) NSDate *updatedAt;
+
+@end
+```
+
+```objective-c
+@implementation User
+
+-(NSArray <MAXJAValueTransformer *> *)MAXJAPropertyValueTransformers {
+return @[[DateValueTransformer MAXJAValueTransformerWithPropertyKeys: @[@"createdAt", @"updatedAt"]];
+}
+
+@end
+```
+
+In the implementation above the properties createdAt and updatedAt will use the class we implemented above to transform the value from string to date, and then from date back to string. If the properties have a mapping they just need to be declared in the mapping methods, and the json adapter will take care of the rest.
+
 ### Subclassing
+
+Often you have your own classes as properties on a class. Serializing and deserializing subclassed properties is easy with the MAXJsonAdapter. Just impelement the MAXJASubclassedProperties: method in the MAXJsonAdapterDelegate conforming object. You can also add an instance as delegate for the subclassed property so that it may use the appropriate runtime transformations.
+
+Adding a subclassed property is as easy as implementing the following:
+
+```objecitve-c
+@implementation User
+
+-(NSArray <MAXJASublcassedProperty *> *)MAXJASubclassedProperties {
+return @[[MAXJASubclassedProperty MAXJAPropertyKey: @"userInfo" class: [UserInfo class] delegate: nil];
+}
+
+@end
+```
+
+That is all there is to adding subclassed properties. Just like the value transformers subclassed properties support property mapping out of the box with the property mapping methods in the delegate.
 
 ## Requirements
 
