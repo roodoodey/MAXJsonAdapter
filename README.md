@@ -207,6 +207,33 @@ return @[@"email"];
 By supplying an array of strings of the property names you want to ignore to the appropriate method in the json adapter delegate, you can ignore any property you want.
 
 
+Sometimes you have a lot of properties on a model of which you only want several properties to create the dictionary. For example you want to update the use and your backend only supports updating the first, middle and last name of the user. In these cases it can be more useful to declare which properties you want to use when creating an object or dictionary from that object. You can do this by implementing the MAXJAPropertiesForDictionaryCreation: or MAXJAPropertiesForObjectCreation: methods in the MAXJsonAdapterDelegate protocol.
+
+Here is an example implementation on the User model where we only want to create a dictionary with the names of the user and no other properties.
+
+```objective-c
+@implementation User
+
+-(NSArray <NSString *> *)MAXJAPropertiesForDictionaryCreation {
+return @[@"firstName", @"lastName", @"middleName"];
+}
+
+@end
+```
+
+If a user isntance is passed as a delegate to create the json dictionary, the json will look like the following:
+
+```json
+{
+    "firstName" : "Bruce",
+    "middleName" : null,
+    "lastName" : "Wayne"
+}
+```
+
+With this approach you can dramatically shorten the number of properties you need to declare in the list to ignore.
+
+Do note that if you implement both properties to ignore and the properties you declare, the properties which are declared will take priority over the properties to ignore. The will not both be used, just one of them can be used.
 
 ### Value Transformers
 
