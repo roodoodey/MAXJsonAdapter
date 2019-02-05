@@ -52,7 +52,7 @@
         // if the property has no property map and has a value we should add it to the dictionary.
         // should now always have a value of NSNull, as the getter checks if the value is nil, if it is it
         // sends back NSNull for the dictionary so it can update the server properly.
-        else {
+        else if (value != nil) {
             [dictionary setObject: value forKey: currentProperty.propertyKey];
         }
     }
