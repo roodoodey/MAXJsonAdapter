@@ -239,6 +239,19 @@
     
 }
 
+-(void)testNormalContainedObjectSubclassWithoutDelegateNullValue {
+    
+    NSDictionary *dict = @{ @"name": @"Marius", @"transaction" : @{ @"merchantName" : [NSNull null], @"amount" : @3000 } };
+    
+    MAXNormalRootObject *rootObj = [MAXJsonAdapter MAXJAObjectOfClass: [MAXNormalRootObject class] delegate: [MAXNormalRootObject new] fromDictionary: dict];
+    
+    XCTAssertEqualObjects( rootObj.name, @"Marius");
+    XCTAssertEqualObjects( rootObj.transaction.merchantName, nil);
+    XCTAssertEqualObjects( rootObj.transaction.amount, @3000);
+    
+}
+
+
 -(void)testNormalContainedArrayObjectSubclassWithoutDelegate {
     
     NSDictionary *dict =  @{ @"name": @"Marius", @"transactions" : @[ @{ @"merchantName" : @"Hagkaup", @"amount" : @3000 }, @{ @"merchantName" : @"Nói Síríus", @"amount" : @5000 } ] };

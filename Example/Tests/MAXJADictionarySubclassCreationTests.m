@@ -174,6 +174,7 @@
     
 }
 
+
 -(void)testDictFromOneLEvelNestedObjectWithTopLevelMapping {
     
     MAXPersonObject *person = [[MAXPersonObject alloc] init];
