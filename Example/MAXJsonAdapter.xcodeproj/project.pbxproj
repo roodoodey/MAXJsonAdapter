@@ -378,6 +378,9 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = roodoodey;
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = Z45UPN2VB3;
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -662,6 +665,7 @@
 			baseConfigurationReference = FBEF9372CD6A7320E0D14424 /* Pods-MAXJsonAdapter_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = Z45UPN2VB3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MAXJsonAdapter/MAXJsonAdapter-Prefix.pch";
 				INFOPLIST_FILE = "MAXJsonAdapter/MAXJsonAdapter-Info.plist";
@@ -677,6 +681,7 @@
 			baseConfigurationReference = F92F54975EC0C3982D49700F /* Pods-MAXJsonAdapter_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = Z45UPN2VB3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MAXJsonAdapter/MAXJsonAdapter-Prefix.pch";
 				INFOPLIST_FILE = "MAXJsonAdapter/MAXJsonAdapter-Info.plist";
