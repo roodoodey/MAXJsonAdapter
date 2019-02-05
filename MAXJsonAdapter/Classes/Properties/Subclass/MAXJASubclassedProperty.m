@@ -103,7 +103,7 @@
         
     }
     
-    return nil;
+    return [NSNull null];
     
 }
 
